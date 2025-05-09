@@ -26,7 +26,7 @@ function update {
 }
 
 # Initialize oh-my-posh with my configuration file
-oh-my-posh init pwsh --config ~/.shell.toml | Invoke-Expression
+oh-my-posh init pwsh --config ~/shell.toml | Invoke-Expression
 
 # Initialize zoxide as the default cd command
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })

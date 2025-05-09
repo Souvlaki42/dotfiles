@@ -20,14 +20,14 @@ DEFAULT_OPTIONS: Configuration = {
     "dotfiles_dir": os.path.expanduser("~/dotfiles"),
     "common_mappings": {
         "common/.gitconfig": ".gitconfig",
-        "common/shell.toml": ".shell.toml",
+        "common/shell.toml": "shell.toml",
     },
     "linux_mappings": {
         "linux/.zshrc": ".zshrc",
         "linux/.tmux.conf": ".tmux.conf",
     },
     "windows_mappings": {
-        "windows/powershell/Microsoft.PowerShell_profile.ps1": "Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
+        "windows/profile.ps1": "Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
     },
     "hyprland_mappings": {
         "hyprland/.gtkrc-2.0": ".gtkrc-2.0",
