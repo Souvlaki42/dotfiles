@@ -1,11 +1,11 @@
 # Dotfiles
 
-My configuration for every OS I have ever used as a daily driver aka Windows + WSL2 (Ubuntu) and Arch Linux.
+My configurations for every OS I have ever used as a daily driver aka Windows + WSL2 (Ubuntu) and Arch Linux.
 
 > [!IMPORTANT]
-> If you like this repo consider giving it a ⭐. Thank you for your time.
-> If you find any bugs, please open an issue.
-> If you have any suggestions, please open a PR.
+> If you like this repo consider giving it a ⭐. Thank you for your time. \
+> If you find any bugs, please open an issue. \
+> If you have any suggestions, please open a PR. \
 > If you want to support me, consider sponsoring me on GitHub.
 
 ![Arch Linux Logo](https://upload.wikimedia.org/wikipedia/commons/f/f9/Archlinux-logo-standard-version.svg)
@@ -20,12 +20,27 @@ My configuration for every OS I have ever used as a daily driver aka Windows + W
 
 2. For Windows, follow the instructions in the [windows](windows) directory.
 
-3. Follow the instructions in the [archlinux](archlinux) directory if you want help installing Hyprland.
+3. Follow the instructions in the [hyprland](hyprland) directory if you want help installing Hyprland.
 
 4. For Linux, it's should be as easy as running the following commands:
 
 ```bash
 git clone https://github.com/Souvlaki42/dotfiles.git --depth 1 ~/dotfiles
+python ~/dotfiles/setup.py
+```
+
+## How to update
+
+1. Run the following commands to update the dotfiles repository:
+
+```bash
+cd ~/dotfiles
+git pull
+```
+
+2. Run the following commands to update the dotfiles:
+
+```bash
 python ~/dotfiles/setup.py
 ```
 
