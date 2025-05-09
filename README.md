@@ -58,7 +58,7 @@ python ~/dotfiles/setup.py
 
 - [ ] Add support for installing packages.
 - [ ] Add neovim configuration.
-- [x] Add support for removing broken or stale symlinks.
+- [ ] Add support for removing broken or stale symlinks. (WIP)
 
 ## License
 
