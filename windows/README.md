@@ -41,13 +41,13 @@ Install-Module -Name Terminal-Icons -Repository PSGallery
 3. Clone this repo using:
 
 ```pwsh
-git clone https://github.com/Souvlaki42/dotfiles.git --depth 1 ~/dotfiles
+git clone https://github.com/Souvlaki42/dotfiles.git --depth 1 $HOME/dotfiles
 ```
 
 4. Install the required dotfiles:
 
 ```pwsh
 # Make sure you are running powershell as an Administrator
-python ~/dotfiles/setup.py
+(sudo) python ~/dotfiles/setup.py
 ```
 

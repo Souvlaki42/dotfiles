@@ -14,6 +14,16 @@ My configurations for every OS I have ever used as a daily driver aka Windows + 
 
 ![Ubuntu Logo](https://upload.wikimedia.org/wikipedia/commons/9/9d/Ubuntu_logo.svg)
 
+## Features
+
+- Installs dotfiles for Windows.
+- Installs dotfiles for Linux (Hyprland and WSL2).
+- Handles symlinking of dotfiles.
+- Handles updating of dotfiles.
+- Handles existing files in the target location.
+- Handles installing packages. (soon)
+- Handles removing broken or stale symlinks. (soon)
+
 ## How to use
 
 1. Install [Python](https://www.python.org/). It's already there on Linux systems.
@@ -48,6 +58,7 @@ python ~/dotfiles/setup.py
 
 - [ ] Add support for installing packages.
 - [ ] Add neovim configuration.
+- [ ] Add support for removing broken or stale symlinks. (WIP)
 
 ## License
 
