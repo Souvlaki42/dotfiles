@@ -26,7 +26,7 @@ function update {
 }
 
 # Initialize oh-my-posh with my configuration file
-oh-my-posh init pwsh --config ~/.oh-my-posh.toml | Invoke-Expression
+oh-my-posh init pwsh --config ~/.shell.toml | Invoke-Expression
 
 # Initialize zoxide as the default cd command
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
@@ -68,6 +68,8 @@ function pgrep($name) { Get-Process $name }
 function touch($file) { "" | Out-File $file -Encoding ASCII }
 
 function fetch { fastfetch --gpu-driver-specific @args }
+
+function glo { git log --graph --oneline --decorate @args }
 
 function unzip($file) {
     Write-Output("Extracting", $file, "to", $pwd)

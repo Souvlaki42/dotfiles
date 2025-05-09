@@ -19,22 +19,17 @@ Configuration = TypedDict(
 DEFAULT_OPTIONS: Configuration = {
     "dotfiles_dir": os.path.expanduser("~/dotfiles"),
     "common_mappings": {
-        "common/.gitconfig": ".gitconfig",  # Target: ~/.gitconfig
-        "common/nushell/env.nu": ".config/nushell/env.nu",  # Target: ~/.config/nushell/env.nu
+        "common/.gitconfig": ".gitconfig",
+        "common/shell.toml": ".shell.toml",
     },
     "linux_mappings": {
         "linux/.zshrc": ".zshrc",
         "linux/.tmux.conf": ".tmux.conf",
-        "linux/.config/alacritty": ".config/alacritty",  # Links the whole alacritty config dir
     },
     "windows_mappings": {
         "windows/powershell/Microsoft.PowerShell_profile.ps1": "Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
-        "windows/nvim": "AppData/Local/nvim",  # Links the whole nvim config dir for Windows
     },
     "hyprland_mappings": {
-        # These map specific subdirectories or files within ~/.config
-        # or directly in the home directory.
-        # This approach avoids replacing the entire ~/.config directory.
         "hyprland/.gtkrc-2.0": ".gtkrc-2.0",
         "hyprland/.config/gtk-3.0": ".config/gtk-3.0",
         "hyprland/.config/hypr": ".config/hypr",
@@ -77,7 +72,6 @@ def symlink_dotfile(
       dotfiles_repo_dir (str): Absolute path to the root of the dotfiles repository.
   """
   source_path = os.path.join(dotfiles_repo_dir, source_name_in_repo)
-  # target_name_in_home is relative to ~, e.g., ".config/foo" or ".bashrc"
   target_path = os.path.expanduser(os.path.join("~", target_name_in_home))
 
   print(f"\nProcessing: '{source_name_in_repo}' -> '~/{target_name_in_home}'")
@@ -87,7 +81,6 @@ def symlink_dotfile(
     return
 
   # Ensure parent directory of the target exists
-  # e.g., if target is ~/.config/foo/bar.txt, ensures ~/.config/foo exists
   target_parent_dir = os.path.dirname(target_path)
   if not os.path.exists(target_parent_dir):
     print(f"  Creating parent directory for target: {target_parent_dir}")
@@ -113,9 +106,6 @@ def symlink_dotfile(
         print(f"  Skipping link creation for '{target_path}' as existing symlink was not removed.")
         return
     elif os.path.isdir(target_path):
-      # This will remove the directory at target_path and all its contents.
-      # It will NOT affect other items in target_path's parent directory.
-      # e.g., if target_path is ~/.config/hypr, only that dir is affected.
       print(f"  WARNING: Target '{target_path}' is an existing directory.")
       if yes_or_no(
           f"  Delete the entire directory '{target_path}' and ALL its contents?"

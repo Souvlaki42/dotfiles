@@ -92,7 +92,7 @@ alias g++="g++-14"
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(oh-my-posh init zsh --config $HOME/.oh-my-posh.toml)"
+eval "$(oh-my-posh init zsh --config $HOME/.shell.toml)"
 eval $(keychain --eval --quiet id_ed25519)
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
