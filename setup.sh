@@ -1,4 +1,5 @@
 #!/bin/bash
+PYTHON = python3
 
 # Checks if python3 or python is installed
 if ! command -v python3 &> /dev/null; then
@@ -8,6 +9,8 @@ if ! command -v python3 &> /dev/null; then
         echo "For Arch Linux, you can run 'sudo pacman -S python'."
         echo "For other distributions, please refer to your package manager's documentation."
         exit 1
+    else
+        PYTHON=python
     fi
 fi
 
@@ -33,4 +36,4 @@ fi
 
 # Installs the dotfiles
 echo "Installing dotfiles..."
-python3 manager/main.py || python manager/main.py
+"${PYTHON}" manager/main.py
