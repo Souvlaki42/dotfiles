@@ -30,15 +30,14 @@ BROKEN_LINKS_LOOKUP = {
 
 def yes_or_no(question: str) -> bool:
   """Asks a yes/no question and returns True if the answer is yes, False otherwise."""
-  if not sys.stdin.isatty():  # Check if running interactively
-    print(f"Skipping interactive question: {question} (assuming 'no')")
-    return False  # Or True, if you want to default to 'yes'
-
   while True:
-    answer: str = input(f"{question} [y/N]: ").lower().strip()
-    if answer in ("y", "yes"):
-      return True
-    elif answer in ("n", "no", ""):
-      return False
-    else:
-      print("Invalid input. Please enter 'y' or 'n'.")
+    try:
+      answer: str = input(f"{question} [y/N]: ").lower().strip()
+      if answer in ("y", "yes"):
+        return True
+      elif answer in ("", "n", "no"):
+        return False
+      else:
+        print("Invalid input. Please enter 'y' or 'n'.")
+    except:
+      print("Something went wrong. Please try again.")

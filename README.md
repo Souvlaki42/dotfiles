@@ -35,10 +35,8 @@ Invoke-RestMethod -Uri https://raw.githubusercontent.com/Souvlaki42/dotfiles/ref
 2. On Linux, run `setup.sh`:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Souvlaki42/dotfiles/refs/heads/main/setup.sh | bash
+curl -sSL https://raw.githubusercontent.com/Souvlaki42/dotfiles/refs/heads/main/setup.sh | bash -i
 ```
-
-3.
 
 ## Todo
 

@@ -38,6 +38,6 @@ fi
 
 # Installs the dotfiles
 echo "Installing dotfiles..."
-"${PYTHON}" manager/main.py || { echo "Error: Failed to run manager/main.py. Check the script's dependencies and Python version."; exit 1; }
+"${PYTHON}" -i manager/main.py || { echo "Error: Failed to run manager/main.py. Check the script's dependencies and Python version."; exit 1; }
 
 echo "Dotfiles installation complete."
