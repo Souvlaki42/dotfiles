@@ -26,16 +26,29 @@ My configurations for every OS I have ever used as a daily driver aka Windows + 
 
 ## How to use
 
-1. On Windows, run `setup.ps1` as administrator:
+1. Make sure you have [Python 3.x](https://www.python.org/downloads/) installed on your system.
+2. Make sure you have [Git](https://git-scm.com/download/win) installed on your system.
+3. If you are on Windows, make sure you have the latest version of [Powershell](https://github.com/PowerShell/PowerShell/releases) installed and then run the following commands:
 
 ```powershell
-Invoke-RestMethod -Uri https://raw.githubusercontent.com/Souvlaki42/dotfiles/refs/heads/main/setup.ps1 | Invoke-Expression
+Install-Module syntax-highlighting -Scope CurrentUser
 ```
 
-2. On Linux, run `setup.sh`:
+```powershell
+Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser
+```
+
+4. Clone this repository to your home directory:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Souvlaki42/dotfiles/refs/heads/main/setup.sh | bash -i
+git clone --depth 1 https://github.com/Souvlaki42/dotfiles.git $HOME/dotfiles # You can clone it anywhere you want.
+```
+
+5. Run the setup script:
+
+```bash
+cd $HOME/dotfiles # Navigate to the dotfiles directory
+python setup.py # If this doesn't work, try python3 setup.py
 ```
 
 ## Todo

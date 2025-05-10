@@ -1,6 +1,6 @@
 import shutil
 import platform
-from utils import *
+from .utils import *
 
 
 def symlink_dotfile(
