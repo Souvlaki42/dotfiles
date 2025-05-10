@@ -26,33 +26,19 @@ My configurations for every OS I have ever used as a daily driver aka Windows + 
 
 ## How to use
 
-1. Install [Python](https://www.python.org/). It's already there on Linux systems.
+1. On Windows, run `setup.ps1` as administrator:
 
-2. For Windows, follow the instructions in the [windows](windows) directory.
-
-3. Follow the instructions in the [hyprland](hyprland) directory if you want help installing Hyprland.
-
-4. For Linux, it's should be as easy as running the following commands:
-
-```bash
-git clone https://github.com/Souvlaki42/dotfiles.git --depth 1 ~/dotfiles
-python ~/dotfiles/setup.py
+```powershell
+Invoke-RestMethod -Uri https://raw.githubusercontent.com/Souvlaki42/dotfiles/refs/heads/main/setup.ps1 | Invoke-Expression
 ```
 
-## How to update
-
-1. Run the following commands to update the dotfiles repository:
+2. On Linux, run `setup.sh`:
 
 ```bash
-cd ~/dotfiles
-git pull
+curl -sSL https://raw.githubusercontent.com/Souvlaki42/dotfiles/refs/heads/main/setup.sh | bash
 ```
 
-2. Run the following commands to update the dotfiles:
-
-```bash
-python ~/dotfiles/setup.py
-```
+3.
 
 ## Todo
 
@@ -63,4 +49,3 @@ python ~/dotfiles/setup.py
 ## License
 
 This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
-

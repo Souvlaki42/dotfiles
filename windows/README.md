@@ -19,35 +19,3 @@ My configuration for Windows 11 based installations
 **Notes** -> Obsidian \
 **Game Engine** -> Godot \
 **Package Manager** -> Scoop \
-
-## How to use
-
-1. Install [Python](https://www.python.org/)
-
-2. Install the required powershell modules:
-
-- [Syntax Highlighting](https://github.com/digitalguy99/pwsh-syntax-highlighting)
-
-```pwsh
-Install-Module -Name syntax-highlighting
-```
-
-- [Terminal icons](https://github.com/devblackops/Terminal-Icons)
-
-```pwsh
-Install-Module -Name Terminal-Icons -Repository PSGallery
-```
-
-3. Clone this repo using:
-
-```pwsh
-git clone https://github.com/Souvlaki42/dotfiles.git --depth 1 $HOME/dotfiles
-```
-
-4. Install the required dotfiles:
-
-```pwsh
-# Make sure you are running powershell as an Administrator
-(sudo) python ~/dotfiles/setup.py
-```
-
