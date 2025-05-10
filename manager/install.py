@@ -7,8 +7,6 @@ def install_dotfiles() -> None:
   print(f"Dotfiles repository location: {DOTFILES_DIR}")
   if not os.path.exists(DOTFILES_DIR):
     print(f"\nERROR: Dotfiles directory not found at '{DOTFILES_DIR}'")
-    print("Please clone your dotfiles repository there first, e.g.:")
-    print(f"  git clone <your-repo-url> {DOTFILES_DIR}")
     sys.exit(1)
 
   print("\n--- Processing Common Dotfiles ---")

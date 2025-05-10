@@ -1,7 +1,7 @@
 import os
 import sys
 
-DOTFILES_DIR = os.path.expanduser("~/dotfiles")
+DOTFILES_DIR = os.getcwd()
 COMMON_MAPPINGS = {
     "common/.gitconfig": ".gitconfig",
     "common/shell.toml": "shell.toml",
@@ -30,8 +30,8 @@ BROKEN_LINKS_LOOKUP = {
 
 def yes_or_no(question: str) -> bool:
   """Asks a yes/no question and returns True if the answer is yes, False otherwise."""
-  while True:
-    try:
+  try:
+    while True:
       answer: str = input(f"{question} [y/N]: ").lower().strip()
       if answer in ("y", "yes"):
         return True
@@ -39,5 +39,6 @@ def yes_or_no(question: str) -> bool:
         return False
       else:
         print("Invalid input. Please enter 'y' or 'n'.")
-    except:
-      print("Something went wrong. Please try again.")
+  except:
+    print("Something went wrong. Please try again.")
+    sys.exit(1)

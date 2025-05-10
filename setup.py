@@ -1,4 +1,6 @@
-from install import install_dotfiles
+#!/usr/bin/env python3
+
+from manager.install import install_dotfiles
 
 
 def main() -> None:
