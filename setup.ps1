@@ -40,7 +40,7 @@ if (-Not (Get-Module -ListAvailable -Name Terminal-Icons)) {
 # Clones the repository if it doesn't exist
 if (-Not (Test-Path "$HOME\dotfiles")) {
     Write-Host "Cloning dotfiles repository..."
-    git clone --depth 1 https://github.com/Souvlaki42/dotfiles.git "$HOME\dotfiles" || Write-Host "Error: Failed to clone dotfiles repository. Please try again." && Exit 1
+    git clone --depth 1 https://github.com/Souvlaki42/dotfiles.git "$HOME\dotfiles" || Write-Host "Error: Failed to clone dotfiles repository. Please try again." && exit 1
     Set-Location "$HOME\dotfiles"
 } else {
     Write-Host "Updating dotfiles repository..."
