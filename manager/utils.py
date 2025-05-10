@@ -1,4 +1,5 @@
 import os
+import sys
 
 DOTFILES_DIR = os.path.expanduser("~/dotfiles")
 COMMON_MAPPINGS = {
@@ -26,16 +27,18 @@ BROKEN_LINKS_LOOKUP = {
     os.path.expanduser("~/.config"): True,
 }
 
+
 def yes_or_no(question: str) -> bool:
-  """
-  Asks the user a yes/no question and returns True if the answer is yes.
-  Loops until a valid 'y' or 'n' is given. Defaults to 'N' on empty input.
-  """
+  """Asks a yes/no question and returns True if the answer is yes, False otherwise."""
+  if not sys.stdin.isatty():  # Check if running interactively
+    print(f"Skipping interactive question: {question} (assuming 'no')")
+    return False  # Or True, if you want to default to 'yes'
+
   while True:
     answer: str = input(f"{question} [y/N]: ").lower().strip()
-    if answer == "y":
+    if answer in ("y", "yes"):
       return True
-    elif answer == "n" or answer == "":  # Default to No if empty
+    elif answer in ("n", "no", ""):
       return False
     else:
       print("Invalid input. Please enter 'y' or 'n'.")
