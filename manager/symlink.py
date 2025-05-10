@@ -1,5 +1,7 @@
-import shutil, platform
-from .utils import *
+import shutil
+import platform
+from utils import *
+
 
 def symlink_dotfile(
     source_name_in_repo: str, target_name_in_home: str, dotfiles_repo_dir: str

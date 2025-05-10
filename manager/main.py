@@ -1,4 +1,5 @@
-from manager.install import install_dotfiles
+from install import install_dotfiles
+
 
 def main() -> None:
   """Main function of the script."""

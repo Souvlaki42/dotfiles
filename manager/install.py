@@ -1,5 +1,6 @@
 import sys
-from .symlink import *
+from symlink import *
+
 
 def install_dotfiles() -> None:
   """Installs dotfiles based on the provided configuration."""

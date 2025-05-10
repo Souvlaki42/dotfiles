@@ -1,5 +1,5 @@
 # Checks if python3 or python is installed
-$PYTHON = python3
+[string]$PYTHON = "python3"
 if (-Not (Get-Command python3 -ErrorAction SilentlyContinue)) {
     if (-Not (Get-Command python -ErrorAction SilentlyContinue)) {
         Write-Host "Error: Python not found. Please install Python 3.x."
@@ -9,7 +9,7 @@ if (-Not (Get-Command python3 -ErrorAction SilentlyContinue)) {
         Write-Host "Using chocolatey: 'choco install python3'."
         Exit 1
     } else {
-        $PYTHON = python
+        $PYTHON = "python"
     }
 }
 
@@ -40,7 +40,7 @@ if (-Not (Get-Module -ListAvailable -Name Terminal-Icons)) {
 # Clones the repository if it doesn't exist
 if (-Not (Test-Path "$HOME\dotfiles")) {
     Write-Host "Cloning dotfiles repository..."
-    git clone https://github.com/Souvlaki42/dotfiles.git --depth 1 "$HOME\dotfiles"
+    git clone --depth 1 https://github.com/Souvlaki42/dotfiles.git "$HOME\dotfiles" || Write-Host "Error: Failed to clone dotfiles repository. Please try again." && Exit 1
     Set-Location "$HOME\dotfiles"
 } else {
     Write-Host "Updating dotfiles repository..."
