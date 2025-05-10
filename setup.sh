@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Checks if python3 or python is installed
-$PYTHON = "python3"
 if ! command -v python3 &> /dev/null; then
     if ! command -v python &> /dev/null; then
         echo "Error: Python not found. Please install Python 3.x."
@@ -9,8 +8,6 @@ if ! command -v python3 &> /dev/null; then
         echo "For Arch Linux, you can run 'sudo pacman -S python'."
         echo "For other distributions, please refer to your package manager's documentation."
         exit 1
-    else
-        $PYTHON = "python"
     fi
 fi
 
@@ -36,4 +33,4 @@ fi
 
 # Installs the dotfiles
 echo "Installing dotfiles..."
-$PYTHON manager/main.py
+python3 manager/main.py || python manager/main.py
