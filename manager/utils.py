@@ -12,6 +12,7 @@ LINUX_MAPPINGS = {
 }
 WINDOWS_MAPPINGS = {
     "windows/profile.ps1": "Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
+    "windows/nushell": "AppData/Roaming/nushell",
 }
 HYPRLAND_MAPPINGS = {
     "hyprland/.gtkrc-2.0": ".gtkrc-2.0",
