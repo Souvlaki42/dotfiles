@@ -1,4 +1,4 @@
 .config/tmux/plugins/
 *.log
-.zsh_history
 __pycache__/
+*history*.*
