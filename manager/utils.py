@@ -28,7 +28,6 @@ BROKEN_LINKS_LOOKUP = {
     os.path.expanduser("~/.config"): True,
 }
 
-
 def yes_or_no(question: str) -> bool:
   """Asks a yes/no question and returns True if the answer is yes, False otherwise."""
   try:

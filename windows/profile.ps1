@@ -15,7 +15,7 @@ function update {
 
         if ($updateNeeded) {
             Write-Host "Updating PowerShell..." -ForegroundColor Yellow
-            winget upgrade "Microsoft.PowerShell" --accept-source-agreements --accept-package-agreements
+            winget upgrade --id "Microsoft.PowerShell" --accept-source-agreements --accept-package-agreements --source winget
             Write-Host "PowerShell has been updated. Please restart your shell to reflect changes" -ForegroundColor Magenta
         } else {
             Write-Host "Your PowerShell is up to date." -ForegroundColor Green
@@ -76,8 +76,6 @@ function unzip($file) {
     $fullFile = Get-ChildItem -Path $pwd -Filter $file | ForEach-Object { $_.FullName }
     Expand-Archive -Path $fullFile -DestinationPath $pwd
 }
-
-function ghcreate { $ErrorActionPreference="Stop"; gh repo create --private --source=. --remote=origin; git push -u --all; gh browse }
 
 # Eza aliases/functions
 function ls { eza @args }
