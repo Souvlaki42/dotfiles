@@ -1,8 +1,10 @@
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
 
-# Make sure WSL2 Ubuntu 24.04 LTS runs under Wayland
-ln -sf /mnt/wslg/runtime-dir/wayland-* $XDG_RUNTIME_DIR/
+# WSL2
+ln -sf /mnt/wslg/runtime-dir/wayland-* $XDG_RUNTIME_DIR/ # Wayland
+export BROWSER=wslview # Browser
+eval $($HOME/.local/bin/wsl2-ssh-agent) # SSH agent
 
 # Configure expected locations
 export GOPATH="$HOME/go"
@@ -18,9 +20,6 @@ export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:/var
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# Export browser in WSL2
-export BROWSER=wslview
 
 # Node compile cache
 export NODE_COMPILE_CACHE="~/.cache/nodejs-compile-cache"
@@ -93,7 +92,6 @@ alias g++="g++-14"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(oh-my-posh init zsh --config $HOME/shell.toml)"
-eval $(keychain --eval --quiet id_ed25519)
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
