@@ -1,99 +1,113 @@
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
+# ----------------------------------------
+# Profiling
+# ----------------------------------------
+export PROFILING_MODE=0
+if [[ $PROFILING_MODE -ne 0 ]]; then
+  zmodload zsh/zprof
+  zsh_start_time=$(date +%s%3N)
+fi
 
-# WSL2
-ln -sf /mnt/wslg/runtime-dir/wayland-* $XDG_RUNTIME_DIR/ # Wayland
-export BROWSER=wslview # Browser
-eval $($HOME/.local/bin/wsl2-ssh-agent) # SSH agent
-
-# Configure expected locations
+# ----------------------------------------
+# Environment Variables
+# ----------------------------------------
 export GOPATH="$HOME/go"
 export BUN_INSTALL="$HOME/.bun"
-export NVM_DIR="$HOME/.nvm"
+FNM_PATH="$HOME/.local/share/fnm"
 
-# Configure PATH
-export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:/var/bash.bs:/opt/nvim-linux64/bin:/snap/bin:$PATH"
+export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:/var/bash.bs:/opt/nvim-linux64/bin:/snap/bin:$FNM_PATH:$PATH"
 
-# Load nvm and its completions
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# Node compile cache
-export NODE_COMPILE_CACHE="~/.cache/nodejs-compile-cache"
-
-# Editors
-if command -v nvim >/dev/null 2>&1; then
-  export EDITOR=nvim
-elif command -v vim >/dev/null 2>&1; then
-  export EDITOR=vim
-elif command -v vi >/dev/null 2>&1; then
-  export EDITOR=vi
-else
-  export EDITOR=nano
-fi
-
-export GIT_EDITOR=$EDITOR
+export NODE_COMPILE_CACHE="$HOME/.cache/nodejs-compile-cache"
+export EDITOR="nvim"
+export GIT_EDITOR="$EDITOR"
 export VISUAL="code"
-
-# Enable true color support (16M colors)
 export COLORTERM=truecolor
 
-# Set the directory we want to store zinit and plugins
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+# ----------------------------------------
+# Shell Integrations
+# ----------------------------------------
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(oh-my-posh init zsh --config "$HOME/shell.toml")"
 
-# Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-  mkdir -p "$(dirname $ZINIT_HOME)"
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# ----------------------------------------
+# Completions
+# ----------------------------------------
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then
+  export FPATH="$HOME/.zsh/completions:$FPATH"
 fi
 
-# Source/Load zinit
+# ----------------------------------------
+# Plugin Managers
+# ----------------------------------------
+typeset -A ZINIT
+ZINIT[OPTIMIZE_OUT_DISK_ACCESSES]=1
+ZINIT[COMPINIT_OPTS]=-C
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [[ ! -d "$ZINIT_HOME" ]]; then
+  mkdir -p "$(dirname "$ZINIT_HOME")"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Add in zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-history-substring-search
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+TPM_HOME="$HOME/.tmux/plugins/tpm"
+if [[ ! -d "$TPM_HOME" ]]; then
+  mkdir -p "$(dirname "$TPM_HOME")"
+  git clone https://github.com/tmux-plugins/tpm.git "$TPM_HOME"
+  "$TPM_HOME/bin/install_plugins"
+fi
 
-# Add in snippets
+# ----------------------------------------
+# Zinit Plugins
+# ----------------------------------------
+zinit wait lucid for zsh-users/zsh-syntax-highlighting
+zinit wait lucid for zsh-users/zsh-history-substring-search
+zinit wait lucid for zsh-users/zsh-completions
+zinit wait lucid for zsh-users/zsh-autosuggestions
+zinit wait lucid for Aloxaf/fzf-tab
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
+# ----------------------------------------
+# WSL2 Specific Settings
+# ----------------------------------------
+ln -sf /mnt/wslg/runtime-dir/wayland-* "$XDG_RUNTIME_DIR/"
+export BROWSER=wslview
+eval "$("$HOME/.local/bin/wsl2-ssh-agent")"
+export POSH_IS_WSL=1
+
+# ----------------------------------------
+# Tmux Helper
+# ----------------------------------------
+tm() {
+  [[ $# -eq 0 ]] && tmux new-session -A -s main || tmux "$@"
+}
+
+# ----------------------------------------
 # Aliases
-alias cl="clear; tmux clear-history; clear"
+# ----------------------------------------
+alias cl="tmux clear-history; clear"
 alias ls="eza"
 alias la="eza -a"
 alias ll="eza -alh"
 alias tree="eza --tree"
 alias md="mkdir"
-alias v=$EDITOR
-alias c=$VISUAL
+alias v="$EDITOR"
+alias c="$VISUAL"
 alias fetch="fastfetch"
 alias lg="lazygit"
+alias pn="pnpm"
 alias glo="git log --graph --oneline --decorate"
-
-# Aliases for versioning
 alias python="python3"
 alias pip="pip3"
 alias gcc="gcc-14"
 alias g++="g++-14"
 
-# Shell integrations
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(oh-my-posh init zsh --config $HOME/shell.toml)"
-
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+# ----------------------------------------
+# History Settings
+# ----------------------------------------
 HISTSIZE=1000
 SAVEHIST=$HISTSIZE
 HISTFILE=~/.zsh_history
@@ -105,27 +119,19 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-setopt histignorealldups sharehistory
+setopt histignorealldups
 
-# Set up the prompt
-autoload -Uz promptinit
-promptinit
-
-# Use emacs keybindings even if our EDITOR is set to vi
+# ----------------------------------------
+# Keybindings
+# ----------------------------------------
 bindkey -e
 bindkey "^p" history-search-backward
 bindkey "^n" history-search-forward
 bindkey "^[w" kill-region
 
-# Use modern completion system
-fpath+=~/.zfunc
-autoload -Uz compinit
-compinit
-
-# Zinit setu
-zinit cdreplay -q
-
-# Set up the prompt and completions
+# ----------------------------------------
+# Completion Styles
+# ----------------------------------------
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
@@ -143,3 +149,13 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# ----------------------------------------
+# Finalization
+# ----------------------------------------
+zinit cdreplay -q
+
+if [[ $PROFILING_MODE -ne 0 ]]; then
+  zsh_end_time=$(date +%s%3N)
+  zprof
+  echo "Shell init time: $((zsh_end_time - zsh_start_time)) ms"
+fi

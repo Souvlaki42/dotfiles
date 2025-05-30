@@ -1,4 +1,7 @@
-.config/tmux/plugins/
+.config/tmux/
+.tmux/
 *.log
 __pycache__/
 *history*.*
+zsh/.zcompdump
+*.zwc
