@@ -57,6 +57,7 @@ python setup.py # If this doesn't work, try python3 setup.py
 - [ ] Add neovim configuration.
 - [ ] Add support for removing broken or stale symlinks. (WIP)
 
-## License
+## Unlicense
 
-This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
+This project is released into the public domain. See the [UNLICENSE](UNLICENSE) file for details.
+
