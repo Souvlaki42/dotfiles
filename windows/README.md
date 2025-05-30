@@ -13,9 +13,9 @@ My configuration for Windows 11 based installations
 **Font** -> Hack Nerd Font \
 **Terminal** -> Windows Terminal \
 **Filemanager** -> Windows Explorer \
-**Chat** -> VenCord \
+**Chat** -> Legcord \
 **Music** -> Youtube \
-**Editor** -> VS Code/Neovim \
+**Editor** -> Cursor/Neovim \
 **Notes** -> Obsidian \
 **Game Engine** -> Godot \
 **Package Manager** -> Scoop \

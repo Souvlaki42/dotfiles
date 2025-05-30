@@ -1,4 +1,5 @@
-# Powershell profile v0.2 by [Souvlaki42](https://github.com/Souvlaki42)
+# SSH client used by git
+$Env:GIT_SSH_COMMAND = "C:/Windows/System32/OpenSSH/ssh.exe"
 
 # Function to update Powershell
 function update {
@@ -8,7 +9,7 @@ function update {
         $currentVersion = $PSVersionTable.PSVersion.ToString()
         $gitHubApiUrl = "https://api.github.com/repos/PowerShell/PowerShell/releases/latest"
         $latestReleaseInfo = Invoke-RestMethod -Uri $gitHubApiUrl
-        $latestVersion = $latestReleaseInfo.tag_name.Trim('v')
+        $latestVersion = $latestReleaseInfo.tag_name.Trim("v")
         if ($currentVersion -lt $latestVersion) {
             $updateNeeded = $true
         }

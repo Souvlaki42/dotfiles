@@ -1,0 +1,83 @@
+/* Custom quick css file for Vencord compatible Discord clients like Legcord and Webcord */
+
+/* Hide visual refresh title bar */
+/* https://discord.com/channels/1015060230222131221/1028106818368589824/1354203100872835123 */
+@import url("https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css");
+
+/* Revert user area */
+/* https://discord.com/channels/1015060230222131221/1028106818368589824/1361443579905445898 */
+.visual-refresh div[class^="sidebar_"] section[class^="panels_"] {
+	width: calc(
+		var(--custom-guild-sidebar-width) - var(--custom-guild-list-width) + 1px
+	);
+	left: var(--custom-guild-list-width);
+	bottom: 0px;
+	border-radius: 0px;
+	border: none;
+}
+
+.visual-refresh nav[class*="guilds_"] {
+	margin-bottom: unset;
+}
+
+/* Detailed timestamps */
+/* https://discord.com/channels/1015060230222131221/1028106818368589824/1354458308714696816 */
+span[class*="timestampInline_"] time::before {
+	content: attr(aria-label);
+	font-size: 12px;
+}
+
+span[class*="timestampInline_"] {
+	font-size: 0px !important;
+}
+
+/* Hide nameplates */
+/* https://discord.com/channels/1015060230222131221/1028106818368589824/1356780198405734471 */
+[style^="background: linear-gradient(90deg"]:has([src*="/nameplates/"]) {
+	display: none;
+}
+[class*="dm_"]:has([class*="linkPlated_"]) {
+	& [class*="linkPlated_"] {
+		padding-right: var(--space-16);
+	}
+	& [class*="closeButtonPlated_"] {
+		opacity: 0.7;
+		&:hover {
+			opacity: 1;
+		}
+		& [class^="innerCloseButtonPlated"] {
+			opacity: unset;
+			background: none;
+			& svg {
+				color: inherit;
+				&:is(:hover, :focus-within) {
+					color: var(--interactive-hover);
+				}
+			}
+		}
+	}
+}
+
+/* Remove quick react bar */
+/* https://discord.com/channels/1015060230222131221/1026515880080842772/1334797375469781024 */
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(1),
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(2),
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(3),
+.separator_f84418 {
+	display: none;
+}
+
+/* Remove you'll lose access soon */
+div.notice__6e2b9.colorPremiumTier2__6e2b9.colorPremium__6e2b9 {
+	display: none;
+}
+
+/* Make read all notification better styles */
+.vc-ranb-button {
+	color: var(--interactive-active);
+	opacity: 0.5;
+}
+.vc-ranb-button:hover {
+	opacity: 1;
+}
+

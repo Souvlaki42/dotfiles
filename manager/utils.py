@@ -13,6 +13,7 @@ LINUX_MAPPINGS = {
 WINDOWS_MAPPINGS = {
     "windows/profile.ps1": "Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
     "windows/nushell": "AppData/Roaming/nushell",
+    "windows/discord.css": "AppData/Roaming/legcord/quickCss.css"
 }
 HYPRLAND_MAPPINGS = {
     "hyprland/.gtkrc-2.0": ".gtkrc-2.0",
@@ -28,17 +29,18 @@ BROKEN_LINKS_LOOKUP = {
     os.path.expanduser("~/.config"): True,
 }
 
+
 def yes_or_no(question: str) -> bool:
-  """Asks a yes/no question and returns True if the answer is yes, False otherwise."""
-  try:
-    while True:
-      answer: str = input(f"{question} [y/N]: ").lower().strip()
-      if answer in ("y", "yes"):
-        return True
-      elif answer in ("", "n", "no"):
-        return False
-      else:
-        print("Invalid input. Please enter 'y' or 'n'.")
-  except:
-    print("Something went wrong. Please try again.")
-    sys.exit(1)
+    """Asks a yes/no question and returns True if the answer is yes, False otherwise."""
+    try:
+        while True:
+            answer: str = input(f"{question} [y/N]: ").lower().strip()
+            if answer in ("y", "yes"):
+                return True
+            elif answer in ("", "n", "no"):
+                return False
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
+    except:
+        print("Something went wrong. Please try again.")
+        sys.exit(1)
