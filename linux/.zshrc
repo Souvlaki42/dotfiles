@@ -1,3 +1,8 @@
+# todo
+# add this script to the zshrc
+# sudo dumpe2fs $(findmnt / -no source) 2>/dev/null | grep 'Filesystem created:' | awk '{print $4, $5, $7, $6}' > ~/.install_date
+# And also add fastfetch config to dotfiles
+
 # ----------------------------------------
 # Profiling
 # ----------------------------------------
@@ -73,17 +78,9 @@ zinit snippet OMZP::command-not-found
 # ----------------------------------------
 # WSL2 Specific Settings
 # ----------------------------------------
-ln -sf /mnt/wslg/runtime-dir/wayland-* "$XDG_RUNTIME_DIR/"
 export BROWSER=wslview
 eval "$("$HOME/.local/bin/wsl2-ssh-agent")"
 export POSH_IS_WSL=1
-
-# ----------------------------------------
-# Tmux Helper
-# ----------------------------------------
-tm() {
-  [[ $# -eq 0 ]] && tmux new-session -A -s main || tmux "$@"
-}
 
 # ----------------------------------------
 # Aliases
@@ -99,12 +96,20 @@ alias c="$VISUAL"
 alias fetch="fastfetch"
 alias lg="lazygit"
 alias pn="pnpm"
-alias glo="git log --graph --oneline --decorate"
 alias python="python3"
 alias pip="pip3"
 alias gcc="gcc-14"
 alias g++="g++-14"
+alias grep="rg"
 
+export PNPM_HOME="/home/ilias/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# Joke Aliases
+alias fsdate='sudo dumpe2fs $(findmnt / -no source) 2>/dev/null | grep "Filesystem created:" | awk "{print \$4, \$5, \$7, \$6}"'
 # ----------------------------------------
 # History Settings
 # ----------------------------------------
