@@ -12,15 +12,17 @@ fi
 # ----------------------------------------
 export GOPATH="$HOME/go"
 export BUN_INSTALL="$HOME/.bun"
-FNM_PATH="$HOME/.local/share/fnm"
+export FNM_PATH="$HOME/.local/share/fnm"
+export BREW_PATH="/home/linuxbrew/.linuxbrew/bin"
 
-export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:/var/bash.bs:/opt/nvim-linux64/bin:/snap/bin:$FNM_PATH:$PATH"
+export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:/var/bash.bs:/opt/nvim-linux64/bin:/snap/bin:$FNM_PATH:$BREW_PATH:$PATH"
 
 export NODE_COMPILE_CACHE="$HOME/.cache/nodejs-compile-cache"
 export EDITOR="nvim"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="code"
 export COLORTERM=truecolor
+export HOMEBREW_NO_ENV_HINTS=1
 
 # ----------------------------------------
 # Shell Integrations
@@ -29,6 +31,7 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(oh-my-posh init zsh --config "$HOME/shell.toml")"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # ----------------------------------------
 # Completions
