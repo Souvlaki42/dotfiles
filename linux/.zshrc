@@ -1,8 +1,3 @@
-# todo
-# add this script to the zshrc
-# sudo dumpe2fs $(findmnt / -no source) 2>/dev/null | grep 'Filesystem created:' | awk '{print $4, $5, $7, $6}' > ~/.install_date
-# And also add fastfetch config to dotfiles
-
 # ----------------------------------------
 # Profiling
 # ----------------------------------------
