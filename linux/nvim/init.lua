@@ -1,5 +1,5 @@
 kset = vim.keymap.set
 
-require("config.options")
-require("config.keybinds")
-require("config.lazy")
+require("core.options")
+require("core.keybinds")
+require("core.lazy")

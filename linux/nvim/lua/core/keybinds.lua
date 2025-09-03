@@ -29,14 +29,10 @@ kset("n", "<leader>k", "<cmd>lnext<CR>zz")
 kset("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- make file executable
-kset("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+kset("n", "<leader>x", "<cmd>!chmod +x %<CR>")
 
--- reload without exiting vim
-kset("n", "<leader>rl", "<cmd>source ~/.config/nvim/init.lua<cr>")
-
+-- open undo tree
 kset("n", "<leader>u", vim.cmd.UndotreeToggle)
 
--- source file
-kset("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+-- toggle file explorer
+kset("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
