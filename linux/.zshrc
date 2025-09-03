@@ -29,7 +29,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 # ----------------------------------------
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(fnm env --shell zsh)"
 eval "$(oh-my-posh init zsh --config "$HOME/shell.toml")"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -64,11 +64,15 @@ fi
 # ----------------------------------------
 # Zinit Plugins
 # ----------------------------------------
+# Load these immediately for instant feedback
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-history-substring-search
+
+# These can be deferred as they aren't as critical for the initial interaction
 zinit wait lucid for zsh-users/zsh-syntax-highlighting
-zinit wait lucid for zsh-users/zsh-history-substring-search
 zinit wait lucid for zsh-users/zsh-completions
-zinit wait lucid for zsh-users/zsh-autosuggestions
 zinit wait lucid for Aloxaf/fzf-tab
+
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
@@ -123,14 +127,14 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 setopt histignorealldups
+setopt EXTENDED_HISTORY
 
 # ----------------------------------------
 # Keybindings
 # ----------------------------------------
-bindkey -e
-bindkey "^p" history-search-backward
-bindkey "^n" history-search-forward
-bindkey "^[w" kill-region
+bindkey -v
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # ----------------------------------------
 # Completion Styles
