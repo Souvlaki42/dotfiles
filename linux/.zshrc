@@ -80,7 +80,7 @@ zinit snippet OMZP::command-not-found
 # ----------------------------------------
 # WSL2 Specific Settings
 # ----------------------------------------
-export BROWSER=wslview
+export BROWSER=xdg-open
 eval "$("$HOME/.local/bin/wsl2-ssh-agent")"
 export POSH_IS_WSL=1
 
@@ -102,7 +102,6 @@ alias python="python3"
 alias pip="pip3"
 alias gcc="gcc-14"
 alias g++="g++-14"
-alias grep="rg"
 
 export PNPM_HOME="/home/ilias/.local/share/pnpm"
 case ":$PATH:" in
