@@ -1,4 +1,4 @@
-local tools = require("lua.core.tools")
+local tools = require("core.tools")
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
