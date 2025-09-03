@@ -20,7 +20,7 @@ export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:/var
 export NODE_COMPILE_CACHE="$HOME/.cache/nodejs-compile-cache"
 export EDITOR="nvim"
 export GIT_EDITOR="$EDITOR"
-export VISUAL="code"
+export VISUAL="cursor"
 export COLORTERM=truecolor
 export HOMEBREW_NO_ENV_HINTS=1
 
