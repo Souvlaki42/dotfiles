@@ -31,6 +31,7 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fnm env --shell zsh)"
 eval "$(oh-my-posh init zsh --config "$HOME/shell.toml")"
+eval "$(atuin init zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # ----------------------------------------
@@ -72,6 +73,7 @@ zinit light zsh-users/zsh-history-substring-search
 zinit wait lucid for zsh-users/zsh-syntax-highlighting
 zinit wait lucid for zsh-users/zsh-completions
 zinit wait lucid for Aloxaf/fzf-tab
+zinit wait lucid for atuinsh/atuin
 
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo

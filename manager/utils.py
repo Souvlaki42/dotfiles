@@ -9,7 +9,8 @@ COMMON_MAPPINGS = {
 LINUX_MAPPINGS = {
     "linux/.zshrc": ".zshrc",
     "linux/.tmux.conf": ".tmux.conf",
-    "linux/nvim": ".config/nvim"
+    "linux/nvim": ".config/nvim",
+    "linux/atuin": ".config/atuin",
 }
 WINDOWS_MAPPINGS = {
     "windows/profile.ps1": "Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
