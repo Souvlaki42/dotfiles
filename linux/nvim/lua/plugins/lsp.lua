@@ -24,7 +24,9 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if not client then return end
+        if not client then
+          return
+        end
         if vim.tbl_contains(autoformat_filetypes, vim.bo.filetype) then
           vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = args.buf,
@@ -32,23 +34,18 @@ return {
               vim.lsp.buf.format({
                 formatting_options = { tabSize = 2, insertSpaces = true },
                 bufnr = args.buf,
-                id = client.id
+                id = client.id,
               })
-            end
+            end,
           })
         end
-      end
+      end,
     })
 
     -- Add borders to floating windows
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-      vim.lsp.handlers.hover,
-      { border = "rounded" }
-    )
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-      vim.lsp.handlers.signature_help,
-      { border = "rounded" }
-    )
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+    vim.lsp.handlers["textDocument/signatureHelp"] =
+        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
     -- Configure error/warnings interface
     vim.diagnostic.config({
@@ -85,33 +82,36 @@ return {
       callback = function(event)
         local opts = { buffer = event.buf }
 
-        kset("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-        kset("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-        kset("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-        kset("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-        kset("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
-        kset("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-        kset("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-        kset("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-        kset("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-        kset({ "n", "x" }, "<leader>f", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
-        kset("n", "<C-.>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+        kset("n", "K", vim.lsp.buf.hover, opts)
+        kset("n", "gd", vim.lsp.buf.definition, opts)
+        kset("n", "gD", vim.lsp.buf.declaration, opts)
+        kset("n", "gi", vim.lsp.buf.implementation, opts)
+        kset("n", "go", vim.lsp.buf.type_definition, opts)
+        kset("n", "gr", vim.lsp.buf.references, opts)
+        kset("n", "gs", vim.lsp.buf.signature_help, opts)
+        kset("n", "gl", vim.diagnostic.open_float, opts)
+        kset("n", "<F2>", vim.lsp.buf.rename, opts)
+        kset({ "n", "x" }, "<leader>f", function()
+          vim.lsp.buf.format({
+            async = true,
+          })
+        end, opts)
+        kset("n", "<C-.>", vim.lsp.buf.code_action, opts)
       end,
     })
 
     require("mason").setup({
-      ensure_installed = vim.tbl_map(function(tool) return tool.name end, tools.tools),
+      ensure_installed = vim.tbl_map(function(tool)
+        return tool.name
+      end, tools.tools),
     })
     require("mason-lspconfig").setup({
       ensure_installed = tools.get_lsp_names(),
       handlers = {
-        -- this first function is the "default handler"
-        -- it applies to every language server without a custom handler
         function(server_name)
           require("lspconfig")[server_name].setup({})
         end,
 
-        -- this is the "custom handler" for `lua_ls`
         lua_ls = function()
           require("lspconfig").lua_ls.setup({
             settings = {
@@ -141,7 +141,7 @@ return {
     cmp.setup({
       preselect = "item",
       completion = {
-        completeopt = "menu,menuone,noinsert"
+        completeopt = "menu,menuone,noinsert",
       },
       window = {
         documentation = cmp.config.window.bordered(),
@@ -225,5 +225,5 @@ return {
         end, { "i", "s" }),
       }),
     })
-  end
+  end,
 }
