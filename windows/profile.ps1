@@ -47,7 +47,7 @@ Set-Alias -Name lg -Value lazygit
 Set-Alias -Name pn -Value pnpm
 Set-Alias -Name v -Value nvim
 Set-Alias -Name c -Value code
-Set-Alias -Name rm -Value gomi
+
 Set-Alias -Name nc -Value ncat
 
 # Built-in functions
@@ -78,7 +78,12 @@ function unzip($file) {
     Expand-Archive -Path $fullFile -DestinationPath $pwd
 }
 
-# Eza aliases/functions
+# Coreutils functions
+function rm { coreutils rm @args }
+function rd { coreutils rmdir @args }
+function md { coreutils mkdir @args }
+
+# Eza functions
 function ls { eza @args }
 function la { eza -a @args }
 function ll { eza -alh @args }
