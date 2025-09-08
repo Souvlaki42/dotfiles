@@ -14,7 +14,6 @@ LINUX_MAPPINGS = {
 }
 WINDOWS_MAPPINGS = {
     "windows/profile.ps1": "Documents/PowerShell/Microsoft.PowerShell_profile.ps1",
-    "windows/nushell": "AppData/Roaming/nushell",
     "windows/discord.css": "AppData/Roaming/legcord/quickCss.css"
 }
 HYPRLAND_MAPPINGS = {
