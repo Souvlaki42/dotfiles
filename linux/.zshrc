@@ -35,14 +35,6 @@ eval "$(atuin init zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # ----------------------------------------
-# Completions
-# ----------------------------------------
-[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
-if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then
-  export FPATH="$HOME/.zsh/completions:$FPATH"
-fi
-
-# ----------------------------------------
 # Plugin Managers
 # ----------------------------------------
 typeset -A ZINIT
@@ -63,16 +55,54 @@ if [[ ! -d "$TPM_HOME" ]]; then
 fi
 
 # ----------------------------------------
+# Completions
+# ----------------------------------------
+ZSH_COMPDUMP="${XDG_CACHE_HOME:=$HOME/.cache}/zsh/zcompdump"
+
+mkdir -p "${ZSH_COMPDUMP:h}"
+
+# zinit can defer compinit for faster startup
+autoload -Uz compinit
+
+# Defer initialization until first completion is used
+# -u skips some expensive security checks
+# -d points to our stable cache file
+zicompinit
+zicdreplay -d "$ZSH_COMPDUMP" -u
+
+# Your custom completion sources
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then
+  FPATH="$HOME/.zsh/completions:$FPATH"
+fi
+
+# Completion styles
+zstyle ":completion:*" auto-description "specify: %d"
+zstyle ":completion:*" completer _expand _complete _correct _approximate
+zstyle ":completion:*" format "Completing %d"
+zstyle ":completion:*" group-name ""
+zstyle ":completion:*" menu select=2
+zstyle ":completion:*:default" list-colors ${(s.:.)LS_COLORS}
+zstyle ":completion:*" matcher-list "" "m:{a-z}={A-Z}" "m:{a-zA-Z}={A-Za-z}" \
+  "r:|[._-]=* r:|=* l:|=*"
+zstyle ":completion:*" verbose true
+zstyle ":completion:*:*:kill:*:processes" \
+  list-colors "=(#b) #([0-9]#)*=0=01;31"
+zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
+zstyle ":completion:*" beep no
+
+# ----------------------------------------
 # Zinit Plugins
 # ----------------------------------------
 # Load these immediately for instant feedback
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-history-substring-search
+zinit light zsh-users/zsh-completions
+zinit light Aloxaf/fzf-tab
 
 # These can be deferred as they aren't as critical for the initial interaction
 zinit wait lucid for zsh-users/zsh-syntax-highlighting
-zinit wait lucid for zsh-users/zsh-completions
-zinit wait lucid for Aloxaf/fzf-tab
 zinit wait lucid for atuinsh/atuin
 
 zinit snippet OMZP::git
@@ -137,26 +167,6 @@ setopt EXTENDED_HISTORY
 bindkey -v
 bindkey -M vicmd "k" history-substring-search-up
 bindkey -M vicmd "j" history-substring-search-down
-
-# ----------------------------------------
-# Completion Styles
-# ----------------------------------------
-zstyle ":completion:*" auto-description "specify: %d"
-zstyle ":completion:*" completer _expand _complete _correct _approximate
-zstyle ":completion:*" format "Completing %d"
-zstyle ":completion:*" group-name ""
-zstyle ":completion:*" menu select=2
-eval "$(dircolors -b)"
-zstyle ":completion:*:default" list-colors ${(s.:.)LS_COLORS}
-zstyle ":completion:*" list-colors ""
-zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ":completion:*" matcher-list "" "m:{a-z}={A-Z}" "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=* l:|=*"
-zstyle ":completion:*" menu select=long
-zstyle ":completion:*" select-prompt %SScrolling active: current selection at %p%s
-zstyle ":completion:*" use-compctl false
-zstyle ":completion:*" verbose true
-zstyle ":completion:*:*:kill:*:processes" list-colors "=(#b) #([0-9]#)*=0=01;31"
-zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
 
 # ----------------------------------------
 # Finalization
