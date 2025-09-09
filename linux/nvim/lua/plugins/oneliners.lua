@@ -31,12 +31,4 @@ return {
       vim.o.timeoutlen = 300
     end,
   },
-  { -- Smear cursor effect
-    "sphamba/smear-cursor.nvim",
-    config = function()
-      local smear = require("smear_cursor")
-      smear.setup()
-      smear.enabled = true
-    end,
-  },
 }

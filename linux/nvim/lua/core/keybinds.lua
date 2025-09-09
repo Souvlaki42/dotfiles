@@ -1,15 +1,15 @@
 -- KEYBINDS
 vim.g.mapleader = " "
 
-kset("n", "<M-j>", ":m .+1<CR>==")     -- move line up(n)
-kset("n", "<M-k>", ":m .-2<CR>==")     -- move line down(n)
+kset("n", "<M-j>", ":m .+1<CR>==") -- move line up(n)
+kset("n", "<M-k>", ":m .-2<CR>==") -- move line down(n)
 kset("v", "<M-j>", ":m '>+1<CR>gv=gv") -- move line up(v)
 kset("v", "<M-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
 
-kset("n", "J", "mzJ`z")                -- Remap joining lines
-kset("n", "<C-d>", "<C-d>zz")          -- Keep cursor in place while moving up/down page
+kset("n", "J", "mzJ`z") -- Remap joining lines
+kset("n", "<C-d>", "<C-d>zz") -- Keep cursor in place while moving up/down page
 kset("n", "<C-u>", "<C-u>zz")
-kset("n", "n", "nzzzv")                -- center screen when looping search results
+kset("n", "n", "nzzzv") -- center screen when looping search results
 kset("n", "N", "Nzzzv")
 
 -- paste and don't replace clipboard over deleted text
@@ -32,7 +32,7 @@ kset("n", "<leader>j", "<cmd>lprev<CR>zz")
 kset("n", "<leader>x", "<cmd>!chmod +x %<CR>")
 
 -- open undo tree
-kset("n", "<leader>u", vim.cmd.UndotreeToggle)
+kset("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undo tree" })
 
 -- toggle file explorer
 kset("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
