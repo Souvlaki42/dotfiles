@@ -135,6 +135,7 @@ alias pip="pip3"
 alias gcc="gcc-14"
 alias g++="g++-14"
 alias history="atuin search -i"
+alias bat="batcat"
 
 export PNPM_HOME="/home/ilias/.local/share/pnpm"
 case ":$PATH:" in
