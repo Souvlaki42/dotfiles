@@ -15,7 +15,7 @@ export BUN_INSTALL="$HOME/.bun"
 export FNM_PATH="$HOME/.local/share/fnm"
 export BREW_PATH="/home/linuxbrew/.linuxbrew/bin"
 
-export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:/var/bash.bs:/opt/nvim-linux64/bin:/snap/bin:$FNM_PATH:$BREW_PATH:$PATH"
+export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:/var/bash.bs:/opt/nvim-linux64/bin:$HOME/.filen-cli/bin:/snap/bin:$FNM_PATH:$BREW_PATH:$PATH"
 
 export NODE_COMPILE_CACHE="$HOME/.cache/nodejs-compile-cache"
 export EDITOR="nvim"
