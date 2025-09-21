@@ -11,6 +11,7 @@ LINUX_MAPPINGS = {
     "linux/.tmux.conf": ".tmux.conf",
     "linux/nvim": ".config/nvim",
     "linux/atuin": ".config/atuin",
+    "linux/sesh": ".config/sesh",
 }
 WINDOWS_MAPPINGS = {
     "windows/profile.ps1": "Documents/PowerShell/Microsoft.PowerShell_profile.ps1",

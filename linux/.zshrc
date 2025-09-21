@@ -124,7 +124,7 @@ alias ls="eza"
 alias la="eza -a"
 alias ll="eza -alh"
 alias tree="eza --tree"
-alias md="mkdir"
+alias md="mkdir -p"
 alias v="$EDITOR"
 alias c="$VISUAL"
 alias fetch="fastfetch"
@@ -175,7 +175,7 @@ function sesh-sessions() {
     exec </dev/tty
     exec <&1
     local session
-    session=$(sesh list -t -c -z | fzf --height 40% --reverse --border-label " sesh " --border --prompt "⚡  ")
+    session=$(sesh list -t -c -z -d | fzf --height 40% --reverse --border-label " sesh " --border --prompt "⚡  ")
     zle reset-prompt > /dev/null 2>&1 || true
     [[ -z "$session" ]] && return
     sesh connect $session
