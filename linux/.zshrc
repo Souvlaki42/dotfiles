@@ -137,6 +137,12 @@ alias g++="g++-14"
 alias history="atuin search -i"
 alias bat="batcat"
 
+# Python HTTP Server
+function pyhttp() {
+  local port=${1:-8080}
+  python3 -m http.server $port
+}
+
 export PNPM_HOME="/home/ilias/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
