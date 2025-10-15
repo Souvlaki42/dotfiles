@@ -1,0 +1,49 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "context_servers": {
+    "mcp-server-context7": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {
+        "context7_api_key": "ctx7sk-028994e4-9b86-41e8-b8de-58576bb6ca5d"
+      }
+    }
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "minimap": {
+    "show": "never"
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "ui_font_size": 16.0,
+  "buffer_font_size": 16.0,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  },
+  "ui_font_family": "JetBrains Mono",
+  "terminal": {
+    "font_size": 14.0
+  },
+  "title_bar": {
+    "show_branch_icon": false,
+    "show_branch_name": false,
+    "show_project_items": false,
+    "show_onboarding_banner": false,
+    "show_user_picture": false,
+    "show_sign_in": false,
+    "show_menus": false
+  },
+  "disable_ai": true
+}

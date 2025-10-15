@@ -5,3 +5,5 @@ __pycache__/
 *history*.*
 zsh/.zcompdump
 *.zwc
+discord/.config/legcord/*
+!discord/.config/legcord/quickCss.css

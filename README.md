@@ -1,6 +1,6 @@
 # Dotfiles
 
-My configurations for every OS I have ever used as a daily driver aka Windows + WSL2 (Ubuntu) and Arch Linux.
+My configurations for my Arch Linux installation.
 
 > [!IMPORTANT]
 > If you like this repo consider giving it a ⭐. Thank you for your time. \
@@ -10,52 +10,30 @@ My configurations for every OS I have ever used as a daily driver aka Windows + 
 
 ![Arch Linux Logo](https://upload.wikimedia.org/wikipedia/commons/f/f9/Archlinux-logo-standard-version.svg)
 
-![Windows 11 Logo](https://upload.wikimedia.org/wikipedia/commons/e/e6/Windows_11_logo.svg)
+OS -> Arch Linux \
+Window Manager -> KDE Plasma \
+Display Manager -> SDDM \
+Theme -> Catppuccin Mocha Blue \
+Dotfiles Manager -> GNU Stow \
+Fetch -> Fastfetch \
+Prompt -> Oh My Posh \
+Cursor -> Bibata Modern Ice \
+Font -> JetBrains Mono Nerd Font \
+Terminal -> Ghostty \
+Filemanager -> Dolphin \
+Browser -> Helium \
+Chat -> Legcord \
+Editor -> Zed \
+Notes -> Obsidian \
+Game Engine -> Godot/Unity \
+Screenshot Engine -> Spectacle
 
-![Ubuntu Logo](https://upload.wikimedia.org/wikipedia/commons/9/9d/Ubuntu_logo.svg)
+## Installation
 
-## Features
-
-- Installs dotfiles for Windows.
-- Installs dotfiles for Linux (Hyprland and WSL2).
-- Handles symlinking of dotfiles.
-- Handles updating of dotfiles.
-- Handles existing files in the target location.
-- Handles installing packages. (soon)
-- Handles removing broken or stale symlinks. (soon)
-
-## How to use
-
-1. Make sure you have [Python 3.x](https://www.python.org/downloads/) installed on your system.
-2. Make sure you have [Git](https://git-scm.com/download/win) installed on your system.
-3. If you are on Windows, make sure you have the latest version of [Powershell](https://github.com/PowerShell/PowerShell/releases) installed and then run the following commands:
-
-```powershell
-Install-Module syntax-highlighting -Scope CurrentUser
-```
-
-```powershell
-Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser
-```
-
-4. Clone this repository to your home directory:
-
-```bash
-git clone --depth 1 https://github.com/Souvlaki42/dotfiles.git $HOME/dotfiles # You can clone it anywhere you want.
-```
-
-5. Run the setup script:
-
-```bash
-cd $HOME/dotfiles # Navigate to the dotfiles directory
-python setup.py # If this doesn't work, try python3 setup.py
-```
-
-## Todo
-
-- [ ] Add support for installing packages.
-- [ ] Add neovim configuration.
-- [ ] Add support for removing broken or stale symlinks. (WIP)
+1. Install [Arch Linux](https://archlinux.org)
+2. Install Paru, fzf, and stow
+3. Clone this repository
+4. Run the install script
 
 ## Unlicense
 

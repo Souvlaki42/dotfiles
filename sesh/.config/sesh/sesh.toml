@@ -1,0 +1,16 @@
+[[default_session]]
+name = "main"
+path = "~"
+
+[[session]]
+name = "Dotfiles"
+path = "~/dotfiles"
+
+[[session]]
+name = "Nvim"
+path = "~/dotfiles/linux/nvim"
+startup_command = "v ~/dotfiles/linux/nvim"
+
+[[session]]
+name = "Code"
+path = "~/code/*"
