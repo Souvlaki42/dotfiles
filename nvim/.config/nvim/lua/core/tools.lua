@@ -20,6 +20,7 @@ M.tools = {
   { name = "tailwindcss-language-server", lsp_name = "tailwindcss",   type = "lsp" },
   { name = "typescript-language-server",  lsp_name = "ts_ls",         type = "lsp" },
   { name = "yaml-language-server",        lsp_name = "yamlls",        type = "lsp" },
+  { name = "stylua",                      type = "lsp" },
 
   -- Formatters
   { name = "black",                       builtin = "formatting" },
