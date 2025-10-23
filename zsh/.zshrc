@@ -11,6 +11,7 @@ fi
 # Environment Variables
 # ----------------------------------------
 export BUN_INSTALL="$HOME/.bun"
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
 export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$HOME/.cargo/bin:/var/bash.bs:/opt/nvim-linux64/bin:$HOME/.filen-cli/bin:/snap/bin:$PATH"
 
 export NODE_COMPILE_CACHE="$HOME/.cache/nodejs-compile-cache"
@@ -134,6 +135,8 @@ alias history="atuin search -i"
 alias yay="paru -Sy --needed"
 alias yeet="paru -Runs"
 alias zed="zeditor"
+alias fsdate="sudo sudo btrfs subvolume show / | grep -i \"creation time:\""
+alias weather="curl wttr.in"
 
 # Python HTTP Server
 function pyhttp() {
@@ -141,14 +144,12 @@ function pyhttp() {
   python3 -m http.server $port
 }
 
-export PNPM_HOME="/home/ilias/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# Joke Aliases
-alias fsdate='sudo dumpe2fs $(findmnt / -no source) 2>/dev/null | grep "Filesystem created:" | awk "{print \$4, \$5, \$7, \$6}"'
 # ----------------------------------------
 # History Settings
 # ----------------------------------------
