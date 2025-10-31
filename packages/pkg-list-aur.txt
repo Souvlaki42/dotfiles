@@ -8,7 +8,6 @@ fnm-bin
 helium-browser-bin
 legcord-bin
 libunity
-mars-mips-bin
 mcpelauncher-ui
 millennium
 minecraft-launcher

@@ -11,7 +11,7 @@ fi
 # Environment Variables
 # ----------------------------------------
 export BUN_INSTALL="$HOME/.bun"
-export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
+export JAVA_HOME="/usr/lib/jvm/default"
 export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$HOME/.cargo/bin:/var/bash.bs:/opt/nvim-linux64/bin:$HOME/.filen-cli/bin:/snap/bin:$PATH"
 
 export NODE_COMPILE_CACHE="$HOME/.cache/nodejs-compile-cache"

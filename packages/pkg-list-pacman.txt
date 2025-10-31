@@ -1,5 +1,6 @@
 acpid
 amd-ucode
+android-file-transfer
 android-tools
 ark
 asciiquarium-transparent-git
@@ -15,6 +16,7 @@ btrfs-progs
 cava
 cbonsai
 cdrtools
+cloc
 colloid-catppuccin-gtk-theme-git
 curseforge-bin
 deno
@@ -35,6 +37,8 @@ git
 github-cli
 gnuplot
 go
+godot
+grex
 grub
 grub-btrfs
 gsmartcontrol
@@ -44,6 +48,7 @@ htop
 iptables-nft
 iwd
 jdk17-openjdk
+jdk21-openjdk
 jq
 kate
 kdeconnect
@@ -56,11 +61,11 @@ libpulse
 libunity
 linux-firmware
 linux-lts
-mars-mips-bin
 maven
 mcpelauncher-ui
 millennium
 minecraft-launcher
+mtpfs
 nano
 nasm
 neovim
@@ -71,6 +76,7 @@ noto-fonts-cjk
 obsidian
 oh-my-posh-bin
 paru
+pcmanfm
 pipes.sh
 pipewire
 pipewire-alsa
