@@ -1,0 +1,14 @@
+;; Kanata configuration file
+
+;; Configuration for remapping capslock to escape+ctrl
+
+(defcfg process-unmapped-keys yes)
+(defsrc
+  caps 
+)
+(defalias
+  escctrl (tap-hold 100 150 esc lctrl)
+)
+(deflayer base
+  @escctrl
+)

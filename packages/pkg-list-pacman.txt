@@ -50,6 +50,7 @@ iwd
 jdk17-openjdk
 jdk21-openjdk
 jq
+kanata-bin
 kate
 kdeconnect
 kio-admin

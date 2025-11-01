@@ -70,7 +70,7 @@ if yes_or_no "Would you like to install AUR packages?" "y"; then
   paru -Sy --needed --noconfirm "${installed[@]}"
 fi
 
-symlinks=("atuin" "git" "nvim" "prompt" "tms" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment" "hollow-knight")
+symlinks=("atuin" "git" "nvim" "prompt" "tms" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment" "hollow-knight" "kanata")
 if yes_or_no "Would you like to install symbolic links?" "y"; then
   mapfile -t to_link < <(multiselect "${symlinks[@]}")
   for item in "${to_link[@]}"
@@ -85,7 +85,36 @@ if yes_or_no "Would you like to install pacman configuration?" "y"; then
   sudo stow -d "$DOTFILES_DIR" -t "/" "pacman" || { echo "Failed to link pacman"; exit 1; }
 fi
 
+if yes_or_no "Would you like to install udev rules?" "y"; then
+  echo "Installing udev rules..."
+  sudo stow -d "$DOTFILES_DIR" -t "/" "udev" || { echo "Failed to link udev"; exit 1; }
+fi
+
 if yes_or_no "Would you like to install sddm configuration?" "y"; then
   echo "Installing sddm configuration..."
   sudo stow -d "$DOTFILES_DIR" -t "/" "sddm" || { echo "Failed to link sddm"; exit 1; }
 fi
+
+groups=("input" "uinput")
+if yes_or_no "Would you like to add your user to groups?" "y"; then
+  mapfile -t to_group < <(multiselect "${groups[@]}")
+  for item in "${to_group[@]}"
+    do
+      echo "Adding user to $item group..."
+      sudo groupadd --system "$item"
+      sudo usermod -aG "$item" "$USER" || { echo "Failed to add user to $item group"; exit 1; }
+    done
+fi
+
+services=("kanata")
+if yes_or_no "Would you like to install systemd services?" "y"; then
+  mapfile -t to_enabke < <(multiselect "${services[@]}")
+  for item in "${to_enabke[@]}"
+  do
+    echo "Enabling $item service..."
+    systemctl --user enable "$item.service" || { echo "Failed to enable $item"; exit 1; }
+    systemctl --user start "$item.service" || { echo "Failed to start $item"; exit 1; }
+  done
+fi
+
+echo "Installation complete!"

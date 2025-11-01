@@ -6,6 +6,7 @@ curseforge-bin
 filen-desktop-bin
 fnm-bin
 helium-browser-bin
+kanata-bin
 legcord-bin
 libunity
 mcpelauncher-ui
