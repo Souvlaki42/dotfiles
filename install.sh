@@ -6,7 +6,7 @@ function yes_or_no() {
   local yn
 
   while true; do
-    read -p "$prompt [$default]: " yn
+    read -rp "$prompt [$default]: " yn
     yn="${yn:-$default}"
     case $yn in
       [Yy]*) return 0 ;;
@@ -49,16 +49,16 @@ if [[ ! -d "$DOTFILES_DIR" ]]; then
   git clone https://github.com/souvlaki42/dotfiles "$DOTFILES_DIR"
 fi
 
-if [[ ! command -v paru &> /dev/null ]]; then
+if ! command -v paru &> /dev/null; then
   echo "Installing paru..."
-  local paru_dir="${XDG_BIN_HOME:-$HOME/.local/bin}/paru"
+  paru_dir="${XDG_BIN_HOME:-$HOME/.local/bin}/paru"
   git clone https://aur.archlinux.org/paru.git "$paru_dir"
-  cd "$paru_dir"
+  cd "$paru_dir" || { echo "Failed to enter paru directory"; exit 1; }
   makepkg -si --noconfirm
-  cd $HOME
+  cd "$HOME" ||  { echo "Failed to enter home directory"; exit 1; }
 fi
 
-cd "$DOTFILES_DIR"
+cd "$DOTFILES_DIR" || { echo "Failed to enter dotfiles directory"; exit 1; }
 
 if yes_or_no "Would you like to install packages?" "y"; then
   mapfile -t installed < <(multiselect "./packages/pkg-list-pacman.txt")
@@ -70,7 +70,7 @@ if yes_or_no "Would you like to install AUR packages?" "y"; then
   paru -Sy --needed --noconfirm "${installed[@]}"
 fi
 
-symlinks=("atuin" "git" "nvim" "prompt" "sesh" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment")
+symlinks=("atuin" "git" "nvim" "prompt" "tms" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment" "hollow-knight")
 if yes_or_no "Would you like to install symbolic links?" "y"; then
   mapfile -t to_link < <(multiselect "${symlinks[@]}")
   for item in "${to_link[@]}"

@@ -17,6 +17,6 @@ pipes.sh
 pwvucontrol
 qimgv-qt6-kde-git
 rider
-sesh-bin
+tmux-sessionizer-bin
 unimatrix-git
 unityhub

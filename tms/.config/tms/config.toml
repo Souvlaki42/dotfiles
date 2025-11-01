@@ -1,0 +1,8 @@
+default_session = "main"
+bookmarks = [
+    "/home/souvlaki42/dotfiles",
+]
+
+[[search_dirs]]
+path = "/home/souvlaki42/code"
+depth = 1

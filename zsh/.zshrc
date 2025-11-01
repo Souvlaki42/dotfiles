@@ -137,6 +137,8 @@ alias yeet="paru -Runs"
 alias zed="zeditor"
 alias fsdate="sudo sudo btrfs subvolume show / | grep -i \"creation time:\""
 alias weather="curl wttr.in"
+alias sshc="-t -- /bin/bash -c \"tmux has-session && exec tmux attach || exec tmux\""
+alias ex="dolphin ."
 
 # Python HTTP Server
 function pyhttp() {
@@ -174,23 +176,12 @@ bindkey -v
 bindkey -M vicmd "k" history-substring-search-up
 bindkey -M vicmd "j" history-substring-search-down
 
-# Sesh manager keybinding
-function sesh-sessions() {
-  {
-    exec </dev/tty
-    exec <&1
-    local session
-    session=$(sesh list -t -c -z -d | fzf --height 40% --reverse --border-label " sesh " --border --prompt "⚡  ")
-    zle reset-prompt > /dev/null 2>&1 || true
-    [[ -z "$session" ]] && return
-    sesh connect $session
-  }
-}
-
-zle     -N             sesh-sessions
-bindkey -M emacs "\es" sesh-sessions
-bindkey -M vicmd "\es" sesh-sessions
-bindkey -M viins "\es" sesh-sessions
+# ----------------------------------------
+# Open tmux on startup
+# ----------------------------------------
+if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
+    tmux new-session -A -s main
+fi
 
 # ----------------------------------------
 # Finalization

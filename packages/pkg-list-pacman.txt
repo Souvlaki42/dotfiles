@@ -56,11 +56,14 @@ kio-admin
 konsole
 lazygit
 legcord-bin
+less
 libguestfs
 libpulse
 libunity
 linux-firmware
 linux-lts
+lutris
+mandoc
 maven
 mcpelauncher-ui
 millennium
@@ -94,7 +97,6 @@ qt5-quickcontrols2
 rider
 rsync
 rustup
-sesh-bin
 shellcheck
 sl
 smartmontools
@@ -103,7 +105,9 @@ sshfs
 steam
 stow
 swtpm
+tldr
 tmux
+tmux-sessionizer-bin
 ttf-jetbrains-mono
 unimatrix-git
 unityhub
