@@ -52,3 +52,6 @@ font-size = 14
 theme = "Catppuccin Mocha"
 command = "/usr/bin/zsh --login --interactive"
 shell-integration = "zsh"
+confirm-close-surface = false
+maximize = true
+gtk-single-instance = desktop
