@@ -13,9 +13,10 @@ fi
 export BUN_INSTALL="$HOME/.bun"
 export JAVA_HOME="/usr/lib/jvm/default"
 export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$HOME/.cargo/bin:/var/bash.bs:/opt/nvim-linux64/bin:$HOME/.filen-cli/bin:/snap/bin:$PATH"
-
+export DOTFILES_DIR="$HOME/dotfiles"
 export NODE_COMPILE_CACHE="$HOME/.cache/nodejs-compile-cache"
 export EDITOR="nvim"
+export FILES="thunar"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="zeditor"
 export COLORTERM=truecolor
@@ -138,7 +139,8 @@ alias zed="zeditor"
 alias fsdate="sudo sudo btrfs subvolume show / | grep -i \"creation time:\""
 alias weather="curl wttr.in"
 alias sshc="-t -- /bin/bash -c \"tmux has-session && exec tmux attach || exec tmux\""
-alias ex="dolphin ."
+alias ex="$FILES ."
+alias packages="cat $DOTFILES_DIR/packages/pkg-list-pacman.txt $DOTFILES_DIR/packages/pkg-list-aur.txt"
 
 # Python HTTP Server
 function pyhttp() {
