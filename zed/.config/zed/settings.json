@@ -7,21 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "context_servers": {
-    "mcp-server-context7": {
-      "source": "extension",
-      "enabled": true,
-      "settings": {
-        "context7_api_key": "ctx7sk-028994e4-9b86-41e8-b8de-58576bb6ca5d"
-      }
-    }
-  },
   "icon_theme": "Catppuccin Mocha",
   "minimap": {
     "show": "never"
   },
   "inlay_hints": {
     "enabled": true
+  },
+  "buffer_line_height": {
+    "custom": 1.4
   },
   "base_keymap": "VSCode",
   "vim_mode": true,
@@ -32,7 +26,9 @@
     "light": "One Light",
     "dark": "Catppuccin Mocha"
   },
-  "ui_font_family": "JetBrains Mono",
+  "toolbar": { "breadcrumbs": false, "quick_actions": false },
+  "buffer_font_family": "JetBrains Mono",
+  "ui_font_family": ".SystemUIFont",
   "terminal": {
     "font_size": 14.0
   },
@@ -45,5 +41,17 @@
     "show_sign_in": false,
     "show_menus": false
   },
-  "disable_ai": true
+  "disable_ai": true,
+  "current_line_highlight": "none",
+  "format_on_save": "on",
+  "tab_size": 2,
+  "languages": {
+    "CSS": {
+      "language_servers": ["tailwindcss-language-server"]
+    }
+  },
+  "code_actions_on_format": {
+    "source.fixAll.biome": true,
+    "source.organizeImports.biome": true
+  }
 }
