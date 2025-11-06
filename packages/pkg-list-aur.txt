@@ -6,6 +6,7 @@ curseforge-bin
 filen-desktop-bin
 fnm-bin
 helium-browser-bin
+heroic-games-launcher-bin
 kanata-bin
 legcord-bin
 libunity
@@ -14,6 +15,7 @@ millennium
 minecraft-launcher
 oh-my-posh-bin
 paru
+pcsx2
 pipes.sh
 pwvucontrol
 qimgv-qt6-kde-git
@@ -21,3 +23,4 @@ rider
 tmux-sessionizer-bin
 unimatrix-git
 unityhub
+xpadneo-dkms-git
