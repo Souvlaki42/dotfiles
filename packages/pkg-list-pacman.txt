@@ -34,6 +34,7 @@ flatpak
 fnm-bin
 fzf
 ghostty
+gimp
 git
 github-cli
 gnuplot
@@ -84,7 +85,7 @@ networkmanager
 noto-fonts-cjk
 obsidian
 oh-my-posh-bin
-papirus-icon-theme
+papirus-icon-theme-git
 paru
 pcmanfm
 pcsx2

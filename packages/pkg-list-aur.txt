@@ -14,6 +14,7 @@ mcpelauncher-ui
 millennium
 minecraft-launcher
 oh-my-posh-bin
+papirus-icon-theme-git
 paru
 pcsx2
 pipes.sh
