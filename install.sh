@@ -117,4 +117,7 @@ if yes_or_no "Would you like to install systemd services?" "y"; then
   done
 fi
 
+echo 1 | sudo tee /proc/sys/kernel/sysrq
+Enabled magic SYSRQ combination...
+
 echo "Installation complete!"
