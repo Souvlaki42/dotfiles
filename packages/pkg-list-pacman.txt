@@ -23,6 +23,7 @@ deno
 dialog
 dnsmasq
 dolphin
+dos2unix
 efibootmgr
 entr
 evtest
@@ -99,11 +100,13 @@ plasma-workspace
 plasma-x11-session
 pwvucontrol
 python-pip
+python-pyqt6
+python-pyqt6-sip
+python-pyqt6-webengine
 qalculate-qt
 qemu-full
 qimgv-qt6-kde-git
 qt5-quickcontrols2
-qutebrowser
 rider
 rsync
 rustup
@@ -124,6 +127,7 @@ ttf-jetbrains-mono
 unimatrix-git
 unityhub
 unzip
+uv
 vi
 vim
 virt-manager
