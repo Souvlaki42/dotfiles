@@ -16,7 +16,7 @@ export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$HOME/.cargo/bin:/var/bash.bs:/op
 export DOTFILES_DIR="$HOME/dotfiles"
 export NODE_COMPILE_CACHE="$HOME/.cache/nodejs-compile-cache"
 export EDITOR="nvim"
-export FILES="thunar"
+export FILES="dolphin"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="zeditor"
 export COLORTERM=truecolor
@@ -40,6 +40,8 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(fnm env --shell zsh)"
 eval "$(oh-my-posh init zsh --config "$HOME/shell.toml")"
 eval "$(atuin init zsh)"
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
 
 # ----------------------------------------
 # Plugin Managers
@@ -193,6 +195,3 @@ if [[ $PROFILING_MODE -ne 0 ]]; then
   zprof
   echo "Shell init time: $((zsh_end_time - zsh_start_time)) ms"
 fi
-
-# bun completions
-[ -s "/home/souvlaki42/.bun/_bun" ] && source "/home/souvlaki42/.bun/_bun"
