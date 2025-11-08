@@ -33,37 +33,6 @@ export FZF_DEFAULT_OPTS=" \
 --color=border:#6C7086,label:#CDD6F4"
 
 # ----------------------------------------
-# Shell Integrations
-# ----------------------------------------
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(fnm env --shell zsh)"
-eval "$(oh-my-posh init zsh --config "$HOME/shell.toml")"
-eval "$(atuin init zsh)"
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
-
-# ----------------------------------------
-# Plugin Managers
-# ----------------------------------------
-typeset -A ZINIT
-ZINIT[OPTIMIZE_OUT_DISK_ACCESSES]=1
-ZINIT[COMPINIT_OPTS]=-C
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-if [[ ! -d "$ZINIT_HOME" ]]; then
-  mkdir -p "$(dirname "$ZINIT_HOME")"
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-source "${ZINIT_HOME}/zinit.zsh"
-
-TPM_HOME="$HOME/.tmux/plugins/tpm"
-if [[ ! -d "$TPM_HOME" ]]; then
-  mkdir -p "$(dirname "$TPM_HOME")"
-  git clone https://github.com/tmux-plugins/tpm.git "$TPM_HOME"
-  "$TPM_HOME/bin/install_plugins"
-fi
-
-# ----------------------------------------
 # Completions
 # ----------------------------------------
 setopt completealiases
@@ -96,6 +65,36 @@ zstyle ":completion:*:*:kill:*:processes" \
 zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
 zstyle ":completion:*" beep no
 
+# ----------------------------------------
+# Shell Integrations
+# ----------------------------------------
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(fnm env --shell zsh)"
+eval "$(oh-my-posh init zsh --config "$HOME/shell.toml")"
+eval "$(atuin init zsh)"
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+
+# ----------------------------------------
+# Plugin Managers
+# ----------------------------------------
+typeset -A ZINIT
+ZINIT[OPTIMIZE_OUT_DISK_ACCESSES]=1
+ZINIT[COMPINIT_OPTS]=-C
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [[ ! -d "$ZINIT_HOME" ]]; then
+  mkdir -p "$(dirname "$ZINIT_HOME")"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
+
+TPM_HOME="$HOME/.tmux/plugins/tpm"
+if [[ ! -d "$TPM_HOME" ]]; then
+  mkdir -p "$(dirname "$TPM_HOME")"
+  git clone https://github.com/tmux-plugins/tpm.git "$TPM_HOME"
+  "$TPM_HOME/bin/install_plugins"
+fi
 
 # ----------------------------------------
 # Zinit Plugins
