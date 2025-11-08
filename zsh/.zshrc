@@ -70,14 +70,9 @@ setopt completealiases
 ZSH_COMPDUMP="${XDG_CACHE_HOME:=$HOME/.cache}/zsh/zcompdump"
 mkdir -p "${ZSH_COMPDUMP:h}"
 
-# zinit can defer compinit for faster startup
+# Load completion system immediately
 autoload -Uz compinit
-
-# Defer initialization until first completion is used
-# -u skips some expensive security checks
-# -d points to our stable cache file
-zicompinit
-zicdreplay -d "$ZSH_COMPDUMP" -u
+compinit -d "$ZSH_COMPDUMP" -u
 
 # Your custom completion sources
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
@@ -100,6 +95,7 @@ zstyle ":completion:*:*:kill:*:processes" \
   list-colors "=(#b) #([0-9]#)*=0=01;31"
 zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
 zstyle ":completion:*" beep no
+
 
 # ----------------------------------------
 # Zinit Plugins
