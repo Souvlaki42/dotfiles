@@ -107,6 +107,7 @@ qalculate-qt
 qemu-full
 qimgv-qt6-kde-git
 qt5-quickcontrols2
+qtcreator
 rider
 rsync
 rustup
