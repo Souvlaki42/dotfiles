@@ -119,6 +119,7 @@ sshfs
 steam
 stow
 swtpm
+tesseract
 thunar
 thunar-volman
 tldr
