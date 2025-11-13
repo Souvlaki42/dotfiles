@@ -8,7 +8,6 @@ fnm-bin
 helium-browser-bin
 heroic-games-launcher-bin
 kanata-bin
-legcord-bin
 libunity
 mcpelauncher-ui
 millennium
@@ -21,7 +20,9 @@ pipes.sh
 pwvucontrol
 qimgv-qt6-kde-git
 rider
+selectdefaultapplication-git
 tmux-sessionizer-bin
 unimatrix-git
 unityhub
+vesktop
 xpadneo-dkms-git

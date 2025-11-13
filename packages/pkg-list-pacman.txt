@@ -15,6 +15,7 @@ bridge-utils
 btrfs-progs
 cava
 cbonsai
+ccls
 cdrtools
 cloc
 colloid-catppuccin-gtk-theme-git
@@ -50,6 +51,8 @@ gvfs
 helium-browser-bin
 heroic-games-launcher-bin
 htop
+icoutils
+imagemagick
 iptables-nft
 iwd
 jdk17-openjdk
@@ -61,16 +64,15 @@ kdeconnect
 kio-admin
 konsole
 lazygit
-legcord-bin
 less
 libguestfs
+libicns
 libpulse
 libunity
 linux-firmware
 linux-lts
 linux-lts-headers
 linuxconsole
-lutris
 mandoc
 maven
 mcpelauncher-ui
@@ -107,10 +109,12 @@ qalculate-qt
 qemu-full
 qimgv-qt6-kde-git
 qt5-quickcontrols2
+qt5-tools
 qtcreator
 rider
 rsync
 rustup
+selectdefaultapplication-git
 shellcheck
 sl
 smartmontools
@@ -130,6 +134,7 @@ unimatrix-git
 unityhub
 unzip
 uv
+vesktop
 vi
 vim
 virt-manager
