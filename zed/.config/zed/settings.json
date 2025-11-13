@@ -27,6 +27,12 @@
     "light": "One Light",
     "dark": "Catppuccin Mocha"
   },
+  "project_panel": {
+    "dock": "right"
+  },
+  "tab_bar": {
+    "show": false
+  },
   "toolbar": { "breadcrumbs": false, "quick_actions": false },
   "buffer_font_family": "JetBrains Mono",
   "ui_font_family": ".SystemUIFont",
