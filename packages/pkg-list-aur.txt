@@ -8,8 +8,8 @@ fnm-bin
 haguichi
 helium-browser-bin
 heroic-games-launcher-bin
-kanata-bin
 libunity
+ludusavi-bin
 lumafly
 mcpelauncher-ui
 millennium

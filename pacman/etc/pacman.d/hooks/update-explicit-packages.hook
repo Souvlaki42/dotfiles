@@ -8,4 +8,4 @@ Target = *
 [Action]
 Description = Update explicitly installed package lists
 When = PostTransaction
-Exec = /usr/bin/bash -c "pacman -Qqe | grep -v -- \"-debug$\" > \"/home/$SUDO_USER/dotfiles/packages/pkg-list-pacman.txt\"; pacman -Qqem | grep -v -- \"-debug$\" > \"/home/$SUDO_USER/dotfiles/packages/pkg-list-aur.txt\" 2>/dev/null"
+Exec = /usr/bin/bash -c "mkdir -p \"/home/$SUDO_USER/dotfiles/packages\"; pacman -Qqen | grep -v -- '-debug$' | sort > \"/home/$SUDO_USER/dotfiles/packages/pkg-list-pacman.txt\"; pacman -Qqem | grep -v -- '-debug$' | sort > \"/home/$SUDO_USER/dotfiles/packages/pkg-list-aur.txt\""

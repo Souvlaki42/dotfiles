@@ -145,6 +145,17 @@ function pyhttp() {
   python3 -m http.server $port
 }
 
+# Ludusavi
+function backupgames() {
+  BACKUP_DIR="$HOME/ludusavi-backup"
+  DATE=$(date +%Y-%m-%d)
+
+  ludusavi backup --path "$BACKUP_DIR/$DATE" --force
+
+  # Keep only last 7 days of backups
+  fd -d 1 -t d --changed-before 7days . "$BACKUP_DIR" -x rm -rf
+}
+
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
