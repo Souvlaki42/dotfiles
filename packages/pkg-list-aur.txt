@@ -5,10 +5,12 @@ colloid-catppuccin-gtk-theme-git
 curseforge-bin
 filen-desktop-bin
 fnm-bin
+haguichi
 helium-browser-bin
 heroic-games-launcher-bin
 kanata-bin
 libunity
+lumafly
 mcpelauncher-ui
 millennium
 minecraft-launcher

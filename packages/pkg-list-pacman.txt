@@ -48,6 +48,7 @@ grub-btrfs
 gsmartcontrol
 gst-plugin-pipewire
 gvfs
+haguichi
 helium-browser-bin
 heroic-games-launcher-bin
 htop
@@ -73,6 +74,7 @@ linux-firmware
 linux-lts
 linux-lts-headers
 linuxconsole
+lumafly
 mandoc
 maven
 mcpelauncher-ui
@@ -88,6 +90,7 @@ networkmanager
 noto-fonts-cjk
 obsidian
 oh-my-posh-bin
+openvpn
 papirus-icon-theme-git
 paru
 pcmanfm
