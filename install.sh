@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 
+trap "echo -e '\nCanceling installation...'; exit 130" INT
+
+ACCEPT_ALL=false
+if [[ "$1" == "--yes" || "$1" == "-y" ]]; then
+  ACCEPT_ALL=true
+fi
+
 function yes_or_no() {
+  if [[ "$ACCEPT_ALL" == true ]]; then
+    echo "$1 [auto-yes]"
+    return 0
+  fi
+  
   local prompt=$1
   local default=${2-"y"}
   local yn
@@ -66,11 +78,21 @@ if yes_or_no "Would you like to install packages?" "y"; then
 fi
 
 if yes_or_no "Would you like to install AUR packages?" "y"; then
-  mapfile -t installed < <(multiselect "./packages/pkg-list-aur.txt")
-  paru -Sy --needed --noconfirm "${installed[@]}"
+  mapfile -t selected < <(multiselect "./packages/pkg-list-aur.txt")
+  to_install=()
+  for pkg in "${selected[@]}"; do
+    if ! pacman -Qq "$pkg" &>/dev/null; then
+      to_install+=("$pkg")
+    fi
+  done
+  if [[ ${#to_install[@]} -gt 0 ]]; then
+    paru -S --needed --noconfirm "${to_install[@]}"
+  else
+    echo "All selected AUR packages are already installed."
+  fi
 fi
 
-symlinks=("atuin" "git" "nvim" "prompt" "tms" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment" "hollow-knight" "kanata")
+symlinks=("atuin" "git" "nvim" "prompt" "tms" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment")
 if yes_or_no "Would you like to install symbolic links?" "y"; then
   mapfile -t to_link < <(multiselect "${symlinks[@]}")
   for item in "${to_link[@]}"
@@ -95,33 +117,16 @@ if yes_or_no "Would you like to install sddm configuration?" "y"; then
   sudo stow -d "$DOTFILES_DIR" -t "/" "sddm" || { echo "Failed to link sddm"; exit 1; }
 fi
 
-# groups=("input" "uinput")
-# if yes_or_no "Would you like to add your user to groups?" "y"; then
-#   mapfile -t to_group < <(multiselect "${groups[@]}")
-#   for item in "${to_group[@]}"
-#     do
-#       echo "Adding user to $item group..."
-#       sudo groupadd --system "$item"
-#       sudo usermod -aG "$item" "$USER" || { echo "Failed to add user to $item group"; exit 1; }
-#     done
-# fi
-#
-# services=("kanata")
-# if yes_or_no "Would you like to install systemd services?" "y"; then
-#   mapfile -t to_enabke < <(multiselect "${services[@]}")
-#   for item in "${to_enabke[@]}"
-#   do
-#     echo "Enabling $item service..."
-#     systemctl --user enable "$item.service" || { echo "Failed to enable $item"; exit 1; }
-#     systemctl --user start "$item.service" || { echo "Failed to start $item"; exit 1; }
-#   done
-# fi
-#
+if yes_or_no "Would you like to install systemd configuration?" "y"; then
+  echo "Installing sddm configuration..."
+  sudo stow -d "$DOTFILES_DIR" -t "/" "systemd" || { echo "Failed to link systemd"; exit 1; }
+fi
 
 if yes_or_no "Would you like to enable magic SYSRQ?" "y"; then
   echo "Enabling magic SYSRQ..."
-  echo 1 | sudo tee /proc/sys/kernel/sysrq
-  echo "Enabled magic SYSRQ combination..."
+  echo "kernel.sysrq = 1" | sudo tee /etc/sysctl.d/99-sysrq.conf > /dev/null
+  sudo sysctl --system > /dev/null
+  echo "Magic SYSRQ enabled permanently."
 fi
 
 echo "Installation complete!"

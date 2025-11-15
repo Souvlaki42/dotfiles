@@ -33,7 +33,10 @@ Screenshot Engine -> Spectacle
 1. Install [Arch Linux](https://archlinux.org)
 2. Install Paru, fzf, and stow
 3. Clone this repository
-4. Run the install script
+4. Make install script executable: `chmod +x install.sh`
+5. Run the install script: `./install.sh`
+> [!NOTE]
+> Use `-y` to accept the default options. Press `Ctrl+C` to exit.
 
 ## Unlicense
 
