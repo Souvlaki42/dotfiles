@@ -21,6 +21,7 @@ export GIT_EDITOR="$EDITOR"
 export VISUAL="zeditor"
 export COLORTERM=truecolor
 export SHELL=$(which zsh) # Fix Ghostty not using default shell
+export QT_MEDIA_BACKEND="ffmpeg"
 
 # ----------------------------------------
 # Fzf Catppuccin theme
