@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Legcord
-Comment=Discord client with builtin client mod and theme support
-Exec=legcord --enable-features=StatusNotifier
-Icon=legcord
-Categories=Internet;Network;InstantMessaging;
