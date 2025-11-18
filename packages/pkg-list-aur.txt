@@ -19,6 +19,7 @@ papirus-icon-theme-git
 paru
 pcsx2
 pipes.sh
+plasma6-wallpapers-smart-video-wallpaper-reborn
 pwvucontrol
 qimgv-qt6-kde-git
 rider
@@ -27,4 +28,4 @@ tmux-sessionizer-bin
 unimatrix-git
 unityhub
 vesktop
-xpadneo-dkms-git
+xpadneo-dkms

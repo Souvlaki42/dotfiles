@@ -15,6 +15,7 @@ cava
 ccls
 cdrtools
 cloc
+cpu-x
 deno
 dialog
 dnsmasq
@@ -75,6 +76,7 @@ networkmanager
 network-manager-applet
 noto-fonts-cjk
 obsidian
+obs-studio
 openvpn
 pcmanfm
 pipewire
