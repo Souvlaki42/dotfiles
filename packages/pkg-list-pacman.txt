@@ -33,6 +33,7 @@ ghostty
 gimp
 git
 github-cli
+git-lfs
 gnuplot
 go
 godot
