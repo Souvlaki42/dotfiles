@@ -33,7 +33,7 @@
   "tab_bar": {
     "show": false
   },
-  "toolbar": { "breadcrumbs": false, "quick_actions": false },
+  "toolbar": { "breadcrumbs": true, "quick_actions": false },
   "buffer_font_family": "JetBrains Mono",
   "ui_font_family": ".SystemUIFont",
   "terminal": {
