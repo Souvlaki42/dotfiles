@@ -1,5 +1,7 @@
+anydesk-bin
 asciiquarium-transparent-git
 bibata-cursor-theme-bin
+bottles
 cbonsai
 colloid-catppuccin-gtk-theme-git
 curseforge-bin
@@ -8,6 +10,7 @@ fnm-bin
 haguichi
 helium-browser-bin
 heroic-games-launcher-bin
+intellij-idea-community-edition-bin
 libunity
 ludusavi-bin
 lumafly

@@ -48,7 +48,6 @@ icoutils
 imagemagick
 iptables-nft
 iwd
-jdk17-openjdk
 jdk21-openjdk
 jq
 kate
