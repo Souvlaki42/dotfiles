@@ -12,7 +12,7 @@ fi
 # ----------------------------------------
 export BUN_INSTALL="$HOME/.bun"
 export JAVA_HOME="/usr/lib/jvm/default"
-export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$HOME/.cargo/bin:/var/bash.bs:/opt/nvim-linux64/bin:$HOME/.filen-cli/bin:/snap/bin:$PATH"
+export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$HOME/.cargo/bin:/var/bash.bs:/opt/nvim-linux64/bin:$JAVA_HOME/bin:$HOME/.filen-cli/bin:/snap/bin:$PATH"
 export DOTFILES_DIR="$HOME/dotfiles"
 export NODE_COMPILE_CACHE="$HOME/.cache/nodejs-compile-cache"
 export EDITOR="nvim"
