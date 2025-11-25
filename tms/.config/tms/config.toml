@@ -1,10 +1,10 @@
 default_session = "main"
 bookmarks = [
-    "/home/souvlaki42/dotfiles",
-    "/home/souvlaki42/code",
-    "/home/souvlaki42/Downloads"
+    "~/dotfiles",
+    "~/code",
+    "~/Downloads"
 ]
 
 [[search_dirs]]
-path = "/home/souvlaki42/code"
+path = "~/code"
 depth = 1
