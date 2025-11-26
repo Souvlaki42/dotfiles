@@ -56,6 +56,7 @@ kio-admin
 konsole
 lazygit
 less
+libayatana-appindicator
 libguestfs
 libicns
 libpulse
