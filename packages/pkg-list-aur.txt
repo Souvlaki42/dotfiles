@@ -1,7 +1,6 @@
 anydesk-bin
 asciiquarium-transparent-git
 bibata-cursor-theme-bin
-bottles
 cbonsai
 colloid-catppuccin-gtk-theme-git
 curseforge-bin
@@ -10,7 +9,6 @@ fnm-bin
 haguichi
 helium-browser-bin
 heroic-games-launcher-bin
-intellij-idea-community-edition-bin
 libunity
 ludusavi-bin
 lumafly
@@ -25,9 +23,9 @@ plasma6-wallpapers-smart-video-wallpaper-reborn
 pwvucontrol
 qimgv-qt6-kde-git
 selectdefaultapplication-git
+spotify
 teams-for-linux-bin
 tmux-sessionizer-bin
 unimatrix-git
-unityhub
 vesktop
 xpadneo-dkms
