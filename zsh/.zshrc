@@ -36,7 +36,6 @@ export FZF_DEFAULT_OPTS=" \
 # ----------------------------------------
 # Completions
 # ----------------------------------------
-setopt completealiases
 ZSH_COMPDUMP="${XDG_CACHE_HOME:=$HOME/.cache}/zsh/zcompdump"
 mkdir -p "${ZSH_COMPDUMP:h}"
 
@@ -102,7 +101,6 @@ fi
 # ----------------------------------------
 # Load these immediately for instant feedback
 zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
 
@@ -138,7 +136,7 @@ alias fsdate="sudo sudo btrfs subvolume show / | grep -i \"creation time:\""
 alias weather="curl wttr.in"
 alias sshc="-t -- /bin/bash -c \"tmux has-session && exec tmux attach || exec tmux\""
 alias ex="$FILES ."
-alias packages="cat $DOTFILES_DIR/packages/pkg-list-pacman.txt $DOTFILES_DIR/packages/pkg-list-aur.txt"
+alias packages="cat $DOTFILES_DIR/packages/*.txt"
 
 # Python HTTP Server
 function pyhttp() {
@@ -184,14 +182,21 @@ setopt EXTENDED_HISTORY
 # Keybindings
 # ----------------------------------------
 bindkey -v
-bindkey -M vicmd "k" history-substring-search-up
-bindkey -M vicmd "j" history-substring-search-down
 
 # ----------------------------------------
 # Open tmux on startup
 # ----------------------------------------
 if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
     tmux new-session -A -s main
+fi
+
+# ----------------------------------------
+# Completion aliases
+# ----------------------------------------
+if (( $+functions[_paru] )); then
+  compdef _paru paru
+  compdef _paru yay
+  compdef _paru yeet
 fi
 
 # ----------------------------------------
