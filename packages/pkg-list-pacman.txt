@@ -52,6 +52,7 @@ jdk21-openjdk
 jq
 kate
 kdeconnect
+kdenlive
 kio-admin
 konsole
 lazygit
