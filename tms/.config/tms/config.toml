@@ -2,7 +2,14 @@ default_session = "main"
 bookmarks = [
     "~/dotfiles",
     "~/code",
-    "~/Downloads"
+    "~/Downloads",
+    "~/Documents",
+    "~/Pictures",
+    "~/Music",
+    "~/Videos",
+    "~/Desktop",
+    "~/Obsidian",
+    "~/VMs"
 ]
 
 [[search_dirs]]
