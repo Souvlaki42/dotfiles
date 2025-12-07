@@ -1,11 +1,3 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
   "icon_theme": "Catppuccin Mocha",
   "minimap": {
@@ -30,10 +22,20 @@
   "project_panel": {
     "dock": "right"
   },
-  "tab_bar": {
-    "show": false
+  "collaboration_panel": {
+    "button": false
   },
-  "toolbar": { "breadcrumbs": true, "quick_actions": false },
+  "git_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "tab_bar": {
+    "show": true
+  },
+  "relative_line_numbers": "enabled",
+  "toolbar": { "breadcrumbs": false, "quick_actions": false },
   "buffer_font_family": "JetBrains Mono",
   "ui_font_family": ".SystemUIFont",
   "terminal": {
@@ -55,10 +57,16 @@
   "languages": {
     "CSS": {
       "language_servers": ["tailwindcss-language-server"]
+    },
+    "Markdown": {
+      "language_servers": ["!gdscript"]
     }
   },
   "code_actions_on_format": {
     "source.fixAll.biome": true,
     "source.organizeImports.biome": true
+  },
+  "features": {
+    "edit_prediction_provider": "supermaven"
   }
 }
