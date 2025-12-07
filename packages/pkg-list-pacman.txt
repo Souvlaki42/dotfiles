@@ -46,6 +46,7 @@ gvfs
 htop
 icoutils
 imagemagick
+inetutils
 iptables-nft
 iwd
 jdk21-openjdk

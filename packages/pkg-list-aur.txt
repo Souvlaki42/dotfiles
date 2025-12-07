@@ -1,6 +1,7 @@
 anydesk-bin
 asciiquarium-transparent-git
 bibata-cursor-theme-bin
+burpsuite
 cbonsai
 colloid-catppuccin-gtk-theme-git
 curseforge-bin
@@ -9,10 +10,10 @@ fnm-bin
 haguichi
 helium-browser-bin
 heroic-games-launcher-bin
+hw-probe
 libunity
 ludusavi-bin
 lumafly
-millennium
 minecraft-launcher
 oh-my-posh-bin
 papirus-icon-theme-git
