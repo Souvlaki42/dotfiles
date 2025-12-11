@@ -119,14 +119,15 @@ export/web/tls_key = ""
 export/web/tls_certificate = ""
 export/windows/osslsigncode = ""
 _editor_settings_advanced_mode = true
-_project_settings_advanced_mode = false
+_project_settings_advanced_mode = true
 _export_template_download_directory = ""
 _default_feature_profile = ""
 _script_setup_templates_dictionary = {
 "Camera2D": "0NodeDefault",
 "CharacterBody2D": "0CharacterBody2DBasic Movement",
 "Node": "0NodeDefault",
-"Node2D": "0NodeDefault"
+"Node2D": "0NodeDefault",
+"Sprite2D": "0NodeDefault"
 }
 _script_setup_use_script_templates = true
 _use_favorites_root_selection = false
