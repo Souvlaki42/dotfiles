@@ -5,8 +5,10 @@ burpsuite
 cbonsai
 colloid-catppuccin-gtk-theme-git
 curseforge-bin
+cursor-bin
 filen-desktop-bin
 fnm-bin
+gdscript-formatter-bin
 haguichi
 helium-browser-bin
 heroic-games-launcher-bin

@@ -55,6 +55,14 @@
   "format_on_save": "on",
   "tab_size": 2,
   "languages": {
+    "GDScript": {
+      "formatter": {
+        "external": {
+          "command": "gdscript-formatter",
+          "arguments": ["--safe"]
+        }
+      }
+    },
     "CSS": {
       "language_servers": ["tailwindcss-language-server"]
     },
