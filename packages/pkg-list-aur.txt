@@ -1,8 +1,10 @@
+amf-amdgpu-pro
 anydesk-bin
 asciiquarium-transparent-git
 bibata-cursor-theme-bin
 burpsuite
 cbonsai
+codecrafters-bin
 colloid-catppuccin-gtk-theme-git
 curseforge-bin
 cursor-bin

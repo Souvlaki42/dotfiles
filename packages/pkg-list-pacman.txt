@@ -41,6 +41,7 @@ grex
 grub
 grub-btrfs
 gsmartcontrol
+gst-libav
 gst-plugin-pipewire
 gvfs
 htop
@@ -80,6 +81,7 @@ net-tools
 networkmanager
 network-manager-applet
 noto-fonts-cjk
+nvtop
 obsidian
 obs-studio
 openvpn
@@ -99,6 +101,7 @@ qalculate-qt
 qemu-full
 qt5-quickcontrols2
 qt5-tools
+qt6-multimedia-gstreamer
 qtcreator
 rsync
 rustup
