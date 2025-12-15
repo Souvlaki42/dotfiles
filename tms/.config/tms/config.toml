@@ -9,7 +9,8 @@ bookmarks = [
     "~/Videos",
     "~/Desktop",
     "~/Obsidian",
-    "~/VMs"
+    "~/VMs",
+    "~/code/cybersec"
 ]
 
 [[search_dirs]]
