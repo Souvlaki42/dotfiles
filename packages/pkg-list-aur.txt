@@ -15,6 +15,7 @@ haguichi
 helium-browser-bin
 heroic-games-launcher-bin
 hw-probe
+itch-bin
 libunity
 ludusavi-bin
 lumafly

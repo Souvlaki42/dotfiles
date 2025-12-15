@@ -76,5 +76,10 @@
   },
   "features": {
     "edit_prediction_provider": "supermaven"
+  },
+  "profiles": {
+    "Using AI": {
+      "disable_ai": false
+    }
   }
 }
