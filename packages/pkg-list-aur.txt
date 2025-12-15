@@ -25,7 +25,6 @@ papirus-icon-theme-git
 paru
 pcsx2
 pipes.sh
-plasma6-wallpapers-smart-video-wallpaper-reborn
 pwvucontrol
 qimgv-qt6-kde-git
 selectdefaultapplication-git
