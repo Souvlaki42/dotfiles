@@ -107,11 +107,6 @@ if yes_or_no "Would you like to install pacman configuration?" "y"; then
   sudo stow -d "$DOTFILES_DIR" -t "/" "pacman" || { echo "Failed to link pacman"; exit 1; }
 fi
 
-if yes_or_no "Would you like to install udev rules?" "y"; then
-  echo "Installing udev rules..."
-  sudo stow -d "$DOTFILES_DIR" -t "/" "udev" || { echo "Failed to link udev"; exit 1; }
-fi
-
 if yes_or_no "Would you like to install sddm configuration?" "y"; then
   echo "Installing sddm configuration..."
   sudo stow -d "$DOTFILES_DIR" -t "/" "sddm" || { echo "Failed to link sddm"; exit 1; }
