@@ -92,7 +92,7 @@ if yes_or_no "Would you like to install AUR packages?" "y"; then
   fi
 fi
 
-symlinks=("atuin" "git" "nvim" "prompt" "tms" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment" "godot")
+symlinks=("atuin" "git" "nvim" "prompt" "tms" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment" "godot" "fastfetch")
 if yes_or_no "Would you like to install symbolic links?" "y"; then
   mapfile -t to_link < <(multiselect "${symlinks[@]}")
   for item in "${to_link[@]}"
