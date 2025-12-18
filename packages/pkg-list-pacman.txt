@@ -50,6 +50,8 @@ inetutils
 iptables-nft
 iwd
 jdk21-openjdk
+jdk-openjdk
+jenv
 jq
 kate
 kdeconnect
@@ -62,6 +64,7 @@ less
 libayatana-appindicator
 libguestfs
 libicns
+libinput-tools
 libpulse
 linux
 linuxconsole
@@ -79,6 +82,7 @@ neovim
 net-tools
 networkmanager
 network-manager-applet
+nmap
 noto-fonts-cjk
 obsidian
 obs-studio
