@@ -15,8 +15,9 @@ haguichi
 helium-browser-bin
 heroic-games-launcher-bin
 hw-probe
+imhex-bin
+intellij-idea-community-edition-bin
 itch-bin
-libunity
 ludusavi-bin
 lumafly
 minecraft-launcher
