@@ -10,6 +10,7 @@ bat
 bluez
 bluez-utils
 bridge-utils
+btrfs-assistant
 btrfs-progs
 cava
 ccls
@@ -47,6 +48,7 @@ htop
 icoutils
 imagemagick
 inetutils
+inotify-tools
 iptables-nft
 iwd
 jdk21-openjdk
@@ -78,6 +80,7 @@ mkcert
 mtpfs
 nano
 nasm
+ncdu
 neovim
 net-tools
 networkmanager
@@ -109,6 +112,8 @@ rustup
 shellcheck
 sl
 smartmontools
+snap-pac
+snapper
 speedtest-cli
 sshfs
 steam
