@@ -12,7 +12,7 @@ function yes_or_no() {
     echo "$1 [auto-yes]"
     return 0
   fi
-  
+
   local prompt=$1
   local default=${2-"y"}
   local yn
@@ -102,19 +102,14 @@ if yes_or_no "Would you like to install symbolic links?" "y"; then
   done
 fi
 
-if yes_or_no "Would you like to install pacman configuration?" "y"; then
-  echo "Installing pacman configuration..."
-  sudo stow -d "$DOTFILES_DIR" -t "/" "pacman" || { echo "Failed to link pacman"; exit 1; }
-fi
-
-if yes_or_no "Would you like to install sddm configuration?" "y"; then
-  echo "Installing sddm configuration..."
-  sudo stow -d "$DOTFILES_DIR" -t "/" "sddm" || { echo "Failed to link sddm"; exit 1; }
-fi
-
-if yes_or_no "Would you like to install systemd configuration?" "y"; then
-  echo "Installing sddm configuration..."
-  sudo stow -d "$DOTFILES_DIR" -t "/" "systemd" || { echo "Failed to link systemd"; exit 1; }
+system_links=("pacman" "sddm" "systemd" "grub")
+if yes_or_no "Would you like to install system links?" "y"; then
+  mapfile -t to_link < <(multiselect "${system_links[@]}")
+  for item in "${to_link[@]}"
+  do
+    echo "Installing $item configuration..."
+    sudo stow -d "$DOTFILES_DIR" -t "/" "$item" || { echo "Failed to link $item"; exit 1; }
+  done
 fi
 
 if yes_or_no "Would you like to enable magic SYSRQ?" "y"; then
@@ -125,3 +120,8 @@ if yes_or_no "Would you like to enable magic SYSRQ?" "y"; then
 fi
 
 echo "Installation complete!"
+if yes_or_no "A reboot is advised for changes to take effect. Proceed with reboot?"; then
+  sudo reboot
+else
+  echo "That's fine by me. Have a nice day!"
+fi
