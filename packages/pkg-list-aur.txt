@@ -3,11 +3,13 @@ anydesk-bin
 asciiquarium-transparent-git
 bibata-cursor-theme-bin
 burpsuite
+c3c-git
 cbonsai
 codecrafters-bin
 colloid-catppuccin-gtk-theme-git
 curseforge-bin
 cursor-bin
+doppler-cli-bin
 filen-desktop-bin
 fnm-bin
 gdscript-formatter-bin
@@ -16,7 +18,6 @@ helium-browser-bin
 heroic-games-launcher-bin
 hw-probe
 imhex-bin
-intellij-idea-community-edition-bin
 itch-bin
 ludusavi-bin
 lumafly
