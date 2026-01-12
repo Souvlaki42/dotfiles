@@ -61,6 +61,8 @@ if [[ ! -d "$DOTFILES_DIR" ]]; then
   git clone https://github.com/souvlaki42/dotfiles "$DOTFILES_DIR"
 fi
 
+echo "Default AUR helper is paru. Installing..."
+
 if ! command -v paru &> /dev/null; then
   echo "Installing paru..."
   paru_dir="${XDG_BIN_HOME:-$HOME/.local/bin}/paru"
@@ -68,6 +70,17 @@ if ! command -v paru &> /dev/null; then
   cd "$paru_dir" || { echo "Failed to enter paru directory"; exit 1; }
   makepkg -si --noconfirm
   cd "$HOME" ||  { echo "Failed to enter home directory"; exit 1; }
+  rm -rf "$paru_dir" || { echo "Failed to remove paru directory"; exit 1; }
+fi
+
+if yes_or_no "Would you like to also install yay?" "y"; then
+  echo "Installing yay..."
+  yay_dir="${XDG_BIN_HOME:-$HOME/.local/bin}/yay"
+  git clone https://aur.archlinux.org/yay.git "$yay_dir"
+  cd "$yay_dir" || { echo "Failed to enter yay directory"; exit 1; }
+  makepkg -si --noconfirm
+  cd "$HOME" ||  { echo "Failed to enter home directory"; exit 1; }
+  rm -rf "$yay_dir" || { echo "Failed to remove yay directory"; exit 1; }
 fi
 
 cd "$DOTFILES_DIR" || { echo "Failed to enter dotfiles directory"; exit 1; }
@@ -98,7 +111,16 @@ if yes_or_no "Would you like to install symbolic links?" "y"; then
   for item in "${to_link[@]}"
   do
     echo "Linking $item..."
-    stow -d "$DOTFILES_DIR" -t "$HOME" "$item" || { echo "Failed to link $item"; exit 1; }
+    if stow -n -v -d "$DOTFILES_DIR" -t "$HOME" "$item"; then
+      stow -v -d "$DOTFILES_DIR" -t "$HOME" "$item"
+    else
+      echo "Conflicts in $item. Use --adopt? (backs up your files to repo)"
+      if yes_or_no "Adopt existing files for $item?"; then
+        stow --adopt=* -v -d "$DOTFILES_DIR" -t "$HOME" "$item"
+      else
+        echo "Skipping $item"
+      fi
+    fi
   done
 fi
 
@@ -108,7 +130,16 @@ if yes_or_no "Would you like to install system links?" "y"; then
   for item in "${to_link[@]}"
   do
     echo "Installing $item configuration..."
-    sudo stow -d "$DOTFILES_DIR" -t "/" "$item" || { echo "Failed to link $item"; exit 1; }
+    if sudo stow -n -v -d "$DOTFILES_DIR" -t "/" "$item"; then
+      sudo stow -v -d "$DOTFILES_DIR" -t "/" "$item"
+    else
+      echo "Conflicts in $item. Use --adopt? (backs up your files to repo)"
+      if yes_or_no "Adopt existing files for $item?"; then
+        sudo stow --adopt=* -v -d "$DOTFILES_DIR" -t "/" "$item"
+      else
+        echo "Skipping $item"
+      fi
+    fi
   done
 fi
 
