@@ -22,23 +22,22 @@ Font -> JetBrains Mono Nerd Font \
 Terminal -> Ghostty \
 Filemanager -> Dolphin \
 Browser -> Helium \
-Chat -> Legcord \
-Editor -> Zed \
+Chat -> Vesktop \
+Editor -> Zed/Neovim/Cursor \
 Notes -> Obsidian \
 Game Engine -> Godot/Unity \
 Screenshot Engine -> Spectacle
 
 ## Installation
 
-1. Install [Arch Linux](https://archlinux.org)
-2. Install Paru, fzf, and stow
-3. Clone this repository
+1. Install [Arch Linux](https://archlinux.org/download/)
+2. Install Git: `sudo pacman -S git`
+3. Clone this repository: `git clone https://github.com/Souvlaki42/dotfiles.git`
 4. Make install script executable: `chmod +x install.sh`
 5. Run the install script: `./install.sh`
-> [!NOTE]
-> Use `-y` to accept the default options. Press `Ctrl+C` to exit.
+   > [!NOTE]
+   > Use `-y` to accept the default options. Press `Ctrl+C` to exit.
 
 ## Unlicense
 
 This project is released into the public domain. See the [UNLICENSE](UNLICENSE) file for details.
-
