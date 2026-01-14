@@ -143,6 +143,11 @@ if yes_or_no "Would you like to install system links?" "y"; then
   done
 fi
 
+if yes_or_no "Would you like to enable the gcr-ssh-agent service?" "y"; then
+  systemctl --user daemon-reload
+  systemctl --user enable --now gcr-ssh-agent.socket
+fi
+
 if yes_or_no "Would you like to enable magic SYSRQ?" "y"; then
   echo "Enabling magic SYSRQ..."
   echo "kernel.sysrq = 1" | sudo tee /etc/sysctl.d/99-sysrq.conf > /dev/null

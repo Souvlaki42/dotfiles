@@ -35,6 +35,7 @@ gimp
 git
 github-cli
 git-lfs
+gnome-keyring
 gnuplot
 go
 godot
