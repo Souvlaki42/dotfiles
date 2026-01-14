@@ -22,6 +22,7 @@ itch-bin
 ludusavi-bin
 lumafly
 minecraft-launcher
+noctalia-shell
 oh-my-posh-bin
 papirus-icon-theme-git
 paru

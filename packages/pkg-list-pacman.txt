@@ -1,4 +1,5 @@
 acpid
+alacritty
 amd-ucode
 android-file-transfer
 android-tools
@@ -29,6 +30,7 @@ eza
 fastfetch
 fd
 flatpak
+fuzzel
 fzf
 ghostty
 gimp
@@ -87,6 +89,7 @@ neovim
 net-tools
 networkmanager
 network-manager-applet
+niri
 nmap
 noto-fonts-cjk
 obsidian
@@ -111,6 +114,7 @@ qt5-tools
 qtcreator
 rsync
 rustup
+seahorse
 shellcheck
 sl
 smartmontools
@@ -120,6 +124,7 @@ speedtest-cli
 sshfs
 steam
 stow
+swaybg
 swtpm
 tesseract
 thunar
@@ -134,6 +139,7 @@ vim
 virt-manager
 virt-viewer
 vulkan-radeon
+waybar
 wget
 wine
 wine-gecko
@@ -147,6 +153,7 @@ xf86-video-amdgpu
 xf86-video-ati
 xorg-xinit
 xsel
+xwayland-satellite
 zed
 zoxide
 zram-generator
