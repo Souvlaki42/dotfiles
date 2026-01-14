@@ -111,7 +111,7 @@ if yes_or_no "Would you like to install symbolic links?" "y"; then
   for item in "${to_link[@]}"
   do
     echo "Linking $item..."
-    if stow -n -v -d "$DOTFILES_DIR" -t "$HOME" "$item"; then
+    if stow -n -v -d "$DOTFILES_DIR" -t "$HOME" "$item" &>/dev/null; then
       stow -v -d "$DOTFILES_DIR" -t "$HOME" "$item"
     else
       echo "Conflicts in $item. Use --adopt? (backs up your files to repo)"
@@ -130,7 +130,7 @@ if yes_or_no "Would you like to install system links?" "y"; then
   for item in "${to_link[@]}"
   do
     echo "Installing $item configuration..."
-    if sudo stow -n -v -d "$DOTFILES_DIR" -t "/" "$item"; then
+    if sudo stow -n -v -d "$DOTFILES_DIR" -t "/" "$item" 2>/dev/null; then
       sudo stow -v -d "$DOTFILES_DIR" -t "/" "$item"
     else
       echo "Conflicts in $item. Use --adopt? (backs up your files to repo)"

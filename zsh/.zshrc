@@ -135,6 +135,7 @@ alias weather="curl wttr.in"
 alias sshc="-t -- /bin/bash -c \"tmux has-session && exec tmux attach || exec tmux\""
 alias ex="$FILES ."
 alias packages="cat $DOTFILES_DIR/packages/*.txt"
+alias mars="~/.local/bin/Mars/bin/Mars"
 
 # Python HTTP Server
 function pyhttp() {
@@ -177,7 +178,7 @@ setopt histignorealldups
 setopt EXTENDED_HISTORY
 
 # ----------------------------------------
-# Keybindings
+# Vim keybindings for terminal
 # ----------------------------------------
 bindkey -v
 
