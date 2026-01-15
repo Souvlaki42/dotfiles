@@ -63,6 +63,9 @@
 ## leave unspecified to use same mode set in "search_mode"
 # search_mode_shell_up_key_binding = "fuzzy"
 
+[dotfiles]
+enabled = true
+
 ## which style to use
 ## possible values: auto, full, compact
 style = "auto"
