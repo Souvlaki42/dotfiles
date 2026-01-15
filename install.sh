@@ -124,7 +124,7 @@ if yes_or_no "Would you like to install symbolic links?" "y"; then
   done
 fi
 
-system_links=("pacman" "grub")
+system_links=("pacman" "grub" "logind")
 if yes_or_no "Would you like to install system links?" "y"; then
   mapfile -t to_link < <(multiselect "${system_links[@]}")
   for item in "${to_link[@]}"
