@@ -20,6 +20,8 @@ export GIT_EDITOR="$EDITOR"
 export VISUAL="zeditor"
 export COLORTERM=truecolor
 export SHELL=$(which zsh) # Fix Ghostty not using default shell
+export SSH_ASKPASS="/usr/lib/seahorse/ssh-askpass"
+export SSH_ASKPASS_REQUIRE=prefer
 
 # ----------------------------------------
 # Fzf Catppuccin theme
