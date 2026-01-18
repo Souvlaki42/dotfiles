@@ -48,6 +48,7 @@ gsmartcontrol
 gst-plugin-pipewire
 gvfs
 htop
+hugo
 icoutils
 imagemagick
 inetutils
