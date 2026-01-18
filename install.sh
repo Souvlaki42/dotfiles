@@ -2,6 +2,12 @@
 
 trap "echo -e '\nCanceling installation...'; exit 130" INT
 
+if [[ ${BASH_VERSINFO[0]} -lt 4 ]] || [[ ${BASH_VERSINFO[0]} -eq 4 && ${BASH_VERSINFO[1]} -lt 3 ]]; then
+  echo "Error: This script requires Bash 4.3 or higher"
+  echo "Current version: $BASH_VERSION"
+  exit 1
+fi
+
 TEMP_DIRS=()
 
 cleanup_temps() {
@@ -12,6 +18,7 @@ cleanup_temps() {
 }
 
 trap cleanup_temps EXIT
+
 
 ACCEPT_ALL=false
 if [[ "$1" == "--yes" || "$1" == "-y" ]]; then
@@ -74,6 +81,7 @@ function multiselect() {
 
   # shellcheck disable=SC2034
   mapfile -t selected_array <<< "$selected"
+  return 0
 }
 
 function multiselect_or_skip() {
