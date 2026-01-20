@@ -96,6 +96,7 @@ noto-fonts-cjk
 obsidian
 obs-studio
 openvpn
+pastel
 pcmanfm
 pipewire
 pipewire-alsa
@@ -104,6 +105,7 @@ pipewire-pulse
 plasma-meta
 plasma-workspace
 plasma-x11-session
+prismlauncher
 python-pip
 python-pyqt6
 python-pyqt6-sip

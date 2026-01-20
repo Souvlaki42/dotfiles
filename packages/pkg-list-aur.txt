@@ -1,4 +1,5 @@
 amf-amdgpu-pro
+android-studio
 anydesk-bin
 asciiquarium-transparent-git
 bibata-cursor-theme-bin
