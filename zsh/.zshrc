@@ -138,6 +138,7 @@ alias sshc="-t -- /bin/bash -c \"tmux has-session && exec tmux attach || exec tm
 alias ex="$FILES ."
 alias packages="cat $DOTFILES_DIR/packages/*.txt"
 alias mars="~/.local/bin/Mars/bin/Mars"
+alias journal="journalctl -b | grep -i \"amdgpu\|drm\|sddm\" > ~/gpu-sddm-log.txt"
 
 # Python HTTP Server
 function pyhttp() {
