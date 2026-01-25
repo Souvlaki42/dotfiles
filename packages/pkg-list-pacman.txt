@@ -82,7 +82,8 @@ linux-headers
 linux-lts
 linux-lts-headers
 lshw
-mandoc
+man-db
+man-pages
 maven
 mkcert
 mono
