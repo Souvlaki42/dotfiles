@@ -13,6 +13,7 @@ bluez-utils
 bridge-utils
 btrfs-assistant
 btrfs-progs
+busybox
 cava
 ccls
 cdrtools
@@ -23,6 +24,8 @@ dialog
 dnsmasq
 dolphin
 dos2unix
+dotnet-sdk
+dotnet-sdk-8.0
 efibootmgr
 entr
 evtest
@@ -78,6 +81,7 @@ linux-firmware
 linux-headers
 linux-lts
 linux-lts-headers
+lshw
 mandoc
 maven
 mkcert
