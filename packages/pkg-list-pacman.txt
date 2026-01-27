@@ -139,10 +139,9 @@ thunar
 thunar-volman
 tldr
 tmux
-ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
 unzip
 uv
-vi
 vim
 virt-manager
 virt-viewer
