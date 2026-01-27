@@ -100,6 +100,7 @@ nmap
 noto-fonts-cjk
 obsidian
 obs-studio
+okular
 openvpn
 pastel
 pcmanfm
