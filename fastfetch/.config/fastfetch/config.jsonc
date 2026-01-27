@@ -102,7 +102,7 @@
     "noBuffer": false,
     "key": {
       "width": 0,
-      "type": "string",
+      "type": "both",
       "paddingLeft": 0
     },
     "freq": {
@@ -155,7 +155,14 @@
     {
       "type": "command",
       "key": "OS age",
+      "keyIcon": "",
       "text": "bash -lc 'ts=$(head -n1 /var/log/pacman.log | sed -E \"s/^\\[([^]]+)\\].*/\\1/\"); python - <<\"PY\" \"$ts\"\nimport sys\nfrom datetime import datetime, timezone\ns=sys.argv[1].strip()\ncreated=datetime.strptime(s, \"%Y-%m-%dT%H:%M:%S%z\")\nnow=datetime.now(timezone.utc).astimezone(created.tzinfo)\nsec=int((now-created).total_seconds())\ndays, sec = divmod(sec, 86400)\nhours, sec = divmod(sec, 3600)\nmins, sec = divmod(sec, 60)\nprint(f\"{days}d {hours}h {mins}m\")\nPY'"
+    },
+        {
+      "type": "command",
+      "key": "Last update",
+      "keyIcon": "󰚰",
+      "text": "bash -lc 'ts=$(grep \"pacman -Syu\" /var/log/pacman.log | tail -1 | sed -E \"s/^\\[([^]]+)\\].*/\\1/\"); python - <<\"PY\" \"$ts\"\nimport sys\nfrom datetime import datetime, timezone\ns=sys.argv[1].strip()\ncreated=datetime.strptime(s, \"%Y-%m-%dT%H:%M:%S%z\")\nnow=datetime.now(timezone.utc).astimezone(created.tzinfo)\nsec=int((now-created).total_seconds())\ndays, sec = divmod(sec, 86400)\nhours, sec = divmod(sec, 3600)\nmins, sec = divmod(sec, 60)\nprint(f\"{days}d {hours}h {mins}m\")\nPY'"
     },
     {
       "type": "packages",
@@ -304,21 +311,6 @@
     {
       "type": "locale",
       "keyIcon": ""
-    },
-    "break",
-    {
-      "type": "colors",
-      "key": " ",
-      "keyIcon": "",
-      "symbol": "block",
-      "paddingLeft": 0,
-      "block": {
-        "width": 3,
-        "range": [
-          0,
-          15
-        ]
-      }
     }
   ]
 }
