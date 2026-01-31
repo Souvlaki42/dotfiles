@@ -10,7 +10,6 @@ base-devel
 bat
 bluez
 bluez-utils
-bridge-utils
 btrfs-assistant
 btrfs-progs
 busybox
