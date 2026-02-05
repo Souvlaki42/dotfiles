@@ -3,7 +3,6 @@ anydesk-bin
 asciiquarium-transparent-git
 bibata-cursor-theme-bin
 cbonsai
-codecrafters-bin
 colloid-catppuccin-gtk-theme-git
 curseforge
 cursor-bin
