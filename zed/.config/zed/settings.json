@@ -1,5 +1,14 @@
 {
+  "edit_predictions": {
+    "provider": "supermaven"
+  },
   "icon_theme": "Catppuccin Mocha",
+  "disable_ai": false,
+  "profiles": {
+    "Disable AI": {
+      "disable_ai": true,
+    },
+  },
   "minimap": {
     "show": "never",
   },
@@ -72,8 +81,5 @@
   "code_actions_on_format": {
     "source.fixAll.biome": true,
     "source.organizeImports.biome": true,
-  },
-  "features": {
-    "edit_prediction_provider": "supermaven",
   },
 }
