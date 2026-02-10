@@ -33,6 +33,7 @@ fastfetch
 fd
 flatpak
 fuzzel
+fwupd
 fzf
 ghostty
 gimp
