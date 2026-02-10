@@ -102,7 +102,6 @@ obs-studio
 okular
 openvpn
 pastel
-pcmanfm
 pipewire
 pipewire-alsa
 pipewire-jack
