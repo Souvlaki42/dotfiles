@@ -8,6 +8,7 @@ atuin
 base
 base-devel
 bat
+bind
 bluez
 bluez-utils
 btrfs-assistant
@@ -119,6 +120,7 @@ qalculate-qt
 qemu-full
 qt5-quickcontrols2
 qt5-tools
+reflector
 rsync
 rustup
 seahorse
@@ -161,6 +163,7 @@ xf86-video-ati
 xorg-xinit
 xsel
 xwayland-satellite
+yt-dlp
 zed
 zoxide
 zram-generator
