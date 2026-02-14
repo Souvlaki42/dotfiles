@@ -129,7 +129,6 @@ sl
 smartmontools
 snap-pac
 snapper
-speedtest-cli
 sshfs
 steam
 stow

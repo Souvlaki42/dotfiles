@@ -2,6 +2,7 @@ amf-amdgpu-pro
 anydesk-bin
 asciiquarium-transparent-git
 bibata-cursor-theme-bin
+burpsuite
 cbonsai
 colloid-catppuccin-gtk-theme-git
 curseforge
@@ -21,6 +22,7 @@ lumafly
 minecraft-launcher
 noctalia-shell
 oh-my-posh-bin
+ookla-speedtest-bin
 papirus-icon-theme-git
 paru
 pcsx2
