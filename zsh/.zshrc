@@ -24,7 +24,6 @@ export FILES="dolphin"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="zeditor"
 export COLORTERM=truecolor
-export SHELL=$(which zsh) # Fix Ghostty not using default shell
 export SSH_ASKPASS="/usr/lib/seahorse/ssh-askpass"
 export SSH_ASKPASS_REQUIRE=prefer
 
@@ -139,7 +138,6 @@ alias yeet="paru -Runs"
 alias zed="zeditor"
 alias fsdate="sudo sudo btrfs subvolume show / | grep -i \"creation time:\""
 alias weather="curl wttr.in"
-alias sshc="-t -- /bin/bash -c \"tmux has-session && exec tmux attach || exec tmux\""
 alias ex="$FILES ."
 alias packages="cat $DOTFILES_DIR/packages/*.txt"
 alias mars="~/.local/bin/Mars/bin/Mars"
