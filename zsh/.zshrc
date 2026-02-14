@@ -10,6 +10,10 @@ fi
 # ----------------------------------------
 # Environment Variables
 # ----------------------------------------
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 export BUN_INSTALL="$HOME/.bun"
 export GOPATH="$HOME/go"
 export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.cargo/bin:/var/bash.bs:/opt/nvim-linux64/bin:$JAVA_HOME/bin:$HOME/.filen-cli/bin:/snap/bin:$PATH"
@@ -37,7 +41,7 @@ export FZF_DEFAULT_OPTS=" \
 # ----------------------------------------
 # Completions
 # ----------------------------------------
-ZSH_COMPDUMP="${XDG_CACHE_HOME:=$HOME/.cache}/zsh/zcompdump"
+ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
 mkdir -p "${ZSH_COMPDUMP:h}"
 
 # Load completion system immediately
@@ -83,7 +87,7 @@ eval "$(uvx --generate-shell-completion zsh)"
 typeset -A ZINIT
 ZINIT[OPTIMIZE_OUT_DISK_ACCESSES]=1
 ZINIT[COMPINIT_OPTS]=-C
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
 if [[ ! -d "$ZINIT_HOME" ]]; then
   mkdir -p "$(dirname "$ZINIT_HOME")"
   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
