@@ -36,6 +36,7 @@ flatpak
 fuzzel
 fwupd
 fzf
+gamescope
 ghostty
 gimp
 git
@@ -112,6 +113,7 @@ plasma-meta
 plasma-workspace
 plasma-x11-session
 prismlauncher
+protontricks
 python-pip
 python-pyqt6
 python-pyqt6-sip
@@ -121,6 +123,7 @@ qemu-full
 qt5-quickcontrols2
 qt5-tools
 reflector
+riscv64-linux-gnu-gcc
 rsync
 rustup
 seahorse
