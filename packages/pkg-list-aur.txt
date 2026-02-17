@@ -27,6 +27,7 @@ papirus-icon-theme-git
 paru
 pcsx2
 pipes.sh
+protonup-qt-bin
 pwvucontrol
 qimgv-qt6-kde-git
 selectdefaultapplication-git
@@ -37,3 +38,4 @@ unimatrix-git
 ventoy-bin
 vesktop
 xpadneo-dkms
+xytz-bin
