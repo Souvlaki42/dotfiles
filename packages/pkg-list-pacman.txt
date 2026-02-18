@@ -78,6 +78,7 @@ libguestfs
 libicns
 libinput-tools
 libpulse
+libresprite
 linux
 linuxconsole
 linux-firmware
