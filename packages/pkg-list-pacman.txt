@@ -104,6 +104,7 @@ obsidian
 obs-studio
 okular
 openvpn
+papirus-icon-theme
 pastel
 pipewire
 pipewire-alsa
