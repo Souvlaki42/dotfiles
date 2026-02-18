@@ -28,6 +28,7 @@ dotnet-sdk
 dotnet-sdk-8.0
 efibootmgr
 entr
+ethtool
 evtest
 eza
 fastfetch

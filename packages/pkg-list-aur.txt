@@ -36,5 +36,6 @@ tmux-sessionizer-bin
 unimatrix-git
 ventoy-bin
 vesktop
+wol-systemd
 xpadneo-dkms
 xytz-bin
