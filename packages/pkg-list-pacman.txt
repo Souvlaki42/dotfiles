@@ -102,6 +102,7 @@ network-manager-applet
 niri
 nmap
 noto-fonts-cjk
+nvtop
 obsidian
 obs-studio
 okular

@@ -8,6 +8,7 @@ colloid-catppuccin-gtk-theme-git
 curseforge
 cursor-bin
 doppler-cli-bin
+faugus-launcher
 filen-desktop-bin
 fnm-bin
 gdscript-formatter-bin
