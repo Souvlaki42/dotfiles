@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=KIO Client
-Type=Application
-Exec=kioclient exec %u
-NoDisplay=true
-Icon=system-run
