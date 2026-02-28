@@ -1,6 +1,6 @@
 {
   "edit_predictions": {
-    "provider": "supermaven"
+    "provider": "supermaven",
   },
   "icon_theme": "Catppuccin Mocha",
   "disable_ai": false,
@@ -82,4 +82,17 @@
     "source.fixAll.biome": true,
     "source.organizeImports.biome": true,
   },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/*.gd.uid",
+    "**/*.import",
+  ],
 }
