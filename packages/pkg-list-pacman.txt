@@ -141,14 +141,17 @@ steam
 stow
 swaybg
 swtpm
+tcl
 tesseract
 thunar
 thunar-volman
+tk
 tldr
 tmux
 ttf-jetbrains-mono-nerd
 unzip
 uv
+v4l2loopback-dkms
 vim
 virt-manager
 virt-viewer
