@@ -10,17 +10,24 @@ fi
 # ----------------------------------------
 # Environment Variables
 # ----------------------------------------
+# XDG Base Directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+
+# CLI Applications
 export BUN_INSTALL="$HOME/.bun"
 export GOPATH="$HOME/go"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export DEPOT_INSTALL_DIR="$HOME/.depot/bin"
+
+# PATH
 export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.cargo/bin:$DEPOT_INSTALL_DIR:/var/bash.bs:/opt/nvim-linux64/bin:$JAVA_HOME/bin:$HOME/.filen-cli/bin:/snap/bin:$PATH"
+
+# Shell
 export DOTFILES_DIR="$HOME/dotfiles"
-export NODE_COMPILE_CACHE="$HOME/.cache/nodejs-compile-cache"
+export NODE_COMPILE_CACHE="$XDG_CACHE_HOME/nodejs-compile-cache"
 export EDITOR="nvim"
 export FILES="dolphin"
 export GIT_EDITOR="$EDITOR"
