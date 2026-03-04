@@ -116,6 +116,9 @@ pipewire-pulse
 plasma-meta
 plasma-workspace
 plasma-x11-session
+podman
+podman-compose
+podman-desktop
 prismlauncher
 protontricks
 python-pip
