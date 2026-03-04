@@ -136,19 +136,8 @@ alias pip="pip3"
 alias history="atuin search -i"
 alias yay="paru -Sy --needed"
 alias yeet="paru -Runs"
-alias zed="zeditor"
-alias fsdate="sudo sudo btrfs subvolume show / | grep -i \"creation time:\""
-alias weather="curl wttr.in"
-alias ex="$FILES ."
 alias packages="cat $DOTFILES_DIR/packages/*.txt"
-alias mars="~/.local/bin/Mars/bin/Mars"
-alias journal="journalctl -b | grep -i \"amdgpu\|drm\|sddm\" > ~/gpu-sddm-log.txt"
 
-# Python HTTP Server
-function pyhttp() {
-  local port=${1:-8080}
-  python3 -m http.server $port
-}
 
 # Ludusavi
 function backupgames() {
