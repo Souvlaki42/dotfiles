@@ -15,6 +15,17 @@
   "inlay_hints": {
     "enabled": true,
   },
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "vtsls": {
+          "experimental": {
+            "maxInlayHintLength": 30,
+          },
+        },
+      },
+    },
+  },
   "buffer_line_height": {
     "custom": 1.4,
   },
