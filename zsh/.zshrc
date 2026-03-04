@@ -16,6 +16,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export BUN_INSTALL="$HOME/.bun"
 export GOPATH="$HOME/go"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export DEPOT_INSTALL_DIR="$HOME/.depot/bin"
 export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.cargo/bin:$DEPOT_INSTALL_DIR:/var/bash.bs:/opt/nvim-linux64/bin:$JAVA_HOME/bin:$HOME/.filen-cli/bin:/snap/bin:$PATH"
 export DOTFILES_DIR="$HOME/dotfiles"
@@ -150,11 +151,6 @@ function backupgames() {
   fd -d 1 -t d --changed-before 7days . "$BACKUP_DIR" -x rm -rf
 }
 
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
 
 # ----------------------------------------
 # History Settings
