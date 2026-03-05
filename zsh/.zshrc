@@ -29,9 +29,8 @@ export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.cargo/bin:$DEP
 export DOTFILES_DIR="$HOME/dotfiles"
 export NODE_COMPILE_CACHE="$XDG_CACHE_HOME/nodejs-compile-cache"
 export EDITOR="nvim"
+export VISUAL="$EDITOR"
 export FILES="dolphin"
-export GIT_EDITOR="$EDITOR"
-export VISUAL="zeditor"
 export COLORTERM=truecolor
 export SSH_ASKPASS="/usr/lib/seahorse/ssh-askpass"
 export SSH_ASKPASS_REQUIRE=prefer
@@ -45,6 +44,7 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
 --color=selected-bg:#45475A \
 --color=border:#6C7086,label:#CDD6F4"
+
 
 # ----------------------------------------
 # Completions
@@ -134,8 +134,8 @@ alias la="eza -a"
 alias ll="eza -alh"
 alias tree="eza --tree"
 alias md="mkdir -p"
-alias v="$EDITOR"
-alias c="$VISUAL"
+alias v="nvim"
+alias c="zeditor"
 alias fetch="fastfetch"
 alias lg="lazygit"
 alias pn="pnpm"
