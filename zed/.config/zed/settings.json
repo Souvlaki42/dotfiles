@@ -1,6 +1,6 @@
 {
   "edit_predictions": {
-    "provider": "supermaven",
+    "provider": "zed",
   },
   "icon_theme": "Catppuccin Mocha",
   "disable_ai": false,
@@ -92,6 +92,7 @@
   "code_actions_on_format": {
     "source.fixAll.biome": true,
     "source.organizeImports.biome": true,
+    "source.addMissingImports.ts": true,
   },
   "file_scan_exclusions": [
     "**/.git",
