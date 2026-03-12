@@ -8,7 +8,6 @@ colloid-catppuccin-gtk-theme-git
 curseforge
 cursor-bin
 doppler-cli-bin
-faugus-launcher
 filen-desktop-bin
 fnm-bin
 gdscript-formatter-bin
@@ -21,11 +20,11 @@ itch-bin
 ludusavi-bin
 lumafly
 minecraft-launcher
-noctalia-shell
 oh-my-posh-bin
 ookla-speedtest-bin
 paru
 pcsx2
+pince-bin
 pipes.sh
 protonup-qt-bin
 pwvucontrol
@@ -37,6 +36,7 @@ tmux-sessionizer-bin
 unimatrix-git
 ventoy-bin
 vesktop
-wol-systemd
+vicinae-bin
+worktrunk-bin
 xpadneo-dkms
 xytz-bin

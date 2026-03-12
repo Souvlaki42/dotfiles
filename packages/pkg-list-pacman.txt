@@ -1,5 +1,4 @@
 acpid
-alacritty
 amd-ucode
 android-file-transfer
 android-tools
@@ -34,7 +33,6 @@ eza
 fastfetch
 fd
 flatpak
-fuzzel
 fwupd
 fzf
 gamescope
@@ -78,6 +76,7 @@ libguestfs
 libicns
 libinput-tools
 libpulse
+libreoffice-fresh
 libresprite
 linux
 linuxconsole
@@ -99,7 +98,6 @@ neovim
 net-tools
 networkmanager
 network-manager-applet
-niri
 nmap
 noto-fonts-cjk
 nvtop
@@ -174,7 +172,6 @@ xf86-video-amdgpu
 xf86-video-ati
 xorg-xinit
 xsel
-xwayland-satellite
 yt-dlp
 zed
 zoxide
