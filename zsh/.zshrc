@@ -190,6 +190,16 @@ function zsh-audit() {
   echo "duplicates:" && print -l $precmd_functions | sort | uniq -d
 }
 
+function gh-first-commit() {
+  local repo=$1
+  local last_page=$(curl -sI "https://api.github.com/repos/$repo/commits?per_page=1" \
+    | grep -i '^link:' \
+    | grep -oP 'page=\K\d+(?=>; rel="last")')
+  local sha=$(curl -s "https://api.github.com/repos/$repo/commits?per_page=1&page=$last_page" \
+    | grep -oP '"sha": "\K[^"]+' | head -1)
+  echo "https://github.com/$repo/commit/$sha"
+}
+
 # ----------------------------------------
 # History Settings
 # ----------------------------------------
