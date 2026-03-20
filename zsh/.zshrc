@@ -28,6 +28,7 @@ export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.cargo/bin:$DEP
 # Shell
 export DOTFILES_DIR="$HOME/dotfiles"
 export NODE_COMPILE_CACHE="$XDG_CACHE_HOME/nodejs-compile-cache"
+export VERCEL_TELEMETRY_DISABLED=1
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export FILES="dolphin"
@@ -90,6 +91,7 @@ eval "$(atuin init zsh)"
 eval "$(oh-my-posh init zsh --config "$HOME/shell.toml")"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
+. "$HOME/.vite-plus/env"
 
 # ----------------------------------------
 # Plugin Managers
