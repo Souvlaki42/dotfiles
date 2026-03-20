@@ -56,6 +56,7 @@ hugo
 icoutils
 imagemagick
 inetutils
+inkscape
 inotify-tools
 iptables-nft
 iwd
@@ -98,6 +99,7 @@ neovim
 net-tools
 networkmanager
 network-manager-applet
+networkmanager-openvpn
 nmap
 noto-fonts-cjk
 nvtop
@@ -174,6 +176,7 @@ xorg-xinit
 xsel
 yt-dlp
 zed
+zig
 zoxide
 zram-generator
 zsh
