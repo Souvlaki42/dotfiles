@@ -49,19 +49,21 @@ export FZF_DEFAULT_OPTS=" \
 # ----------------------------------------
 # Completions
 # ----------------------------------------
-ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
-mkdir -p "${ZSH_COMPDUMP:h}"
 
-# Load completion system immediately
-autoload -Uz compinit
-compinit -d "$ZSH_COMPDUMP" -u
-
-# Your custom completion sources
-[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
-
+# FPATH changes before compinit
 if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then
   FPATH="$HOME/.zsh/completions:$FPATH"
 fi
+
+# Load completion system immediately
+ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
+mkdir -p "${ZSH_COMPDUMP:h}"
+
+autoload -Uz compinit
+compinit -d "$ZSH_COMPDUMP" -u
+
+# Completions load after compinit
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
 # Completion styles
 zstyle ":completion:*" auto-description "specify: %d"
@@ -114,8 +116,12 @@ fi
 # ----------------------------------------
 # Load these immediately for instant feedback
 zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
+
+# Inject fpath changes before compinit
+zinit ice blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
+
 
 # These can be deferred as they aren't as critical for the initial interaction
 zinit wait lucid for zsh-users/zsh-syntax-highlighting
