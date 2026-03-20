@@ -1,7 +1,7 @@
 # ----------------------------------------
 # Profiling
 # ----------------------------------------
-export PROFILING_MODE=0
+export PROFILING_MODE=${PROFILING_MODE:-0}
 if [[ $PROFILING_MODE -ne 0 ]]; then
   zmodload zsh/zprof
   zsh_start_time=$(date +%s%3N)
@@ -157,7 +157,7 @@ alias history="atuin search -i"
 alias yay="paru -Sy --needed"
 alias yeet="paru -Runs"
 alias packages="cat $DOTFILES_DIR/packages/*.txt"
-
+alias zsh-profile="PROFILING_MODE=1 zsh -i -c exit"
 
 # ----------------------------------------
 # functions
