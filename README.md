@@ -10,9 +10,13 @@ My configurations for my Arch Linux installation.
 
 ![Arch Linux Logo](https://upload.wikimedia.org/wikipedia/commons/f/f9/Archlinux-logo-standard-version.svg)
 
+## Tools
 OS -> Arch Linux \
 Window Manager -> KDE Plasma \
-Display Manager -> SDDM \
+Display Manager -> PLM/SDDM \
+Init System -> Systemd \
+Display Sever -> Wayland/XWayland \
+Package Manager -> Pacman/Paru \
 Theme -> Catppuccin Mocha Blue \
 Dotfiles Manager -> GNU Stow \
 Fetch -> Fastfetch \
