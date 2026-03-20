@@ -86,8 +86,8 @@ zstyle ":completion:*" beep no
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fnm env --shell zsh)"
-eval "$(oh-my-posh init zsh --config "$HOME/shell.toml")"
 eval "$(atuin init zsh)"
+eval "$(oh-my-posh init zsh --config "$HOME/shell.toml")"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 
@@ -125,7 +125,6 @@ zinit light zsh-users/zsh-completions
 
 # These can be deferred as they aren't as critical for the initial interaction
 zinit wait lucid for zsh-users/zsh-syntax-highlighting
-zinit wait lucid for atuinsh/atuin
 
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
