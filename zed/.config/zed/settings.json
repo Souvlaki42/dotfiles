@@ -12,6 +12,7 @@
   "minimap": {
     "show": "never",
   },
+  "soft_wrap": "editor_width",
   "inlay_hints": {
     "enabled": true,
   },
@@ -23,6 +24,11 @@
             "maxInlayHintLength": 30,
           },
         },
+      },
+    },
+    "biome": {
+      "settings": {
+        "require_config_file": true,
       },
     },
   },
