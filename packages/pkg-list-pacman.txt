@@ -45,6 +45,7 @@ gnome-keyring
 gnuplot
 go
 godot
+grc
 grex
 grub
 grub-btrfs
@@ -72,6 +73,7 @@ konsole
 kwalletmanager
 lazygit
 less
+lib32-libxft
 libayatana-appindicator
 libguestfs
 libicns
