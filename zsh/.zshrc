@@ -174,16 +174,6 @@ function backupgames() {
   fd -d 1 -t d --changed-before 7days . "$BACKUP_DIR" -x rm -rf
 }
 
-function sessionx() {
-  local projects="$(fd . ~/code --type d --exact-depth 1)"
-  local bookmarks=("~/dotfiles" "~/Downloads" "~/Documents" "~/Pictures" "~/Music" "~/Videos" "~/Desktop" "~/Obsidian" "~/VMs")
-  local list=( "${projects[@]}" "${bookmarks[@]}" )
-  local result="$(fzf --prompt="Sessionx > " --preview="exa -T" <<< "${list[@]}")"
-  if [[ -n "$result" ]]; then
-    echo "$result"
-  fi
-}
-
 function zsh-audit() {
   echo "precmd:" && print -l $precmd_functions
   echo "preexec:" && print -l $preexec_functions
