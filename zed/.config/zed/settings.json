@@ -1,6 +1,7 @@
 {
   "edit_predictions": {
     "provider": "zed",
+    "mode": "subtle",
   },
   "icon_theme": "Catppuccin Mocha",
   "disable_ai": false,
@@ -90,9 +91,6 @@
     },
     "CSS": {
       "language_servers": ["tailwindcss-language-server"],
-    },
-    "Markdown": {
-      "language_servers": ["!gdscript"],
     },
   },
   "code_actions_on_format": {
