@@ -1,0 +1,22 @@
+[[session]]
+name = "Downloads"
+path = "~/Downloads"
+startup_command = "eza -alh"
+preview_command = "eza -alh"
+
+[[session]]
+name = "dotfiles"
+path = "~/dotfiles"
+startup_command = "v {}"
+preview_command = "bat --color=always {}"
+windows = ["lazygit"]
+
+[[wildcard]]
+pattern = "~/code/*"
+startup_command = "c {}"
+preview_command = "bat --color=always {}"
+windows = ["lazygit"]
+
+[[window]]
+name = "lazygit"
+startup_script = "lazygit"
