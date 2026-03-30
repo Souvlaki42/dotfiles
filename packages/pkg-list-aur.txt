@@ -34,9 +34,9 @@ protonup-qt-bin
 pwvucontrol
 qimgv-qt6-kde-git
 selectdefaultapplication-git
+sesh-bin
 spotify
 teams-for-linux-bin
-tmux-sessionizer-bin
 unimatrix-git
 ventoy-bin
 vesktop
