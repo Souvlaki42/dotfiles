@@ -190,7 +190,7 @@ function gh-first-commit() {
   echo "https://github.com/$repo/commit/$sha"
 }
 
-function mann() { man $@ | bat -l man --style=-numbers }
+function man() { command man $@ | bat -l man --style=-numbers }
 
 # ----------------------------------------
 # History Settings
