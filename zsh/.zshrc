@@ -27,6 +27,7 @@ export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.cargo/bin:$DEP
 
 # Shell
 export DOTFILES_DIR="$HOME/dotfiles"
+export CODE_DIR="$HOME/code"
 export NODE_COMPILE_CACHE="$XDG_CACHE_HOME/nodejs-compile-cache"
 export VERCEL_TELEMETRY_DISABLED=1
 export EDITOR="nvim"
@@ -180,7 +181,23 @@ function zsh-audit() {
   echo "duplicates:" && print -l $precmd_functions | sort | uniq -d
 }
 
+function gcl() {
+  if [[ $# -ne 1 ]]; then
+    echo "Usage: gcl <repo>"
+    return 1
+  fi
+
+  local repo=$1
+  cd "$CODE_DIR"
+  sesh clone "$repo"
+}
+
 function gh-first-commit() {
+  if [[ $# -ne 1 ]]; then
+    echo "Usage: gh-first-commit <repo>"
+    return 1
+  fi
+
   local repo=$1
   local last_page=$(curl -sI "https://api.github.com/repos/$repo/commits?per_page=1" \
     | grep -i '^link:' \
