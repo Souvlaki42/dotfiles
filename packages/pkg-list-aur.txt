@@ -1,12 +1,10 @@
 amf-amdgpu-pro
 anydesk-bin
-asciiquarium-transparent-git
 bibata-cursor-theme-bin
 burpsuite
 cbonsai
 colloid-catppuccin-gtk-theme-git
 curseforge
-cursor-bin
 doppler-cli-bin
 downgrade
 filen-desktop-bin
@@ -18,7 +16,6 @@ helium-browser-bin
 heroic-games-launcher-bin
 hw-probe
 imhex-bin
-itch-bin
 lib32-ncurses5-compat-libs
 ludusavi-bin
 lumafly
@@ -27,7 +24,7 @@ nuitka
 oh-my-posh-bin
 ookla-speedtest-bin
 paru
-pcsx2
+pcsx2-latest-bin
 pince-bin
 pipes.sh
 protonup-qt-bin
@@ -35,12 +32,7 @@ pwvucontrol
 qimgv-qt6-kde-git
 selectdefaultapplication-git
 sesh-bin
-spotify
 teams-for-linux-bin
 unimatrix-git
-ventoy-bin
 vesktop
-vicinae-bin
-worktrunk-bin
 xpadneo-dkms
-xytz-bin
