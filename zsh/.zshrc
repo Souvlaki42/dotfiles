@@ -181,15 +181,17 @@ function zsh-audit() {
   echo "duplicates:" && print -l $precmd_functions | sort | uniq -d
 }
 
+unalias gcl
 function gcl() {
-  if [[ $# -ne 1 ]]; then
-    echo "Usage: gcl <repo>"
+  if [[ $# -lt 1 ]]; then
+    echo "Usage: gcl <repo> <optional:name>"
     return 1
   fi
 
   local repo=$1
+  local name=$2
   cd "$CODE_DIR"
-  sesh clone "$repo"
+  sesh clone "$repo" -d "$name"
 }
 
 function gh-first-commit() {
