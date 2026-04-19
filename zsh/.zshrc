@@ -23,7 +23,7 @@ export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export DEPOT_INSTALL_DIR="$HOME/.depot/bin"
 
 # PATH
-export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.cargo/bin:$DEPOT_INSTALL_DIR:/var/bash.bs:/opt/nvim-linux64/bin:$JAVA_HOME/bin:$HOME/.filen-cli/bin:/snap/bin:$PNPM_HOME:$PATH"
+export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.cargo/bin:$DEPOT_INSTALL_DIR:/var/bash.bs:/opt/nvim-linux64/bin:$JAVA_HOME/bin:$HOME/.filen-cli/bin:/snap/bin:$PNPM_HOME:$HOME/matlab:$PATH"
 
 # Shell
 export DOTFILES_DIR="$HOME/dotfiles"

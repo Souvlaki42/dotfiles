@@ -1,0 +1,13 @@
+# Use this on Arch Linux: https://wiki.archlinux.org/title/MATLAB
+# Try this if it segfaults:
+# https://wiki.archlinux.org/title/MATLAB#Segmentation_fault_after_MATLAB_window_appears,_or_silent_segmentation_fault_when_attempting_to_start_installer
+[Desktop Entry]
+Type=Application
+Terminal=false
+MimeType=text/x-matlab
+Exec=~/matlab/bin/matlab -desktop -useStartupFolderPref
+Name=MATLAB
+Icon=matlab
+Categories=Development;Math;Science
+Comment=Scientific computing environment
+StartupNotify=true
