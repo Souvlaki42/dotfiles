@@ -32,6 +32,7 @@ pwvucontrol
 qimgv-qt6-kde-git
 selectdefaultapplication-git
 sesh-bin
+syncthingtray-qt6
 teams-for-linux-bin
 unimatrix-git
 vesktop

@@ -149,6 +149,7 @@ steam
 stow
 swaybg
 swtpm
+syncthing
 tcl
 tesseract
 thunar
