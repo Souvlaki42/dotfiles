@@ -190,8 +190,10 @@ function gcl() {
 
   local repo=$1
   local name=$2
+  local last_dir=$(pwd)
   cd "$CODE_DIR"
   sesh clone "$repo" -d "$name"
+  cd "$last_dir"
 }
 
 function gh-first-commit() {
