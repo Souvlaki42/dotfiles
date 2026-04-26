@@ -17,6 +17,7 @@ return {
 		"rafamadriz/friendly-snippets",
 	},
 	config = function()
+		vim.lsp.inlay_hint.enable(true)
 		local autoformat_filetypes = {
 			"lua",
 		}
@@ -27,6 +28,10 @@ return {
 				if not client then
 					return
 				end
+				if client.server_capabilities.inlayHintProvider then
+					vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+				end
+
 				if vim.tbl_contains(autoformat_filetypes, vim.bo.filetype) then
 					vim.api.nvim_create_autocmd("BufWritePre", {
 						buffer = args.buf,
