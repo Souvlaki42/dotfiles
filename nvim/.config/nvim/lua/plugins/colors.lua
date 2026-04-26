@@ -1,17 +1,21 @@
 return {
-    {
-        "folke/tokyonight.nvim",
-        config = function()
-            vim.cmd.colorscheme "tokyonight-night"
-        end
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
     },
-    {
-        "nvim-lualine/lualine.nvim",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons"
-        },
-        opts = {
-            theme = "tokyonight-night"
-        }
-    }
+    opts = {},
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      auto_integrations = true,
+      flavour = "mocha",
+    },
+    config = function()
+      vim.cmd.colorscheme("catppuccin-nvim")
+    end,
+  },
 }
