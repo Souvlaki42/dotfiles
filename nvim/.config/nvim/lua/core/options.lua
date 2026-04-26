@@ -1,52 +1,50 @@
--- OPTIONS
-local set = vim.opt
-
 --line nums
-set.relativenumber = true
-set.number = true
+vim.opt.relativenumber = true
+vim.opt.number = true
 
 -- indentation and tabs
-set.tabstop = 2
-set.shiftwidth = 2
-set.autoindent = true
-set.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.autoindent = true
+vim.opt.expandtab = true
 
 -- search settings
-set.ignorecase = true
-set.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- appearance
-set.termguicolors = true
-set.background = "dark"
-set.signcolumn = "yes"
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
+vim.opt.signcolumn = "yes"
+vim.opt.fillchars = { eob = " " }
 
 -- cursor line
-set.cursorline = true
+vim.opt.cursorline = true
 
 -- clipboard
-set.clipboard:append("unnamedplus")
+vim.opt.clipboard:append("unnamedplus")
 
 -- backspace
-set.backspace = "indent,eol,start"
+vim.opt.backspace = "indent,eol,start"
 
 -- split windows
-set.splitbelow = true
-set.splitright = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 -- dw/diw/ciw works on full-word
-set.iskeyword:append("-")
+vim.opt.iskeyword:append("-")
 
 -- keep cursor at least 8 rows from top/bot
-set.scrolloff = 8
+vim.opt.scrolloff = 8
 
 -- undo dir settings
-set.swapfile = false
-set.backup = false
-set.undodir = os.getenv("HOME") .. "/.vim/undodir"
-set.undofile = true
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 
 -- incremental search
-set.incsearch = true
+vim.opt.incsearch = true
 
 -- faster cursor hold
-set.updatetime = 50
+vim.opt.updatetime = 50
