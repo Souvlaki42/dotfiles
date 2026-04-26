@@ -36,4 +36,5 @@ syncthingtray-qt6
 teams-for-linux-bin
 unimatrix-git
 vesktop
+visual-studio-code-bin
 xpadneo-dkms

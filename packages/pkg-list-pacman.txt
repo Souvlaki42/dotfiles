@@ -17,7 +17,6 @@ cava
 ccls
 cdrtools
 cloc
-code
 cpu-x
 deno
 dialog
