@@ -16,14 +16,8 @@ kset("n", "N", "Nzzzv")
 kset("x", "<leader>p", [["_dP]])
 kset({ "n", "v" }, "<leader>d", [["_d]])
 
--- sometimes in insert mode, control-c doesn't exactly work like escape
-kset("i", "<C-c>", "<Esc>")
-
 kset("n", "<C-k>", "<cmd>cnext<CR>zz")
 kset("n", "<C-j>", "<cmd>cprev<CR>zz")
-
--- What the heck is Ex mode?
-kset("n", "Q", "<nop>")
 
 kset("n", "<leader>k", "<cmd>lnext<CR>zz")
 kset("n", "<leader>j", "<cmd>lprev<CR>zz")
@@ -31,8 +25,5 @@ kset("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- make file executable
 kset("n", "<leader>x", "<cmd>!chmod +x %<CR>")
 
--- open undo tree
-kset("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undo tree" })
-
 -- toggle file explorer
-kset("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+kset("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
