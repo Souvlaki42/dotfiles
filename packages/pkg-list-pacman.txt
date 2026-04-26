@@ -96,6 +96,7 @@ mkcert
 mono
 mtpfs
 mtr
+mysql-workbench
 nano
 nasm
 ncdu
@@ -126,6 +127,7 @@ podman-compose
 podman-desktop
 prismlauncher
 protontricks
+proton-vpn-gtk-app
 python-pip
 python-pyqt6
 python-pyqt6-sip
