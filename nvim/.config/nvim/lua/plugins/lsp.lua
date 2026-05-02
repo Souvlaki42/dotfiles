@@ -18,10 +18,7 @@ return {
 	},
 	config = function()
 		vim.lsp.inlay_hint.enable(true)
-		local autoformat_filetypes = {
-			"lua",
-		}
-		-- Create a keymap for vim.lsp.buf.implementation
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
 				local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -32,18 +29,16 @@ return {
 					vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
 				end
 
-				if vim.tbl_contains(autoformat_filetypes, vim.bo.filetype) then
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = args.buf,
-						callback = function()
-							vim.lsp.buf.format({
-								formatting_options = { tabSize = 2, insertSpaces = true },
-								bufnr = args.buf,
-								id = client.id,
-							})
-						end,
-					})
-				end
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = args.buf,
+					callback = function()
+						vim.lsp.buf.format({
+							formatting_options = { tabSize = 2, insertSpaces = true },
+							bufnr = args.buf,
+							id = client.id,
+						})
+					end,
+				})
 			end,
 		})
 
