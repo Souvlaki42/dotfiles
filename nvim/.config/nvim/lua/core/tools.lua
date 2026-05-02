@@ -21,6 +21,7 @@ M.tools = {
 	{ name = "typescript-language-server", lsp_name = "ts_ls", type = "lsp" },
 	{ name = "yaml-language-server", lsp_name = "yamlls", type = "lsp" },
 	{ name = "stylua", type = "lsp" },
+	{ name = "jdtls", type = "lsp" },
 
 	-- Formatters
 	{ name = "black", builtin = "formatting" },
@@ -28,6 +29,7 @@ M.tools = {
 	{ name = "isort", builtin = "formatting" },
 	{ name = "prettierd", builtin = "formatting" },
 	{ name = "stylua", builtin = "formatting" },
+	{ name = "google_java_format", builtin = "formatting" },
 
 	-- Linters
 	{
