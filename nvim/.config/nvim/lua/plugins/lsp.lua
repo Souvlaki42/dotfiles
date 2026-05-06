@@ -19,25 +19,24 @@ return {
 	config = function()
 		vim.lsp.inlay_hint.enable(true)
 
+		local function format(args)
+			vim.lsp.buf.format({
+				formatting_options = { tabSize = 2, insertSpaces = true },
+				bufnr = args and (args.buf or args.buffer or nil),
+				filter = function(c)
+					return c.server_capabilities.documentFormattingProvider
+				end,
+			})
+		end
+
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			callback = format,
+		})
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
-				local client = vim.lsp.get_client_by_id(args.data.client_id)
-				if not client then
-					return
-				end
-				if client.server_capabilities.inlayHintProvider then
-					vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
-				end
-
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					buffer = args.buf,
-					callback = function()
-						vim.lsp.buf.format({
-							formatting_options = { tabSize = 2, insertSpaces = true },
-							bufnr = args.buf,
-							id = client.id,
-						})
-					end,
+				vim.lsp.inlay_hint.enable(true, {
+					bufnr = args.buf,
 				})
 			end,
 		})
@@ -91,11 +90,7 @@ return {
 				kset("n", "gs", vim.lsp.buf.signature_help, opts)
 				kset("n", "gl", vim.diagnostic.open_float, opts)
 				kset("n", "<F2>", vim.lsp.buf.rename, opts)
-				kset({ "n", "x" }, "<leader>f", function()
-					vim.lsp.buf.format({
-						async = true,
-					})
-				end, opts)
+				kset({ "n", "x" }, "<leader>f", format, opts)
 				kset("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 			end,
 		})
