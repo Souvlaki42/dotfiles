@@ -1,4 +1,19 @@
---line nums
+-- file type config
+vim.filetype.add({
+	pattern = {
+		[".*/*compose.yml"] = "yaml.docker-compose",
+	},
+	filename = {},
+	content = function(_, content)
+		local first_line = content[1]
+		if first_line and first_line:match("^#!.*bash") then
+			return "sh"
+		end
+		return nil
+	end,
+})
+
+-- line nums
 vim.opt.relativenumber = true
 vim.opt.number = true
 
