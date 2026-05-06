@@ -53,6 +53,7 @@ grub-btrfs
 gsmartcontrol
 gst-plugin-pipewire
 gvfs
+helix
 htop
 hugo
 icoutils

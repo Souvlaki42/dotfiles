@@ -30,11 +30,14 @@ pipes.sh
 protonup-qt-bin
 pwvucontrol
 qimgv-qt6-kde-git
+r2modman-bin
 selectdefaultapplication-git
 sesh-bin
 syncthingtray-qt6
 teams-for-linux-bin
+tuxmanager
 unimatrix-git
+unityhub
 vesktop
 visual-studio-code-bin
 xpadneo-dkms
