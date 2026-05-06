@@ -151,16 +151,6 @@ if [[ "$IS_ARCH_BASED" == true ]]; then
     makepkg -si --noconfirm || { echo "Failed to install paru"; exit 1; }
     cd "$HOME" ||  { echo "Failed to enter home directory"; exit 1; }
   fi
-
-  if yes_or_no "Would you like to also install yay?" "y"; then
-    echo "Installing yay..."
-    yay_dir="$(mktemp -d)"
-    TEMP_DIRS+=("$yay_dir")
-    git clone https://aur.archlinux.org/yay.git "$yay_dir" || { echo "Failed to clone yay directory"; exit 1; }
-    cd "$yay_dir" || { echo "Failed to enter yay directory"; exit 1; }
-    makepkg -si --noconfirm || { echo "Failed to install yay"; exit 1; }
-    cd "$HOME" ||  { echo "Failed to enter home directory"; exit 1; }
-  fi
 fi
 
 cd "$DOTFILES_DIR" || { echo "Failed to enter dotfiles directory"; exit 1; }

@@ -157,9 +157,6 @@ alias pn="pnpm"
 alias python="python3"
 alias pip="pip3"
 alias history="atuin search -i"
-alias yay="paru -Sy --needed"
-alias yeet="paru -Runs"
-alias packages="cat $DOTFILES_DIR/packages/*.txt"
 alias zsh-profile="PROFILING_MODE=1 zsh -i -c exit"
 
 # ----------------------------------------
@@ -240,15 +237,6 @@ bindkey -v
 # ----------------------------------------
 if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
     tmux new-session -A -s main
-fi
-
-# ----------------------------------------
-# Completion aliases
-# ----------------------------------------
-if (( $+functions[_paru] )); then
-  compdef _paru paru
-  compdef _paru yay
-  compdef _paru yeet
 fi
 
 # ----------------------------------------
