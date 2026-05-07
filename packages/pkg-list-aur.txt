@@ -29,6 +29,7 @@ pince-bin
 pipes.sh
 protonup-qt-bin
 pwvucontrol
+qdiskinfo-bin
 qimgv-qt6-kde-git
 r2modman-bin
 selectdefaultapplication-git
