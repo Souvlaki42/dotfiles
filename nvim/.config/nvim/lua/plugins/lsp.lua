@@ -5,6 +5,7 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		-- Autocompletion
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-buffer",
@@ -102,6 +103,11 @@ return {
 				return tool.name
 			end, tools.tools),
 		})
+
+		require("mason-tool-installer").setup({
+			ensure_installed = tools.get_lsp_names(),
+		})
+
 		require("mason-lspconfig").setup({
 			ensure_installed = tools.get_lsp_names(),
 			handlers = {
