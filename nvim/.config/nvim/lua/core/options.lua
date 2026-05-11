@@ -33,6 +33,9 @@ vim.opt.background = "dark"
 vim.opt.signcolumn = "yes"
 vim.opt.fillchars = { eob = " " }
 
+-- change directory
+vim.opt.autochdir = true
+
 -- cursor line
 vim.opt.cursorline = true
 
