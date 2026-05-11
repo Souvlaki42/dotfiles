@@ -112,11 +112,15 @@ return {
 			ensure_installed = tools.get_lsp_names(),
 			handlers = {
 				function(server_name)
-					require("lspconfig")[server_name].setup({})
+					vim.lsp.config[server_name] = {}
+					vim.lsp.enable(server_name)
 				end,
 
 				lua_ls = function()
-					require("lspconfig").lua_ls.setup({
+					vim.lsp.config["lua_ls"] = {
+						cmd = { "lua-language-server" },
+						filetypes = { "lua" },
+						root_markers = { ".luarc.json", ".git" },
 						settings = {
 							Lua = {
 								runtime = {
@@ -130,7 +134,9 @@ return {
 								},
 							},
 						},
-					})
+					}
+
+					vim.lsp.enable("lua_ls")
 				end,
 			},
 		})

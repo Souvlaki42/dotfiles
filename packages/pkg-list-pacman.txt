@@ -89,6 +89,7 @@ linux-headers
 linux-lts
 linux-lts-headers
 lshw
+luarocks
 man-db
 man-pages
 maven
