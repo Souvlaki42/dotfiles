@@ -41,12 +41,6 @@ return {
 				})
 			end,
 		})
-
-		-- Add borders to floating windows
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-		vim.lsp.handlers["textDocument/signatureHelp"] =
-			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-
 		-- Configure error/warnings interface
 		vim.diagnostic.config({
 			virtual_text = true,
@@ -82,19 +76,21 @@ return {
 		-- if there is a language server active in the file
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(event)
-				local opts = { buffer = event.buf }
-
-				kset("n", "K", vim.lsp.buf.hover, opts)
-				kset("n", "gd", vim.lsp.buf.definition, opts)
-				kset("n", "gD", vim.lsp.buf.declaration, opts)
-				kset("n", "gi", vim.lsp.buf.implementation, opts)
-				kset("n", "go", vim.lsp.buf.type_definition, opts)
-				kset("n", "gr", vim.lsp.buf.references, opts)
-				kset("n", "gs", vim.lsp.buf.signature_help, opts)
-				kset("n", "gl", vim.diagnostic.open_float, opts)
-				kset("n", "<F2>", vim.lsp.buf.rename, opts)
-				kset({ "n", "x" }, "<leader>f", format, opts)
-				kset("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+				kset("n", "K", function()
+					vim.lsp.buf.hover({ border = "rounded" })
+				end, { buffer = event.buf, desc = "Display hover information" })
+				kset("n", "gd", vim.lsp.buf.definition, { buffer = event.buf, desc = "Go to definition" })
+				kset("n", "gD", vim.lsp.buf.declaration, { buffer = event.buf, desc = "Go to declaration" })
+				kset("n", "gi", vim.lsp.buf.implementation, { buffer = event.buf, desc = "Go to implementation" })
+				kset("n", "go", vim.lsp.buf.type_definition, { buffer = event.buf, desc = "Go to type definition" })
+				kset("n", "gr", vim.lsp.buf.references, { buffer = event.buf, desc = "Go to references" })
+				kset("n", "gs", function()
+					vim.lsp.buf.signature_help({ border = "rounded" })
+				end, { buffer = event.buf, desc = "Display signature help" })
+				kset("n", "gl", vim.diagnostic.open_float, { buffer = event.buf, desc = "Open diagnostics float" })
+				kset("n", "<F2>", vim.lsp.buf.rename, { buffer = event.buf, desc = "Rename symbol" })
+				kset({ "n", "x" }, "<leader>f", format, { buffer = event.buf, desc = "Format document" })
+				kset("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = event.buf, desc = "Trigger code actions" })
 			end,
 		})
 
