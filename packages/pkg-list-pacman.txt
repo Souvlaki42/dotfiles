@@ -2,6 +2,7 @@ acpid
 amd-ucode
 android-file-transfer
 android-tools
+arch-audit
 ark
 atuin
 base
@@ -18,6 +19,9 @@ ccls
 cdrtools
 cloc
 cpu-x
+crane
+dbeaver
+delve
 deno
 dialog
 dnsmasq
