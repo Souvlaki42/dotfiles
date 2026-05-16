@@ -2,7 +2,9 @@ return {
 	"stevearc/oil.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		require("oil").setup({
+		local oil = require("oil")
+
+		oil.setup({
 			default_file_explorer = true,
 			delete_to_trash = true,
 			skip_confirm_for_simple_edits = true,
@@ -22,7 +24,10 @@ return {
 		vim.api.nvim_create_autocmd("BufEnter", {
 			pattern = "oil://*",
 			callback = function()
-				vim.cmd("lcd " .. require("oil").get_current_dir())
+				local dir = oil.get_current_dir()
+				if dir then
+					vim.cmd.lcd(dir)
+				end
 			end,
 		})
 	end,
