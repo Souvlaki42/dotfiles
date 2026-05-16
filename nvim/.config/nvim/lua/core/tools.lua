@@ -2,26 +2,26 @@ local M = {}
 
 M.tools = {
 	-- LSPs
-	{ name = "astro-language-server", lsp_name = "astro", lsp = true },
-	{ name = "bash-language-server", lsp_name = "bashls", lsp = true },
+	{ name = "astro-language-server", mason_name = "astro", lsp = true },
+	{ name = "bash-language-server", mason_name = "bashls", lsp = true },
 	{ name = "clangd", lsp = true },
-	{ name = "css-lsp", lsp_name = "cssls", lsp = true },
-	{ name = "dockerfile-language-server", lsp_name = "dockerls", lsp = true },
-	{ name = "docker-compose-language-service", lsp_name = "docker_compose_language_service", lsp = true },
-	{ name = "docker-language-server", lsp_name = "docker_language_server", lsp = true },
-	{ name = "emmet-language-server", lsp_name = "emmet_ls", lsp = true },
-	{ name = "eslint-lsp", lsp_name = "eslint", lsp = true },
+	{ name = "css-lsp", mason_name = "cssls", lsp = true },
+	{ name = "dockerfile-language-server", mason_name = "dockerls", lsp = true },
+	{ name = "docker-compose-language-service", mason_name = "docker_compose_language_service", lsp = true },
+	{ name = "docker-language-server", mason_name = "docker_language_server", lsp = true },
+	{ name = "emmet-language-server", mason_name = "emmet_ls", lsp = true },
+	{ name = "eslint-lsp", mason_name = "eslint", lsp = true },
 	{ name = "gopls", lsp = true },
-	{ name = "html-lsp", lsp_name = "html", lsp = true },
+	{ name = "html-lsp", mason_name = "html", lsp = true },
 	{ name = "intelephense", lsp = true },
-	{ name = "json-lsp", lsp_name = "jsonls", lsp = true },
-	{ name = "lua-language-server", lsp_name = "lua_ls", lsp = true },
+	{ name = "json-lsp", mason_name = "jsonls", lsp = true },
+	{ name = "lua-language-server", mason_name = "lua_ls", lsp = true },
 	{ name = "marksman", lsp = true },
 	{ name = "pyright", lsp = true },
-	{ name = "rust-analyzer", lsp_name = "rust_analyzer", lsp = true },
-	{ name = "tailwindcss-language-server", lsp_name = "tailwindcss", lsp = true },
-	{ name = "typescript-language-server", lsp_name = "ts_ls", lsp = true },
-	{ name = "yaml-language-server", lsp_name = "yamlls", lsp = true },
+	{ name = "rust-analyzer", mason_name = "rust_analyzer", lsp = true },
+	{ name = "tailwindcss-language-server", mason_name = "tailwindcss", lsp = true },
+	{ name = "typescript-language-server", mason_name = "ts_ls", lsp = true },
+	{ name = "yaml-language-server", mason_name = "yamlls", lsp = true },
 	{ name = "stylua", lsp = true },
 	{ name = "jdtls", lsp = true },
 	{ name = "taplo", lsp = true },
@@ -32,7 +32,11 @@ M.tools = {
 	{ name = "isort", builtin = "formatting" },
 	{ name = "prettierd", builtin = "formatting" },
 	{ name = "stylua", builtin = "formatting" },
-	{ name = "google_java_format", builtin = "formatting" },
+	{
+		name = "google_java_format",
+		builtin = "formatting",
+		mason_name = "google-java-format",
+	},
 
 	-- Linters
 	{
@@ -78,14 +82,11 @@ function M.get_none_ls_sources()
 	return sources
 end
 
--- Helper function to get LSP names for mason-lspconfig
-function M.get_lsp_names()
+-- Helper function to get Mason names
+function M.get_tool_names()
 	local names = {}
 	for _, tool in ipairs(M.tools) do
-		if tool.lsp then
-			-- Use the specific lsp_name if it exists, otherwise use the package name
-			table.insert(names, tool.lsp_name or tool.name)
-		end
+		table.insert(names, tool.mason_name or tool.name)
 	end
 	return names
 end
