@@ -49,35 +49,6 @@ M.tools = {
 	},
 }
 
-M.treesitter_parsers = {
-	"astro",
-	"bash",
-	"c",
-	"cpp",
-	"css",
-	"dockerfile",
-	"go",
-	"html",
-	"java",
-	"javascript",
-	"json",
-	"lua",
-	"markdown",
-	"markdown_inline", -- Often needed for full Markdown support
-	"php",
-	"python",
-	"query",
-	"rust",
-	"tmux",
-	"toml",
-	"tsx",
-	"typescript",
-	"vim",
-	"vimdoc",
-	"yaml",
-	"regex",
-}
-
 -- Helper function to convert a list of tools into a list of sources for none-ls
 function M.get_none_ls_sources()
 	local null_ls = require("null-ls")

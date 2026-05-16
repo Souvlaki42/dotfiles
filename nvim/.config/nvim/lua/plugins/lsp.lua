@@ -5,6 +5,7 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		-- Autocompletion
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-buffer",
@@ -40,12 +41,6 @@ return {
 				})
 			end,
 		})
-
-		-- Add borders to floating windows
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-		vim.lsp.handlers["textDocument/signatureHelp"] =
-			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-
 		-- Configure error/warnings interface
 		vim.diagnostic.config({
 			virtual_text = true,
@@ -68,30 +63,34 @@ return {
 
 		-- Add cmp_nvim_lsp capabilities settings to lspconfig
 		-- This should be executed before you configure any language server
-		local lspconfig_defaults = require("lspconfig").util.default_config
-		lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-			"force",
-			lspconfig_defaults.capabilities,
-			require("cmp_nvim_lsp").default_capabilities()
-		)
+		local default_capabilities = vim.lsp.protocol.make_client_capabilities()
+		vim.lsp.config("*", {
+			capabilities = vim.tbl_deep_extend(
+				"force",
+				default_capabilities,
+				require("cmp_nvim_lsp").default_capabilities()
+			),
+		})
 
 		-- This is where you enable features that only work
 		-- if there is a language server active in the file
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(event)
-				local opts = { buffer = event.buf }
-
-				kset("n", "K", vim.lsp.buf.hover, opts)
-				kset("n", "gd", vim.lsp.buf.definition, opts)
-				kset("n", "gD", vim.lsp.buf.declaration, opts)
-				kset("n", "gi", vim.lsp.buf.implementation, opts)
-				kset("n", "go", vim.lsp.buf.type_definition, opts)
-				kset("n", "gr", vim.lsp.buf.references, opts)
-				kset("n", "gs", vim.lsp.buf.signature_help, opts)
-				kset("n", "gl", vim.diagnostic.open_float, opts)
-				kset("n", "<F2>", vim.lsp.buf.rename, opts)
-				kset({ "n", "x" }, "<leader>f", format, opts)
-				kset("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+				kset("n", "K", function()
+					vim.lsp.buf.hover({ border = "rounded" })
+				end, { buffer = event.buf, desc = "Display hover information" })
+				kset("n", "gd", vim.lsp.buf.definition, { buffer = event.buf, desc = "Go to definition" })
+				kset("n", "gD", vim.lsp.buf.declaration, { buffer = event.buf, desc = "Go to declaration" })
+				kset("n", "gi", vim.lsp.buf.implementation, { buffer = event.buf, desc = "Go to implementation" })
+				kset("n", "go", vim.lsp.buf.type_definition, { buffer = event.buf, desc = "Go to type definition" })
+				kset("n", "gr", vim.lsp.buf.references, { buffer = event.buf, desc = "Go to references" })
+				kset("n", "gs", function()
+					vim.lsp.buf.signature_help({ border = "rounded" })
+				end, { buffer = event.buf, desc = "Display signature help" })
+				kset("n", "gl", vim.diagnostic.open_float, { buffer = event.buf, desc = "Open diagnostics float" })
+				kset("n", "<F2>", vim.lsp.buf.rename, { buffer = event.buf, desc = "Rename symbol" })
+				kset({ "n", "x" }, "<leader>f", format, { buffer = event.buf, desc = "Format document" })
+				kset("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = event.buf, desc = "Trigger code actions" })
 			end,
 		})
 
@@ -100,15 +99,24 @@ return {
 				return tool.name
 			end, tools.tools),
 		})
+
+		require("mason-tool-installer").setup({
+			ensure_installed = tools.get_lsp_names(),
+		})
+
 		require("mason-lspconfig").setup({
 			ensure_installed = tools.get_lsp_names(),
 			handlers = {
 				function(server_name)
-					require("lspconfig")[server_name].setup({})
+					vim.lsp.config[server_name] = {}
+					vim.lsp.enable(server_name)
 				end,
 
 				lua_ls = function()
-					require("lspconfig").lua_ls.setup({
+					vim.lsp.config["lua_ls"] = {
+						cmd = { "lua-language-server" },
+						filetypes = { "lua" },
+						root_markers = { ".luarc.json", ".git" },
 						settings = {
 							Lua = {
 								runtime = {
@@ -122,7 +130,9 @@ return {
 								},
 							},
 						},
-					})
+					}
+
+					vim.lsp.enable("lua_ls")
 				end,
 			},
 		})

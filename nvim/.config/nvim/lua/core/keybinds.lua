@@ -16,14 +16,11 @@ kset("n", "N", "Nzzzv")
 kset("x", "<leader>p", [["_dP]])
 kset({ "n", "v" }, "<leader>d", [["_d]])
 
-kset("n", "<C-k>", "<cmd>cnext<CR>zz")
-kset("n", "<C-j>", "<cmd>cprev<CR>zz")
-
-kset("n", "<leader>k", "<cmd>lnext<CR>zz")
-kset("n", "<leader>j", "<cmd>lprev<CR>zz")
-
--- make file executable
-kset("n", "<leader>x", "<cmd>!chmod +x %<CR>")
+-- Move window focus around --
+kset("n", "<C-h>", "<C-w>h", { desc = "Move window focus left" })
+kset("n", "<C-j>", "<C-w>j", { desc = "Move window focus down" })
+kset("n", "<C-k>", "<C-w>k", { desc = "Move window focus up" })
+kset("n", "<C-l>", "<C-w>l", { desc = "Move window focus right" })
 
 -- toggle file explorer
 kset("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
