@@ -94,18 +94,13 @@ return {
 			end,
 		})
 
-		require("mason").setup({
-			ensure_installed = vim.tbl_map(function(tool)
-				return tool.name
-			end, tools.tools),
-		})
+		require("mason").setup({})
 
 		require("mason-tool-installer").setup({
-			ensure_installed = tools.get_lsp_names(),
+			ensure_installed = tools.get_tool_names(),
 		})
 
 		require("mason-lspconfig").setup({
-			ensure_installed = tools.get_lsp_names(),
 			handlers = {
 				function(server_name)
 					vim.lsp.config[server_name] = {}
