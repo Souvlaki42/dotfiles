@@ -20,6 +20,7 @@ lib32-ncurses5-compat-libs
 ludusavi-bin
 lumafly
 minecraft-launcher
+netbeans-bin
 nuitka
 oh-my-posh-bin
 ookla-speedtest-bin

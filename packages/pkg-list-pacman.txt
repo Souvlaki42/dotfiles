@@ -3,6 +3,7 @@ amd-ucode
 android-file-transfer
 android-tools
 arch-audit
+arduino-cli
 ark
 atuin
 base
@@ -50,6 +51,7 @@ gnome-keyring
 gnuplot
 go
 godot
+goverlay
 grc
 grex
 grub
@@ -70,6 +72,8 @@ jdk21-openjdk
 jdk-openjdk
 jenv
 jq
+just
+just-lsp
 kate
 kdeconnect
 kdenlive
@@ -115,6 +119,7 @@ noto-fonts-cjk
 nvtop
 obsidian
 obs-studio
+odin
 okular
 opencode
 openvpn
@@ -141,6 +146,7 @@ qalculate-qt
 qemu-full
 qt5-quickcontrols2
 qt5-tools
+ratty
 reflector
 riscv64-linux-gnu-gcc
 rsync
