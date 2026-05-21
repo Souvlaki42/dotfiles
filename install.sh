@@ -181,7 +181,7 @@ if [[ "$IS_ARCH_BASED" == true ]]; then
   fi
 fi
 
-symlinks=("atuin" "git" "nvim" "prompt" "sesh" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment" "fastfetch" "binaries")
+symlinks=("atuin" "git" "nvim" "prompt" "sesh" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment" "fastfetch" "binaries" "pnpm")
 if yes_or_no "Would you like to install symbolic links?" "y"; then
   to_link=()
   if multiselect_or_skip to_link "${symlinks[@]}"; then
