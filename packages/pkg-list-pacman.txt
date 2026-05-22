@@ -61,6 +61,10 @@ gvfs
 helix
 htop
 hugo
+hunspell-el
+hunspell-en_gb
+hunspell-en_us
+hyphen-en
 icoutils
 imagemagick
 inetutils
@@ -87,6 +91,7 @@ libayatana-appindicator
 libguestfs
 libicns
 libinput-tools
+libmythes
 libpulse
 libreoffice-fresh
 libresprite
@@ -106,6 +111,7 @@ mono
 mtpfs
 mtr
 mysql-workbench
+mythes-en
 nano
 nasm
 ncdu
