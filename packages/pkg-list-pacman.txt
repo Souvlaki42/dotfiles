@@ -15,6 +15,7 @@ bluez-utils
 btrfs-assistant
 btrfs-progs
 busybox
+caddy
 cava
 ccls
 cdrtools
