@@ -31,6 +31,7 @@ dolphin
 dos2unix
 dotnet-sdk
 dotnet-sdk-8.0
+edk2-riscv64
 efibootmgr
 emscripten
 entr
