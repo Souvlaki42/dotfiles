@@ -25,11 +25,6 @@ if [[ "$1" == "--yes" || "$1" == "-y" ]]; then
   ACCEPT_ALL=true
 fi
 
-IS_ARCH_BASED=false
-if command -v pacman &> /dev/null; then
-  IS_ARCH_BASED=true
-fi
-
 function yes_or_no() {
   if [[ "$ACCEPT_ALL" == true ]]; then
     echo "$1 [auto-yes]"
@@ -103,19 +98,8 @@ function multiselect_or_skip() {
   fi
 }
 
-if [[ "$IS_ARCH_BASED" != true ]]; then
-  echo "You are not running an Arch-based system."
-  echo "You may need to install some packages manually like FZF, GNU Stow and Git."
-  echo "Also, the parts of the script that install packages for Arch-based system and AUR helpers will be skipped."
-  if ! yes_or_no "Proceed anyway?" "y"; then
-    exit 0
-  fi
-fi
-
-if [[ "$IS_ARCH_BASED" == true ]]; then
-  echo "Installing necessary packages..."
-  sudo pacman -S --needed --noconfirm fzf stow git base-devel
-fi
+echo "Installing necessary packages..."
+sudo pacman -S --needed --noconfirm fzf git base-devel
 
 if ! command -v fzf &> /dev/null; then
   echo "Fzf not found. Please install it."
@@ -132,30 +116,18 @@ if ! command -v git &> /dev/null; then
   exit 1
 fi
 
-DOTFILES_DIR="$HOME/dotfiles"
-
-if [[ ! -d "$DOTFILES_DIR" ]]; then
-  echo "Dotfiles directory not found. Cloning..."
-  git clone https://github.com/souvlaki42/dotfiles "$DOTFILES_DIR" || { echo "Failed to clone dotfiles directory"; exit 1; }
-fi
-
-if [[ "$IS_ARCH_BASED" == true ]]; then
-  echo "Default AUR helper is paru."
-
-  if ! command -v paru &> /dev/null; then
-    echo "Installing paru..."
-    paru_dir="$(mktemp -d)"
-    TEMP_DIRS+=("$paru_dir")
-    git clone https://aur.archlinux.org/paru.git "$paru_dir" || { echo "Failed to clone paru directory"; exit 1; }
-    cd "$paru_dir" || { echo "Failed to enter paru directory"; exit 1; }
-    makepkg -si --noconfirm || { echo "Failed to install paru"; exit 1; }
-    cd "$HOME" ||  { echo "Failed to enter home directory"; exit 1; }
-  fi
+if ! command -v paru &> /dev/null; then
+  echo "Installing paru..."
+  paru_dir="$(mktemp -d)"
+  TEMP_DIRS+=("$paru_dir")
+  git clone https://aur.archlinux.org/paru.git "$paru_dir" || { echo "Failed to clone paru directory"; exit 1; }
+  cd "$paru_dir" || { echo "Failed to enter paru directory"; exit 1; }
+  makepkg -si --noconfirm || { echo "Failed to install paru"; exit 1; }
+  cd "$HOME" ||  { echo "Failed to enter home directory"; exit 1; }
 fi
 
 cd "$DOTFILES_DIR" || { echo "Failed to enter dotfiles directory"; exit 1; }
 
-if [[ "$IS_ARCH_BASED" == true ]]; then
   if yes_or_no "Would you like to install packages?" "y"; then
     installed=()
     if multiselect_or_skip installed "./packages/pkg-list-pacman.txt"; then
@@ -179,7 +151,6 @@ if [[ "$IS_ARCH_BASED" == true ]]; then
       fi
     fi
   fi
-fi
 
 symlinks=("atuin" "git" "nvim" "prompt" "sesh" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment" "fastfetch" "binaries" "pnpm")
 if yes_or_no "Would you like to install symbolic links?" "y"; then
