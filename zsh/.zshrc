@@ -32,9 +32,11 @@ export CODE_DIR="$HOME/code"
 export NODE_COMPILE_CACHE="$XDG_CACHE_HOME/nodejs-compile-cache"
 export VERCEL_TELEMETRY_DISABLED=1
 export EDITOR="nvim"
+export MANPAGER="nvim +Man!"
 export VISUAL="$EDITOR"
 export FILES="dolphin"
 export COLORTERM=truecolor
+export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
 export SSH_ASKPASS="/usr/lib/seahorse/ssh-askpass"
 export SSH_ASKPASS_REQUIRE=prefer
 
@@ -193,8 +195,6 @@ function gh-first-commit() {
     | grep -oP '"sha": "\K[^"]+' | head -1)
   echo "https://github.com/$repo/commit/$sha"
 }
-
-function man() { command man $@ | bat -l man --style=-numbers }
 
 # ----------------------------------------
 # History Settings
