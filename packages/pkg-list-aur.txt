@@ -21,6 +21,7 @@ ludusavi-bin
 lumafly
 minecraft-launcher
 netbeans-bin
+noctalia-shell
 nuitka
 oh-my-posh-bin
 ookla-speedtest-bin
