@@ -25,4 +25,15 @@ return {
 			vim.o.timeoutlen = 300
 		end,
 	},
+	{
+		"Souvlaki42/tasks.nvim",
+		opts = {
+			dir_name = "tasks",
+			match_header = "TODO:",
+		},
+		config = function()
+			vim.keymap.set("n", "<leader>tc", "<cmd>TasksCreate<cr>", { desc = "Create task from TODO comment" })
+			vim.keymap.set("n", "<leader>to", "<cmd>TasksOpen<cr>", { desc = "Open task HUID reference's task file" })
+		end,
+	},
 }
