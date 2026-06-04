@@ -37,6 +37,7 @@ selectdefaultapplication-git
 sesh-bin
 syncthingtray-qt6
 teams-for-linux-bin
+ttf-ms-fonts
 tuxmanager
 unimatrix-git
 unityhub
