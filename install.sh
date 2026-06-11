@@ -152,7 +152,7 @@ cd "$DOTFILES_DIR" || { echo "Failed to enter dotfiles directory"; exit 1; }
     fi
   fi
 
-symlinks=("atuin" "git" "nvim" "prompt" "sesh" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment" "fastfetch" "binaries" "pnpm")
+symlinks=("atuin" "git" "nvim" "prompt" "sesh" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "applications" "environment" "fastfetch" "pnpm")
 if yes_or_no "Would you like to install symbolic links?" "y"; then
   to_link=()
   if multiselect_or_skip to_link "${symlinks[@]}"; then
