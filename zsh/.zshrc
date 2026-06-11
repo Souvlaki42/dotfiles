@@ -24,7 +24,7 @@ export DEPOT_INSTALL_DIR="$HOME/.depot/bin"
 export JAVA_HOME="/usr/lib/jvm/default"
 
 # PATH
-export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.local/bin/mosml/bin:$HOME/.cargo/bin:$DEPOT_INSTALL_DIR:/var/bash.bs:/opt/nvim-linux64/bin:$JAVA_HOME/bin:$HOME/.filen-cli/bin:/snap/bin:$PNPM_HOME/bin:$HOME/matlab:$HOME/.wokwi/bin:$PATH"
+export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.local/bin/mosml/bin:$HOME/.cargo/bin:$DEPOT_INSTALL_DIR:$HOME/.filen-cli/bin:/snap/bin:$PNPM_HOME/bin:$HOME/matlab:$HOME/.wokwi/bin:$PATH"
 
 # Shell
 export DOTFILES_DIR="$HOME/dotfiles"
