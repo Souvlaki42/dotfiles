@@ -18,7 +18,7 @@ return {
 				show_hidden = true,
 				natural_order = true,
 				is_always_hidden = function(name)
-					return name == ".git" or name == "." or name == "../"
+					return string.find(name, "..", 0, true)
 				end,
 			},
 			win_options = {
