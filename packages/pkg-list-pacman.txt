@@ -28,6 +28,7 @@ delve
 deno
 dialog
 dnsmasq
+doggo
 dolphin
 dos2unix
 dotnet-sdk
@@ -114,7 +115,6 @@ mkcert
 mono
 mtpfs
 mtr
-mysql-workbench
 mythes-en
 nano
 nasm
@@ -182,6 +182,7 @@ tldr
 tmux
 tree-sitter-cli
 ttf-jetbrains-mono-nerd
+ufw
 unzip
 uv
 v4l2loopback-dkms
