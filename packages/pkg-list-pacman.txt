@@ -27,6 +27,8 @@ delve
 deno
 dialog
 dnsmasq
+docker
+docker-compose
 doggo
 dolphin
 dos2unix
