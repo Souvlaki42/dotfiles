@@ -21,6 +21,10 @@ return {
 		vim.lsp.inlay_hint.enable(true)
 
 		local function format(args)
+			if vim.bo.filetype == "oil" then
+				return
+			end
+
 			vim.lsp.buf.format({
 				formatting_options = { tabSize = 2, insertSpaces = true },
 				bufnr = args and (args.buf or args.buffer or nil),
