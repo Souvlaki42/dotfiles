@@ -1,5 +1,5 @@
 return {
-	"stevearc/oil.nvim",
+	"barrettruth/canola.nvim", -- TODO: maybe switch back to oil if needed
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local oil = require("oil")
@@ -22,6 +22,8 @@ return {
 			columns = {
 				"icon",
 				"permissions",
+				"owner",
+				"group",
 				"size",
 				"mtime",
 			},
