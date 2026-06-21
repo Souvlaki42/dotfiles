@@ -28,6 +28,7 @@ deno
 dialog
 dnsmasq
 docker
+docker-buildx
 docker-compose
 doggo
 dolphin
@@ -185,6 +186,7 @@ ufw
 unzip
 uv
 v4l2loopback-dkms
+valgrind
 vim
 virt-manager
 virt-viewer
