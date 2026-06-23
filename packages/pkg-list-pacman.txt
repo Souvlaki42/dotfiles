@@ -136,6 +136,8 @@ opencode
 openvpn
 papirus-icon-theme
 pastel
+perl-archive-zip
+perl-image-exiftool
 pipewire
 pipewire-alsa
 pipewire-jack
