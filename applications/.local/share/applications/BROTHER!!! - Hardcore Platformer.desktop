@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=BROTHER!!! - Hardcore Platformer
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/1286560
+Icon=steam_icon_1286560
+Terminal=false
+Type=Application
+Categories=Game;

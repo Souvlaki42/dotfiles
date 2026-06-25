@@ -15,7 +15,6 @@ bluez-utils
 btrfs-assistant
 btrfs-progs
 busybox
-caddy
 cava
 ccls
 cdrtools
@@ -23,7 +22,6 @@ cloc
 cpu-x
 crane
 dbeaver
-delve
 deno
 dialog
 dnsmasq
@@ -64,7 +62,6 @@ grub
 grub-btrfs
 gst-plugin-pipewire
 gvfs
-helix
 htop
 hugo
 hunspell-el
@@ -159,9 +156,7 @@ qalculate-qt
 qemu-full
 qt5-quickcontrols2
 qt5-tools
-ratty
 reflector
-riscv64-linux-gnu-gcc
 rsync
 rustup
 seahorse
@@ -177,8 +172,6 @@ swtpm
 syncthing
 tcl
 tesseract
-thunar
-thunar-volman
 tk
 tldr
 tmux
@@ -210,7 +203,6 @@ xorg-xinit
 xsel
 yt-dlp
 zed
-zig
 zoxide
 zram-generator
 zsh
