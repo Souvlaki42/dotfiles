@@ -35,7 +35,6 @@ dotnet-sdk
 dotnet-sdk-8.0
 edk2-riscv64
 efibootmgr
-emscripten
 entr
 ethtool
 evtest
@@ -75,7 +74,6 @@ inkscape
 inotify-tools
 iptables
 iwd
-jdk21-openjdk
 jdk-openjdk
 jenv
 jq
@@ -102,8 +100,6 @@ linux
 linuxconsole
 linux-firmware
 linux-headers
-linux-lts
-linux-lts-headers
 lshw
 luarocks
 man-db
@@ -156,6 +152,7 @@ qalculate-qt
 qemu-full
 qt5-quickcontrols2
 qt5-tools
+qt6-webengine
 reflector
 rsync
 rustup
