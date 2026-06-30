@@ -51,7 +51,6 @@ git
 github-cli
 git-lfs
 glew
-gnome-keyring
 gnuplot
 go
 godot
@@ -157,7 +156,6 @@ qt6-webengine
 reflector
 rsync
 rustup
-seahorse
 shellcheck
 sl
 smartmontools

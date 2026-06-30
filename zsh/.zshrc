@@ -37,8 +37,6 @@ export VISUAL="$EDITOR"
 export FILES="dolphin"
 export COLORTERM=truecolor
 export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
-export SSH_ASKPASS="/usr/lib/seahorse/ssh-askpass"
-export SSH_ASKPASS_REQUIRE=prefer
 
 # ----------------------------------------
 # Fzf Catppuccin theme
