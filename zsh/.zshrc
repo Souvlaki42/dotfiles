@@ -169,6 +169,12 @@ function zsh-audit() {
   echo "duplicates:" && print -l $precmd_functions | sort | uniq -d
 }
 
+function package-log() {
+  mkdir -p "$DOTFILES_DIR/packages"
+  sudo pacman -Qqen | grep -v -- '-debug$' | sort > "$DOTFILES_DIR/packages/pkg-list-pacman.txt"
+  sudo pacman -Qqem | grep -v -- '-debug$' | sort > "$DOTFILES_DIR/packages/pkg-list-aur.txt"
+}
+
 function gh-first-commit() {
   if [[ $# -ne 1 ]]; then
     echo "Usage: gh-first-commit <repo>"
