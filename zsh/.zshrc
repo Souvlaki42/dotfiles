@@ -38,6 +38,9 @@ export FILES="dolphin"
 export COLORTERM=truecolor
 export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
 
+# Add ssh
+ssh-add ~/.ssh/id_ed25519 &> /dev/null
+
 # ----------------------------------------
 # Fzf Catppuccin theme
 # ----------------------------------------
