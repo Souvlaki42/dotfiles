@@ -173,27 +173,6 @@ if yes_or_no "Would you like to install symbolic links?" "y"; then
   fi
 fi
 
-system_links=("pacman" "grub" "logind")
-if yes_or_no "Would you like to install system links?" "y"; then
-  to_link=()
-  if multiselect_or_skip to_link "${system_links[@]}"; then
-    for item in "${to_link[@]}"
-    do
-      echo "Installing $item configuration..."
-      if sudo stow -n -v -d "$DOTFILES_DIR" -t "/" "$item" 2>/dev/null; then
-        sudo stow -v -d "$DOTFILES_DIR" -t "/" "$item"
-      else
-        echo "Conflicts in $item. Use --adopt? (backs up your files to repo)"
-        if yes_or_no "Adopt existing files for $item?" "y"; then
-          sudo stow --adopt -v -d "$DOTFILES_DIR" -t "/" "$item"
-        else
-          echo "Skipping $item"
-        fi
-      fi
-    done
-  fi
-fi
-
 if yes_or_no "Would you like to enable the gcr-ssh-agent service?" "y"; then
   systemctl --user daemon-reload
   systemctl --user enable --now gcr-ssh-agent.socket
