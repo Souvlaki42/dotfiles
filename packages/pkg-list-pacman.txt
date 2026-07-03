@@ -54,7 +54,6 @@ glew
 gnuplot
 go
 godot
-goverlay
 grc
 grex
 grub
@@ -125,7 +124,6 @@ obsidian
 obs-studio
 odin
 okular
-opencode
 openvpn
 papirus-icon-theme
 pastel

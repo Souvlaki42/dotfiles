@@ -174,8 +174,8 @@ function zsh-audit() {
 
 function package-log() {
   mkdir -p "$DOTFILES_DIR/packages"
-  sudo pacman -Qqen | grep -v -- '-debug$' | sort > "$DOTFILES_DIR/packages/pkg-list-pacman.txt"
-  sudo pacman -Qqem | grep -v -- '-debug$' | sort > "$DOTFILES_DIR/packages/pkg-list-aur.txt"
+  pacman -Qqen | grep -v -- '-debug$' | sort > "$DOTFILES_DIR/packages/pkg-list-pacman.txt"
+  pacman -Qqem | grep -v -- '-debug$' | sort > "$DOTFILES_DIR/packages/pkg-list-aur.txt"
 }
 
 function ncdu-root() {
