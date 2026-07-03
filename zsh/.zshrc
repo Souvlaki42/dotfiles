@@ -178,6 +178,10 @@ function package-log() {
   sudo pacman -Qqem | grep -v -- '-debug$' | sort > "$DOTFILES_DIR/packages/pkg-list-aur.txt"
 }
 
+function ncdu-root() {
+  sudo ncdu / --exclude home --exclude "/.snapshots" --exclude "/run/BtrfsAssistant" --exclude "/proc"
+}
+
 function gh-first-commit() {
   if [[ $# -ne 1 ]]; then
     echo "Usage: gh-first-commit <repo>"
