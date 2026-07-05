@@ -164,12 +164,21 @@ alias history="atuin search -i"
 alias zsh-profile="PROFILING_MODE=1 zsh -i -c exit"
 
 # ----------------------------------------
-# functions
+# Functions
 # ----------------------------------------
 function zsh-audit() {
   echo "precmd:" && print -l $precmd_functions
   echo "preexec:" && print -l $preexec_functions
   echo "duplicates:" && print -l $precmd_functions | sort | uniq -d
+}
+
+function backupgames() {
+  BACKUP_DIR="$HOME/Documents/Backups"
+
+  ludusavi backup --path "$BACKUP_DIR/$(date +%Y-%m-%d)" --force
+
+  # Keep only last 7 days of backups
+  fd -d 1 -t d --changed-before 7days . "$BACKUP_DIR" -x rm -rf
 }
 
 function package-log() {

@@ -14,6 +14,7 @@ helium-browser-bin
 heroic-games-launcher-bin
 hw-probe
 lib32-ncurses5-compat-libs
+ludusavi-bin
 lumafly
 minecraft-launcher
 oh-my-posh-bin
