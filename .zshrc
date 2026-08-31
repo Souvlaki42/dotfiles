@@ -93,7 +93,7 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fnm env --shell zsh)"
 eval "$(atuin init zsh)"
-eval "$(oh-my-posh init zsh --config "$HOME/shell.toml")"
+eval "$(oh-my-posh init zsh --config "$HOME/prompt.toml")"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 . "$HOME/.vite-plus/env"
@@ -179,12 +179,6 @@ function backupgames() {
 
   # Keep only last 7 days of backups
   fd -d 1 -t d --changed-before 7days . "$BACKUP_DIR" -x rm -rf
-}
-
-function package-log() {
-  mkdir -p "$DOTFILES_DIR/packages"
-  pacman -Qqen | grep -v -- '-debug$' | sort > "$DOTFILES_DIR/packages/pkg-list-pacman.txt"
-  pacman -Qqem | grep -v -- '-debug$' | sort > "$DOTFILES_DIR/packages/pkg-list-aur.txt"
 }
 
 function ncdu-root() {
