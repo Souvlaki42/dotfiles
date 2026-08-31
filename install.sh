@@ -46,75 +46,8 @@ function yes_or_no() {
   done
 }
 
-function multiselect() {
-  local -n selected_array=$1
-  local input=("${@:2}")
-  local options=()
-
-  # Allow passing either a file to read from or a list of options
-  if [[ -f "${input[0]}" && ${#input[@]} -eq 1 ]]; then
-    mapfile -t options < "${input[0]}"
-  else
-    options=("${input[@]}")
-  fi
-
-  local selected exit_code
-  selected=$(printf "%s\n" "${options[@]}" | fzf --multi --layout=reverse --bind "ctrl-a:select-all,ctrl-d:deselect-all")
-  exit_code=$?
-
-  if [[ $exit_code -eq 130 ]]; then
-    return 130
-  elif [[ $exit_code -ne 0 ]]; then
-    echo "Error: FZF exited with code $exit_code" >&2
-    return 1
-  fi
-
-  if [[ -z "$selected" ]]; then
-    echo "No options selected." >&2
-    return 1
-  fi
-
-  # shellcheck disable=SC2034
-  mapfile -t selected_array <<< "$selected"
-  return 0
-}
-
-function multiselect_or_skip() {
-  # shellcheck disable=SC2034
-  local -n result_ref=$1
-  shift
-  
-  if multiselect result_ref "$@"; then
-    return 0
-  else
-    local exit_code=$?
-    if [[ $exit_code -eq 130 ]]; then
-      echo "Selection cancelled, skipping..." >&2
-      return 130
-    else
-      echo "Error during selection" >&2
-      exit $exit_code
-    fi
-  fi
-}
-
 echo "Installing necessary packages..."
-sudo pacman -S --needed --noconfirm fzf git base-devel
-
-if ! command -v fzf &> /dev/null; then
-  echo "Fzf not found. Please install it."
-  exit 1
-fi
-
-if ! command -v stow &> /dev/null; then
-  echo "Stow not found. Please install it."
-  exit 1
-fi
-
-if ! command -v git &> /dev/null; then
-  echo "Git not found. Please install it."
-  exit 1
-fi
+sudo pacman -S --needed --noconfirm git base-devel
 
 if ! command -v paru &> /dev/null; then
   echo "Installing paru..."
@@ -128,49 +61,8 @@ fi
 
 cd "$DOTFILES_DIR" || { echo "Failed to enter dotfiles directory"; exit 1; }
 
-  if yes_or_no "Would you like to install packages?" "y"; then
-    installed=()
-    if multiselect_or_skip installed "./packages/pkg-list-pacman.txt"; then
-      sudo pacman -S --needed --noconfirm "${installed[@]}"
-    fi
-  fi
-
-  if yes_or_no "Would you like to install AUR packages?" "y"; then
-    selected=()
-    to_install=()
-    if multiselect_or_skip selected "./packages/pkg-list-aur.txt"; then
-      for pkg in "${selected[@]}"; do
-        if ! pacman -Qq "$pkg" &>/dev/null; then
-          to_install+=("$pkg")
-        fi
-      done
-      if [[ ${#to_install[@]} -gt 0 ]]; then
-        paru -S --needed --noconfirm "${to_install[@]}"
-      else
-        echo "All selected AUR packages are already installed."
-      fi
-    fi
-  fi
-
-symlinks=("atuin" "git" "nvim" "prompt" "sesh" "tmux" "zsh" "discord" "themes" "ghostty" "zed" "cava" "pipewire" "environment" "fastfetch" "pnpm")
-if yes_or_no "Would you like to install symbolic links?" "y"; then
-  to_link=()
-  if multiselect_or_skip to_link "${symlinks[@]}"; then
-    for item in "${to_link[@]}"
-    do
-      echo "Linking $item..."
-      if stow -n -v -d "$DOTFILES_DIR" -t "$HOME" "$item" &>/dev/null; then
-        stow -v -d "$DOTFILES_DIR" -t "$HOME" "$item"
-      else
-        echo "Conflicts in $item. Use --adopt? (backs up your files to repo)"
-        if yes_or_no "Adopt existing files for $item?" "y"; then
-          stow --adopt -v -d "$DOTFILES_DIR" -t "$HOME" "$item"
-        else
-          echo "Skipping $item"
-        fi
-      fi
-    done
-  fi
+if yes_or_no "Would you like to enable all symbolic links" "y"; then
+  stow . || { echo "Symbolic links failed to be enabled!"; exit 1; }
 fi
 
 if yes_or_no "Would you like to enable magic SYSRQ?" "y"; then
