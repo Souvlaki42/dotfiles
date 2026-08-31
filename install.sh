@@ -72,9 +72,4 @@ if yes_or_no "Would you like to enable magic SYSRQ?" "y"; then
   echo "Magic SYSRQ enabled permanently."
 fi
 
-echo "Installation complete!"
-if yes_or_no "A reboot is advised for changes to take effect. Proceed with reboot?" "y"; then
-  sudo reboot
-else
-  echo "That's fine by me. Have a nice day!"
-fi
+echo "Installation complete. Have a nice day!"
