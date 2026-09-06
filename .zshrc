@@ -17,24 +17,24 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # CLI Applications
-export BUN_INSTALL="$HOME/.bun"
 export GOPATH="$HOME/go"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
-export DEPOT_INSTALL_DIR="$HOME/.depot/bin"
-export JAVA_HOME="/usr/lib/jvm/default"
+export JAVA_HOME="/usr/lib/jvm/java-25-openjdk"
 
 # PATH
-export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.local/bin/mosml/bin:$HOME/.cargo/bin:$DEPOT_INSTALL_DIR:$HOME/.filen-cli/bin:/snap/bin:$PNPM_HOME/bin:$HOME/matlab:$HOME/.wokwi/bin:$PATH"
+export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$PNPM_HOME/bin:$PATH"
 
 # Shell
+export SHELL="/bin/zsh"
+export GIT_ASKPATH="$SSH_ASKPASS"
 export DOTFILES_DIR="$HOME/dotfiles"
-export CODE_DIR="$HOME/code"
+export CODE_DIR="$HOME/projects"
 export NODE_COMPILE_CACHE="$XDG_CACHE_HOME/nodejs-compile-cache"
 export VERCEL_TELEMETRY_DISABLED=1
+export MATLAB_LOG_DIR="$HOME/.matlab/logs"
 export EDITOR="nvim"
 export MANPAGER="nvim +Man!"
 export VISUAL="$EDITOR"
-export FILES="dolphin"
 export COLORTERM=truecolor
 export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
 
@@ -91,12 +91,11 @@ zstyle ":completion:*" beep no
 # ----------------------------------------
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(fnm env --shell zsh)"
+. "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
 eval "$(oh-my-posh init zsh --config "$HOME/prompt.toml")"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
-. "$HOME/.vite-plus/env"
 
 # ----------------------------------------
 # Plugin Managers
@@ -154,7 +153,6 @@ alias ll="eza -alh"
 alias tree="eza --tree"
 alias md="mkdir -p"
 alias v="nvim"
-alias c="zeditor"
 alias fetch="fastfetch"
 alias lg="lazygit"
 alias pn="pnpm"
@@ -179,10 +177,6 @@ function backupgames() {
 
   # Keep only last 7 days of backups
   fd -d 1 -t d --changed-before 7days . "$BACKUP_DIR" -x rm -rf
-}
-
-function ncdu-root() {
-  sudo ncdu / --exclude home --exclude "/.snapshots" --exclude "/run/BtrfsAssistant" --exclude "/proc"
 }
 
 function gh-first-commit() {
