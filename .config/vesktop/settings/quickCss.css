@@ -1,9 +1,5 @@
 /* Custom quick css file for Vencord compatible Discord clients like Legcord and Webcord */
 
-/* Catppuccin Mocha blue theme */
-/* https://github.com/catppuccin/discord */
-/*@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css");*/
-
 /* Hide visual refresh title bar */
 /* https://discord.com/channels/1015060230222131221/1028106818368589824/1354203100872835123 */
 @import url("https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css");
@@ -74,13 +70,4 @@ span[class*="timestampInline_"] {
 /* Remove you'll lose access soon */
 div.notice__6e2b9.colorPremiumTier2__6e2b9.colorPremium__6e2b9 {
     display: none;
-}
-
-/* Make read all notification better styles */
-.vc-ranb-button {
-    color: var(--interactive-active);
-    opacity: 0.5;
-}
-.vc-ranb-button:hover {
-    opacity: 1;
 }
