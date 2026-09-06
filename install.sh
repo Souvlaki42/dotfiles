@@ -46,19 +46,6 @@ function yes_or_no() {
   done
 }
 
-echo "Installing necessary packages..."
-sudo pacman -S --needed --noconfirm git base-devel
-
-if ! command -v paru &> /dev/null; then
-  echo "Installing paru..."
-  paru_dir="$(mktemp -d)"
-  TEMP_DIRS+=("$paru_dir")
-  git clone https://aur.archlinux.org/paru.git "$paru_dir" || { echo "Failed to clone paru directory"; exit 1; }
-  cd "$paru_dir" || { echo "Failed to enter paru directory"; exit 1; }
-  makepkg -si --noconfirm || { echo "Failed to install paru"; exit 1; }
-  cd "$HOME" ||  { echo "Failed to enter home directory"; exit 1; }
-fi
-
 cd "$DOTFILES_DIR" || { echo "Failed to enter dotfiles directory"; exit 1; }
 
 if yes_or_no "Would you like to enable all symbolic links" "y"; then
