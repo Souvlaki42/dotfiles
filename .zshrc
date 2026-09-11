@@ -158,6 +158,7 @@ alias lg="lazygit"
 alias pn="pnpm"
 alias python="python3"
 alias pip="pip3"
+alias gd="godot -m -e --no-header &"
 alias history="atuin search -i"
 alias zsh-profile="PROFILING_MODE=1 zsh -i -c exit"
 
@@ -177,21 +178,6 @@ function backupgames() {
 
   # Keep only last 7 days of backups
   fd -d 1 -t d --changed-before 7days . "$BACKUP_DIR" -x rm -rf
-}
-
-function gh-first-commit() {
-  if [[ $# -ne 1 ]]; then
-    echo "Usage: gh-first-commit <repo>"
-    return 1
-  fi
-
-  local repo=$1
-  local last_page=$(curl -sI "https://api.github.com/repos/$repo/commits?per_page=1" \
-    | grep -i '^link:' \
-    | grep -oP 'page=\K\d+(?=>; rel="last")')
-  local sha=$(curl -s "https://api.github.com/repos/$repo/commits?per_page=1&page=$last_page" \
-    | grep -oP '"sha": "\K[^"]+' | head -1)
-  echo "https://github.com/$repo/commit/$sha"
 }
 
 # ----------------------------------------
