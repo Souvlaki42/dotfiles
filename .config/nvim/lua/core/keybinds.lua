@@ -23,4 +23,4 @@ kset("n", "<C-k>", "<C-w>k", { desc = "Move window focus up" })
 kset("n", "<C-l>", "<C-w>l", { desc = "Move window focus right" })
 
 -- toggle file explorer
-kset("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+kset("n", "-", "<CMD>Canola<CR>", { desc = "Open parent directory" })
