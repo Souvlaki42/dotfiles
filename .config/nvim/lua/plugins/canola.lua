@@ -97,7 +97,7 @@ return {
 			cursor = true,
 			hidden = {
 				enabled = false,
-				always = { "^%.DS_Store$", "^%.git$", "%..$" },
+				always = { "%..$" },
 			},
 			keymaps = {
 				["gc"] = {
@@ -105,6 +105,7 @@ return {
 					mode = { "n", "v" },
 					callback = run_command,
 				},
+				["q"] = {},
 			},
 			sort = {
 				by = { { "type", "asc" }, { "name", "asc" } },
@@ -125,14 +126,14 @@ return {
 			},
 		}
 
-		-- 	vim.api.nvim_create_autocmd("BufEnter", {
-		-- 		pattern = "oil://*",
-		-- 		callback = function()
-		-- 			local dir = oil.get_current_dir()
-		-- 			if dir then
-		-- 				vim.cmd.lcd(dir)
-		-- 			end
-		-- 		end,
-		-- 	})
+		vim.api.nvim_create_autocmd("BufEnter", {
+			pattern = "canola://*",
+			callback = function()
+				local dir = require("canola").get_current_dir()
+				if dir then
+					vim.cmd.lcd(dir)
+				end
+			end,
+		})
 	end,
 }
