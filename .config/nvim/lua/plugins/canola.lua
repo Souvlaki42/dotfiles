@@ -97,7 +97,7 @@ return {
 			cursor = true,
 			hidden = {
 				enabled = false,
-				always = { "%..$" },
+				always = {},
 			},
 			keymaps = {
 				["gc"] = {
