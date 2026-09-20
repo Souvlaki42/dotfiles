@@ -18,11 +18,12 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # CLI Applications
 export GOPATH="$HOME/go"
+export ODIN_ROOT="$HOME/.local/bin/odin"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export JAVA_HOME="/usr/lib/jvm/java-25-openjdk"
 
 # PATH
-export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$PNPM_HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$ODIN_ROOT:$PNPM_HOME/bin:$PATH"
 
 # Shell
 export SHELL="/bin/zsh"
@@ -151,11 +152,9 @@ alias ls="eza"
 alias la="eza -a"
 alias ll="eza -alh"
 alias tree="eza --tree"
-alias md="mkdir -p"
 alias v="nvim"
 alias fetch="fastfetch"
 alias lg="lazygit"
-alias pn="pnpm"
 alias python="python3"
 alias pip="pip3"
 alias gd="godot -m -e --no-header &"
@@ -172,7 +171,7 @@ function zsh-audit() {
 }
 
 function backupgames() {
-  BACKUP_DIR="$HOME/Documents/Backups"
+  BACKUP_DIR="$HOME/Documents/Ludusavi"
 
   ludusavi backup --path "$BACKUP_DIR/$(date +%Y-%m-%d)" --force
 
