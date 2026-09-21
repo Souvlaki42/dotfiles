@@ -40,6 +40,15 @@
 [merge]
   conflictStyle = zdiff3
 
+[diff]
+  algorithm = histogram
+  colorMoved = default
+  mnemonicPrefix = true
+
+[rerere]
+  enabled = true
+  autoupdate = true
+
 [alias]
 	st = status -s
 	sta = status
