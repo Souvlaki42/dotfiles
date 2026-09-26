@@ -1,7 +1,7 @@
 return {
-	"barrettruth/canola.nvim",
+	"https://forge.barrettruth.com/barrettruth/canola.nvim",
 	branch = "canola",
-	dependencies = { "nvim-tree/nvim-web-devicons", "barrettruth/canola-collection" },
+	dependencies = { "nvim-tree/nvim-web-devicons", "https://forge.barrettruth.com/barrettruth/canola-collection" },
 	init = function()
 		function _G.get_canola_winbar()
 			local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
