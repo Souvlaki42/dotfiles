@@ -18,7 +18,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # Applications
 export GOPATH="$HOME/go"
-export ODIN_ROOT="$HOME/.local/bin/odin"
+export ODIN_ROOT="$HOME/opt/odin"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export JAVA_HOME="/usr/lib/jvm/java-25-openjdk"
 export GIT_ASKPATH="$SSH_ASKPASS"
