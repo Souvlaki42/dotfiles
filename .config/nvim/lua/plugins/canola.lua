@@ -126,12 +126,27 @@ return {
 			},
 		}
 
+		vim.g.last_project_root = nil
+		vim.api.nvim_create_autocmd("BufEnter", {
+			pattern = "*",
+			callback = function()
+				if vim.bo.filetype ~= "canola" then
+					local root = find_root()
+					if root ~= nil then
+						vim.g.last_project_root = root
+					end
+				end
+			end,
+		})
+
+		-- Change nvim directory on canola buffers
 		vim.api.nvim_create_autocmd("BufEnter", {
 			pattern = "canola://*",
 			callback = function()
-				local dir = require("canola").get_current_dir()
-				if dir then
-					vim.cmd.lcd(dir)
+				if vim.g.last_project_root then
+					vim.cmd.lcd(vim.g.last_project_root)
+				else
+					vim.cmd.lcd(require("canola").get_current_dir())
 				end
 			end,
 		})
