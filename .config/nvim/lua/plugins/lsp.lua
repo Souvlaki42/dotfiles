@@ -21,7 +21,7 @@ return {
 		vim.lsp.inlay_hint.enable(true)
 
 		local function format(args)
-			if vim.bo.filetype == "oil" then
+			if vim.bo.filetype == "canola" then
 				return
 			end
 
@@ -33,10 +33,6 @@ return {
 				end,
 			})
 		end
-
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			callback = format,
-		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)

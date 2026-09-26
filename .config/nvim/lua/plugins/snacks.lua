@@ -15,6 +15,10 @@ return {
 		picker = {
 			enabled = true,
 			sources = {
+				files = {
+					hidden = true,
+					follow = true,
+				},
 				grep = {
 					hidden = true,
 					follow = true,
