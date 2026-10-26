@@ -16,18 +16,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-# Applications
-export GOPATH="$HOME/go"
-export ODIN_ROOT="$HOME/opt/odin"
-export PNPM_HOME="$XDG_DATA_HOME/pnpm"
-export JAVA_HOME="/usr/lib/jvm/java-25-openjdk"
-export GIT_ASKPATH="$SSH_ASKPASS"
-export NODE_COMPILE_CACHE="$XDG_CACHE_HOME/nodejs-compile-cache"
-export VERCEL_TELEMETRY_DISABLED=1
-export MATLAB_LOG_DIR="$HOME/.matlab/logs"
-export MANPAGER="nvim +Man!"
-export BAT_THEME="Catppuccin Mocha"
-
 # PATH
 export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$ODIN_ROOT:$PNPM_HOME/bin:$PATH"
 
@@ -39,6 +27,18 @@ export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export COLORTERM=truecolor
 export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
+
+# Applications
+export GOPATH="$HOME/go"
+export ODIN_ROOT="$HOME/opt/odin"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+export JAVA_HOME="/usr/lib/jvm/java-25-openjdk"
+export GIT_ASKPATH="$SSH_ASKPASS"
+export NODE_COMPILE_CACHE="$XDG_CACHE_HOME/nodejs-compile-cache"
+export VERCEL_TELEMETRY_DISABLED=1
+export BAT_THEME="Catppuccin Mocha"
+export MANPAGER="$EDITOR +Man!"
+SYSTEMD_EDITOR="$EDITOR"
 
 # Add ssh
 ssh-add ~/.ssh/id_ed25519 &> /dev/null
